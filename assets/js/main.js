@@ -10,6 +10,12 @@
 (() => {
   'use strict';
 
+  // Auto-lite mode for lower-end devices while preserving visual theme.
+  const lowEndEffects =
+    (typeof navigator.hardwareConcurrency === 'number' && navigator.hardwareConcurrency <= 4) ||
+    (typeof navigator.deviceMemory === 'number' && navigator.deviceMemory <= 4);
+  if (lowEndEffects) document.documentElement.classList.add('is-lite-effects');
+
   // ===== Reveal with IntersectionObserver (reduced motion aware) =====
   const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
   const revealTargets = document.querySelectorAll('.js-observe, .reveal');
@@ -210,6 +216,8 @@
     if (!hero || !bg || !(canvas instanceof HTMLCanvasElement)) return;
 
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const saveData = navigator.connection?.saveData === true;
+    const lowPowerMode = reduced || saveData;
     const ctx = canvas.getContext('2d', { alpha: true });
     if (!ctx) return;
 
@@ -220,7 +228,7 @@
     let stars = [];
     let starDrift = 0; // pixels
     let starFade = 1;  // 1 -> 0 on dawn
-    let starOpts = { density: 0.002, twinkle: true, drift: true };
+    let starOpts = { density: 0.0012, twinkle: true, drift: true };
 
     // --- Planet state ---
     let planet = null; // {cx, cy, r, hue, ring, tilt, spin}
@@ -275,7 +283,7 @@
     };
 
     const buildStars = () => {
-      const count = Math.floor(w * h * (starOpts.density || 0.002));
+      const count = Math.floor(w * h * (starOpts.density || 0.0012));
       stars = Array.from({ length: count }, () => {
         const size = Math.random() * 1.5 + 0.6;
         return {
@@ -443,13 +451,14 @@
       rafId = requestAnimationFrame(loop);
     };
 
-    const start = () => { if (!running && !reduced) { running = true; lastT = 0; rafId = requestAnimationFrame(loop); } };
+    const start = () => { if (!running) { running = true; lastT = 0; rafId = requestAnimationFrame(loop); } };
     const stop = () => { running = false; if (rafId) cancelAnimationFrame(rafId); };
 
     // Scroll tone interpolation → updates hero gradient
     const dawnColors = [ '#0D1117', '#3E517A', '#F5CBA7' ];
-    let scrollRaf = 0, scrollDirty = true;
+    let scrollRaf = 0, scrollDirty = true, scrollToneEnabled = true;
     const applyScrollTone = () => {
+      if (!scrollToneEnabled) return;
       scrollRaf = 0;
       const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const p = clamp(window.scrollY / maxScroll, 0, 1);
@@ -462,15 +471,35 @@
       hero.style.background = grad;
       scrollDirty = false;
     };
-    const onScroll = () => { if (!scrollRaf) scrollRaf = requestAnimationFrame(applyScrollTone); };
+    const onScroll = () => {
+      if (!scrollToneEnabled) return;
+      if (!scrollRaf) scrollRaf = requestAnimationFrame(applyScrollTone);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     applyScrollTone();
 
+    let heroInView = false;
+    const canAnimateHero = () => (
+      !lowPowerMode &&
+      document.visibilityState === 'visible' &&
+      heroInView &&
+      !hero.classList.contains('hero--image')
+    );
+    const syncHeroAnimationState = () => {
+      if (canAnimateHero()) start();
+      else stop();
+    };
+
     // IO to pause when not visible
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) start(); else stop(); });
+      entries.forEach((entry) => {
+        if (entry.target === hero) heroInView = entry.isIntersecting;
+      });
+      syncHeroAnimationState();
     }, { threshold: 0.05 });
     io.observe(hero);
+    heroInView = hero.getBoundingClientRect().bottom > 0;
+    document.addEventListener('visibilitychange', syncHeroAnimationState);
 
     // Try load a user-provided hero image (preferred over canvas)
     const tryLoadHeroImage = async () => {
@@ -510,8 +539,9 @@
     window.addEventListener('resize', resize);
 
     // Public creation per spec
-    createStarfield(canvas, { density: 0.002, twinkle: true, drift: true });
+    createStarfield(canvas, { density: 0.0012, twinkle: true, drift: true });
     createPlanet(canvas, { x: '80%', y: '15%', size: 160, ring: true, hue: 220 });
+    syncHeroAnimationState();
 
     // Dawn trigger on load → stars fade
     window.addEventListener('load', () => {
@@ -527,7 +557,9 @@
       try { abs = new URL(url, document.baseURI).href; } catch(_) {}
       hero.classList.add('hero--image');
       bg.style.setProperty('--hero-image', `url("${abs}")`);
-      stop();
+      scrollToneEnabled = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      syncHeroAnimationState();
     });
 
     // expose for debugging if needed
@@ -544,6 +576,12 @@
   // ===== Global Under-Hero Sky (random stars + occasional meteors) =====
   const initUnderSky = () => {
     const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const saveData = navigator.connection?.saveData === true;
+    if (reduced || saveData) {
+      const existingCanvas = document.getElementById('under-sky-canvas');
+      if (existingCanvas) existingCanvas.remove();
+      return;
+    }
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const canvasId = 'under-sky-canvas';
     let canvas = document.getElementById(canvasId);
@@ -558,7 +596,9 @@
     let w = 0, h = 0;
     let stars = [];
     let meteors = [];
-    let last = 0; let raf = 0; let running = false;
+    let last = 0; let raf = 0; let running = false; let lastPaintTs = 0;
+    const targetFrameMs = lowEndEffects ? 40 : 33; // ~25fps on low-end, ~30fps otherwise
+    const starSprites = new Map();
 
     const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
     const rand = (a,b) => a + Math.random() * (b - a);
@@ -577,8 +617,8 @@
     };
 
     const buildStars = () => {
-      const density = 0.00077; // ~30% fewer than previous (overall reduction)
-      const count = Math.floor(w * h * density);
+      const density = lowEndEffects ? 0.00056 : 0.00066;
+      const count = Math.min(lowEndEffects ? 420 : 560, Math.floor(w * h * density));
       stars = Array.from({ length: count }, () => {
         const r = Math.random() * 1.4 + 0.6;
         return {
@@ -592,6 +632,29 @@
           z: Math.random() // depth 0..1 (far→near)
         };
       });
+    };
+
+    const getStarSprite = (radius) => {
+      const key = Math.max(1, Math.round(radius * 10) / 10);
+      if (starSprites.has(key)) return starSprites.get(key);
+      const size = Math.ceil(key * 6);
+      const c = document.createElement('canvas');
+      c.width = size;
+      c.height = size;
+      const cctx = c.getContext('2d', { alpha: true });
+      if (!cctx) return null;
+      const cx = size / 2;
+      const cy = size / 2;
+      const g = cctx.createRadialGradient(cx, cy, 0, cx, cy, key * 2);
+      g.addColorStop(0, 'rgba(255,255,255,1)');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      cctx.fillStyle = g;
+      cctx.beginPath();
+      cctx.arc(cx, cy, key, 0, Math.PI * 2);
+      cctx.fill();
+      const sprite = { canvas: c, size };
+      starSprites.set(key, sprite);
+      return sprite;
     };
 
     const maybeSpawnMeteor = (dt) => {
@@ -627,12 +690,10 @@
         const a = clamp(s.base + Math.sin(t * s.sp + s.ph) * s.amp, 0, 1) * 0.95;
         const py = wrap(s.y + sy * (parYBase + parYRange * s.z), h);
         const px = wrap(s.x + sy * (parXBase + parXRange * (1 - s.z)), w);
+        const sprite = getStarSprite(s.r);
+        if (!sprite) continue;
         ctx.globalAlpha = a;
-        const g = ctx.createRadialGradient(px, py, 0, px, py, s.r * 2);
-        g.addColorStop(0, 'rgba(255,255,255,1)');
-        g.addColorStop(1, 'rgba(255,255,255,0)');
-        ctx.fillStyle = g;
-        ctx.beginPath(); ctx.arc(px, py, s.r, 0, Math.PI * 2); ctx.fill();
+        ctx.drawImage(sprite.canvas, px - sprite.size / 2, py - sprite.size / 2, sprite.size, sprite.size);
       }
       ctx.globalAlpha = 1;
     };
@@ -668,7 +729,14 @@
 
     const loop = (ts) => {
       if (!running) return;
-      if (!last) last = ts; const dt = (ts - last) / 1000; last = ts;
+      if (!last) { last = ts; lastPaintTs = ts; }
+      if (ts - lastPaintTs < targetFrameMs) {
+        raf = requestAnimationFrame(loop);
+        return;
+      }
+      const dt = (ts - last) / 1000;
+      last = ts;
+      lastPaintTs = ts;
       ctx.clearRect(0, 0, w, h);
       drawStars(ts * 0.001);
       maybeSpawnMeteor(dt);
@@ -676,7 +744,10 @@
       raf = requestAnimationFrame(loop);
     };
 
-    const start = () => { if (!reduced && !running) { running = true; last = 0; raf = requestAnimationFrame(loop); } };
+    const start = () => {
+      if (document.visibilityState !== 'visible') return;
+      if (!running) { running = true; last = 0; lastPaintTs = 0; raf = requestAnimationFrame(loop); }
+    };
     const stop = () => { running = false; if (raf) cancelAnimationFrame(raf); };
 
     const onVis = () => { if (document.hidden) stop(); else start(); };
@@ -684,14 +755,24 @@
     resize();
     window.addEventListener('resize', resize);
     document.addEventListener('visibilitychange', onVis);
-    if (!reduced) start(); else render(0);
+    start();
   };
 
-  // Start global under-sky after DOM ready
+  // Start global under-sky lazily (idle first, then timeout fallback)
+  const scheduleUnderSky = () => {
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+    const saveData = navigator.connection?.saveData === true;
+    if (reduced || saveData) return;
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(() => initUnderSky(), { timeout: 2500 });
+      return;
+    }
+    window.setTimeout(initUnderSky, 1500);
+  };
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initUnderSky);
+    document.addEventListener('DOMContentLoaded', scheduleUnderSky);
   } else {
-    initUnderSky();
+    scheduleUnderSky();
   }
 
   // Register a tiny Service Worker for offline cache and faster reloads
