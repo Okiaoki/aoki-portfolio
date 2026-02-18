@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Aoki Portfolio | 公式サイト</title>
+<meta name="description" content="Aoki Portfolio: デザイン、コーディング、WordPress制作実績。">
+<meta name="keywords" content="portfolio, web design, front-end, wordpress">
+<meta property="og:site_name" content="Aoki Portfolio">
+<meta property="og:title" content="Aoki Portfolio | 公式サイト">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Aoki Portfolio: デザイン、コーディング、WordPress制作実績。">
+<meta property="og:url" content="https://okiaoki.github.io/">
+<meta property="og:image" content="./assets/img/ogp.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@okiaoki74">
+<meta name="twitter:creator" content="@okiaoki74">
+<meta name="twitter:title" content="Aoki Portfolio | 公式サイト">
+<meta name="twitter:description" content="Aoki Portfolio: デザイン、コーディング、WordPress制作実績。">
+<meta name="twitter:image" content="./assets/img/ogp.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no, address=no, email=no">
+<meta name="theme-color" content="#FFF">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<link href="./assets/css/common.css" rel="stylesheet" type="text/css">
+<link href="./assets/css/top.css?1202" rel="stylesheet" type="text/css">
+<link href="./assets/css/local-overrides.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest" crossorigin="use-credentials">
+<noscript>
+	<style>
+		.loading {
+			display: none;
+		}
+	</style>
+</noscript>
+</head><body id="top" data-rt="./">
+<div id="loading" class="loading">
+	<div class="loading__mb"><div class="loading__label"><span class="hd">読み込み中</span></div></div>
+</div>
+<div id="fullWrap">
+	<div class="gnav">
+		<div class="gnav__inner">
+			<p class="gnav__logo"><a href="#top" class="gnav__logoLink js-anchor"><span class="hd">Aoki Portfolio</span></a></p>
+			<div class="gnav__menuBtn"><a href="javascript:;" class="gnav__menuBtnLink js-menu"><span class="gnav__menuBtnBox"><span class="gnav__menuLine gnav__menuLine--top"></span><span class="gnav__menuLine gnav__menuLine--bottom"></span><span class="gnav__menuLabel" id="js-gnavMenuLabel">メニュー</span></span></a></div>
+			<div class="gnav__content">
+				<div class="gnav__contentInner">
+					<nav class="gnav__nav">
+						<ul class="gnav__lists" id="js-gnav"></ul>
+					</nav>
+					<div class="gnav__official">
+						<dl class="gnav__officialLists" id="js-gsns">
+							<dt class="gnav__officialTitle">公式</dt>
+						</dl>
+					</div>
+					<div class="gnav__character" id="js-gnavCharacter"></div>
+					<div class="gnav__characterEn"></div>
+					<div class="gnav__hotTopics">
+						<div class="gnav__hotTopicsin">
+							<dl class="gnav__hotTopicsLists">
+								<dt class="gnav__hotTopicsTitle">最新<br>情報</dt>
+								<dd class="gnav__hotTopicsItem" id="js-hotnews"></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sticky-sentinel">
+		<div class="kvWrap">
+			<div id="kv" class="kv">
+				<div class="kv__img">
+					<div class="kv__imgContent">
+						<div class="kv__imgContentin swiper" id="js-kvSwiper">
+							<ul class="kv__imgs swiper-wrapper">
+								<li class="kv__imgOn swiper-slide" style="background-image:url(./assets/img/Topslide1.jpg);"></li>
+								<li class="kv__imgOn swiper-slide" style="background-image:url(./assets/img/Topslide2.jpg);"></li>
+								<li class="kv__imgOn swiper-slide" style="background-image:url(./assets/img/Topslide3.jpg);"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="fv" class="fv sections">
+			<div class="fv__inner">
+				<h1 class="fv__logo"><span class="hd">Aoki Portfolio</span></h1>
+				<div class="fv__centerLogo" aria-hidden="true"></div>
+				<div class="fv__catch-date">
+					<div class="fv__catch"><span class="hd">デザインと開発に特化したポートフォリオ。</span></div>
+					<div class="fv__date"><p class="hd">2026年2月16日 更新</p><p class="hd">Aoki Portfolio</p></div>
+				</div>
+				<nav id="nav" class="nav">
+					<div class="nav__inner">
+						<ul class="nav__lists" id="js-nav"></ul>
+					</div>
+				</nav>
+				<div class="fv__sns pc">
+					<dl class="fv__snsLists" id="js-sns">
+						<dt class="fv__snsListTitle">公式</dt>
+					</dl>
+				</div>
+				<div class="fv__kvSwitcher">
+					<ul class="fv__kvSwitcherLists" id="js-kvSwiperSwitchers"></ul>
+				</div>
+				<!-- Bn -->
+				<div class="fv__bnr" id="js-bnr">
+					<div class="fv__bnrSwiper swiper" id="js-bnrSwiper">
+						<ul class="fv__bnrSwiper-wrapper swiper-wrapper" id="js-bnrSwiperWrapper"></ul>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="fv__toNext">
+					<a href="#news" class="fv__toNextLink js-anchor">
+						<span class="fv__toNextLabel">SCROLL</span>
+						<span class="fv__toNextLine"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<section id="news" class="news sections">
+			<div class="news__inner">
+				<h2 class="news__title"><span class="hd">制作実績</span><span class="news__title--ja"></span></h2>
+				<div class="news__content">
+					<ul class="news__lists" id="js-newsLists"></ul>
+				</div>
+				<div class="news__more">
+					<a href="./news/" class="news__moreLink"><span>もっと見る</span></a>
+				</div>
+			</div>
+		</section>
+	</div>
+	<section id="movie" class="movie sections">
+		<div class="movie__comment">
+			<div class="movie__commentContainer">
+				<div class="movie__commentR">
+					<p class="movie__commentR--1"><span class="hd"></span></p>
+					<p class="movie__commentR--2"><span class="hd"></span></p>
+					<p class="movie__commentR--3"><span class="hd"></span></p>
+				</div>
+				<div class="movie__commentL">
+					<p class="movie__commentL--1"><span class="hd"></span></p>
+					<p class="movie__commentL--2"><span class="hd"></span></p>
+					<p class="movie__commentL--3"><span class="hd"></span></p>
+				</div>
+			</div>
+		</div>
+		<div class="movie__container">
+			<div class="movie__inner">
+				<h2 class="movie__title">
+					<span class="hd">注目作品</span>
+					<span class="movie__title--sun"></span>
+					<span class="movie__title--en"></span>
+					<span class="movie__title--ja"></span>
+				</h2>
+				<div class="movie__swiper swiper" id="js-movieSwiper">
+					<div class="movie__swiper-wrapper swiper-wrapper" id="js-movieSwiperWrapper"></div>
+				</div>
+				<ul class="movie__swiperSwitcherLists" id="js-movieSwiperSwitchers"></ul>
+			</div>
+		</div>
+	</section>
+	<section id="introduction" class="introduction sections">
+		<div class="introduction__umbrella">
+			<div class="introduction__umbrella1"></div>
+			<div class="introduction__umbrella2"></div>
+			<div class="introduction__umbrella3"></div>
+			<div class="introduction__umbrella4"></div>
+		</div>
+		<div class="introduction__inner">
+			<h2 class="introduction__title">
+				<span class="hd">自己紹介</span>
+				<span class="introduction__title--sun"></span>
+				<span class="introduction__title--en"></span>
+				<span class="introduction__title--ja"></span>
+			</h2>
+			<h3 class="introduction__catch"><span class="hd">私について</span></h3>
+			<p class="introduction__text">明確な情報設計と保守しやすいコードで、実用的なWebサイトを制作します。</p>
+			<div class="introduction__subCatch"><p class="hd">HTML / CSS / JavaScript / WordPress / Figma</p></div>
+			<div class="introduction__moon"></div>
+
+		</div>
+		<div id="story" class="story">
+			<div class="story__inner">
+				<h2 class="story__title">
+					<span class="hd">制作スタイル</span>
+					<span class="story__title--sun"></span>
+					<span class="story__title--en"></span>
+					<span class="story__title--ja"></span>
+				</h2>
+				<div class="story__catch">
+					<h3 class="story__catchText"><span class="hd">企画から実装まで一貫して対応します。</span></h3>
+				</div>
+				<p class="story__text">目的を明確なレイアウトに落とし込み、軽快なフロントエンド実装と実務的な更新設計を行います。</p>
+				<div class="story__subCatch"><p class="hd">分かりやすい導線、読みやすいUI、継続しやすい更新体制。</p></div>
+			</div>
+		</div>
+	</section>
+	<section id="music" class="music sections">
+		<div class="music__container">
+			<div class="music__lantern">
+				<div class="music__lantern1"></div>
+				<div class="music__lantern2"></div>
+			</div>
+			<div class="music__inner">
+				<h2 class="music__title">
+					<span class="hd">料金</span>
+					<span class="music__title--sun"></span>
+					<span class="music__title--en"></span>
+					<span class="music__title--ja"></span>
+				</h2>
+				<div class="music__wrap">
+					<div class="music__moreWrap">
+						<p class="music__more"><a href="./music/" class="music__moreLink">もっと見る</a></p>
+					</div>
+					<div class="music__contentWrap swiper" id="js-musicSwiper">
+						<ul class="music__lists swiper-wrapper" id="js-mvLists"></ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<section id="character" class="character sections">
+	<div class="character__inner">
+		<h2 class="character__title"><span class="hd">制作の流れ</span></h2>
+		<div class="processGrid"></div>
+	</div>
+</section>
+	<section id="staffcast" class="staffcast sections">
+		<div class="staffcast__inner">
+			<h2 class="staffcast__title"><span class="hd">お問い合わせ</span></h2>
+			<div class="contactPanel">
+				<p class="contactPanel__lead">X、GitHub、またはお問い合わせフォームからご連絡ください。</p>
+			</div>
+		</div>
+		<div class="staffcast__flower"></div>
+	</section>
+	<footer id="footer" class="footer sections">
+		<div class="footer__inner">
+			<div class="footer__l">
+				<p class="footer__logo"><a href="#top" class="js-anchor"><span class="hd">Aoki Portfolio</span></a></p>
+				<dl class="footer__official" id="js-fsns">
+					<dt class="footer__officialTitle">公式</dt>
+				</dl>
+			</div>
+			<div class="footer__c">
+				<ul class="footer__bnrLists" id="js-banners"></ul>
+			</div>
+			<div class="footer__r">
+				<nav class="footer__nav">
+					<div class="nav__inner">
+						<ul class="nav__lists" id="js-fnav"></ul>
+					</div>
+				</nav>
+			</div>
+			<div class="footer__toTop">
+				<a href="#top" class="footer__toTopLink js-anchor">
+					<span class="footer__toTopLabel">TOP</span>
+					<span class="footer__toTopLine"></span>
+				</a>
+			</div>
+			<div class="footer__bottom">
+				<p class="footer__copyright">&copy; Aoki Portfolio</p>
+				<p class="footer__policy"><a href="#" rel="noopener noreferrer">プライバシーポリシー</a></p>
+			</div>
+		</div>
+	</footer>
+	<div class="kv__fixed" id="kvDark">
+		<div class="kv__fixedInner">
+			<div class="kv__darkCorner"></div>
+		</div>
+		<div class="kv__darkIntroduction--deco">
+			<div class="kv__darkIntroduction--decoInner">
+				<div class="kv__darkIntroduction--decoInnerL"></div>
+				<div class="kv__darkIntroduction--decoInnerR"></div>
+				<div class="kv__darkIntroduction--decoFog"></div>
+			</div>
+		</div>
+	</div>
+	<div class="kv__fixed" id="kvLight">
+		<div class="kv__fixedInner2"></div>
+	</div>
+	<div class="kv__fixed" id="kvFrame">
+		<div class="kv__frame">
+			<div class="kv__circle"></div>
+			<div class="kv__cloud1"></div>
+			<div class="kv__cloud2"></div>
+			<div class="kv__neon-cloud1"></div>
+			<div class="kv__neon-cloud2"></div>
+			<div class="kv__neon-fish"></div>
+			<div class="kv__neon-octopus"></div>
+		</div>
+	</div>
+</div>
+<div class="modal" id="movieModal">
+	<div class="modal__inner">
+		<div class="modal__content">
+			<div class="modal__close js-modalClose_movie"></div>
+			<div class="modal__movieContent"><iframe width="560" height="315" src="" title="YouTube動画プレーヤー" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+		</div>
+	</div>
+	<div class="modal__closeBtn"><a href="javascript:;" class="modal__closeBtnLink js-modalClose_movie"><span class="modal__closeBtnBox"><span class="modal__closeBtnLine modal__closeBtnLine--top"></span><span class="modal__closeBtnLine modal__closeBtnLine--bottom"></span><span class="gnav__menuLabel">閉じる</span></span></a></div>
+</div>
+<div class="modal" id="commentModal">
+	<div class="modal__inner">
+		<div class="modal__content">
+			<div class="modal__close js-modalClose_comment"></div>
+			<div class="modal__commentContent" id="js-modalCommentContent"></div>
+		</div>
+	</div>
+	<div class="modal__closeBtn"><a href="javascript:;" class="modal__closeBtnLink js-modalClose_comment"><span class="modal__closeBtnBox"><span class="modal__closeBtnLine modal__closeBtnLine--top"></span><span class="modal__closeBtnLine modal__closeBtnLine--bottom"></span><span class="gnav__menuLabel">閉じる</span></span></a></div>
+</div>
+<script>const cont = 'top';</script>
+<script src="./assets/js/site-data.js"></script>
+<script src="./assets/js/incparts.js"></script>
+<script src="./assets/js/jquery.common.js?1105"></script>
+<script src="./assets/js/jquery.top.js?0108"></script>
+<script src="./assets/js/portfolio-rebuild.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
