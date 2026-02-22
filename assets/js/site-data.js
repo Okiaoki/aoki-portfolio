@@ -1,4 +1,7 @@
 ﻿window.SITE_DATA = {
+  analytics: {
+    ga4MeasurementId: ''
+  },
   brand: {
     title: 'Aoki Portfolio',
     subtitle: 'デザイン x コード x ストーリー'
@@ -81,6 +84,12 @@
       form: 'https://formspree.io/f/xdkwllne'
     },
     works: [
+      {
+        title: 'Aoki Beauty Clinic',
+        meta: '美容クリニック向けLPの設計とフロントエンド実装',
+        url: 'https://okiaoki.github.io/Aoki-BeautyClinic/',
+        image: 'assets/img/work-Aoki-BeautyClinic.jpg'
+      },
       {
         title: 'AokiLotion',
         meta: '化粧水の商品販促LP',
