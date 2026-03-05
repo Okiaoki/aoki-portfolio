@@ -31,6 +31,26 @@ window.addEventListener('resize', () => {
 }, { passive: true });
 
 // =======================================================
+// Sticky Header Logo Visibility
+// =======================================================
+const headerLogoThreshold = 50;
+let headerLogoTicking = false;
+const toggleHeaderLogo = () => {
+	const y = window.pageYOffset || document.documentElement.scrollTop || 0;
+	$body.toggleClass('is-header-logo-visible', y > headerLogoThreshold);
+};
+
+toggleHeaderLogo();
+window.addEventListener('scroll', () => {
+	if (headerLogoTicking) return;
+	headerLogoTicking = true;
+	window.requestAnimationFrame(() => {
+		toggleHeaderLogo();
+		headerLogoTicking = false;
+	});
+}, { passive: true });
+
+// =======================================================
 // KV Swiper
 // =======================================================
 const $kvImgs = $(".kv__imgOn");
@@ -274,17 +294,74 @@ $window.on('load', function() {
 // =======================================================
 const sections = document.querySelectorAll('.sections');
 const sectionIds = Array.from(sections).map(s => s.id).filter(Boolean);
+const navLinkSelector = '.nav__itemLink, .gnav__itemLink';
+const sectionVisibility = new Map();
+let currentSectionId = '';
+let kvOrbitHideTimer = null;
+
+const setActiveNavById = (sectionId) => {
+	if (!sectionId) return;
+	document.querySelectorAll(navLinkSelector).forEach((link) => {
+		const href = link.getAttribute('href') || '';
+		const isActive = href === ('#' + sectionId);
+		link.classList.toggle('is-active', isActive);
+		if (isActive) {
+			link.setAttribute('aria-current', 'page');
+		} else {
+			link.removeAttribute('aria-current');
+		}
+	});
+};
+
+const applyActiveSection = (sectionId) => {
+	if (!sectionId || sectionId === currentSectionId) return;
+	sectionIds.forEach(id => $body.removeClass(`is-${id}`));
+	$body.addClass(`is-${sectionId}`);
+	setActiveNavById(sectionId);
+	currentSectionId = sectionId;
+
+	if (kvOrbitHideTimer) {
+		clearTimeout(kvOrbitHideTimer);
+		kvOrbitHideTimer = null;
+	}
+	$body.removeClass('is-kv-orbit-force-hide');
+	if (sectionId === 'news') {
+		kvOrbitHideTimer = setTimeout(() => {
+			if (currentSectionId === 'news') {
+				$body.addClass('is-kv-orbit-force-hide');
+			}
+		}, 500);
+	}
+};
 
 const sectionObserver = new IntersectionObserver((entries) => {
 	entries.forEach(entry => {
-		if (entry.isIntersecting && entry.target.id) {
-			sectionIds.forEach(id => $body.removeClass(`is-${id}`));
-			$body.addClass(`is-${entry.target.id}`);
+		if (!entry.target.id) return;
+		sectionVisibility.set(entry.target.id, {
+			isIntersecting: entry.isIntersecting,
+			ratio: entry.intersectionRatio || 0
+		});
+	});
+
+	let nextSectionId = '';
+	let bestRatio = -1;
+	sectionIds.forEach(id => {
+		const state = sectionVisibility.get(id);
+		if (!state || !state.isIntersecting) return;
+		// Prefer higher ratio; if tied, prefer later section in document flow.
+		if (state.ratio > bestRatio || (state.ratio === bestRatio && nextSectionId && sectionIds.indexOf(id) > sectionIds.indexOf(nextSectionId))) {
+			bestRatio = state.ratio;
+			nextSectionId = id;
 		}
 	});
+
+	if (nextSectionId) {
+		applyActiveSection(nextSectionId);
+	}
 }, { rootMargin: '-60% 0px -39% 0px' });
 
 sections.forEach(s => s.id && sectionObserver.observe(s));
+applyActiveSection(sectionIds[0] || '');
 
 // =======================================================
 // Data Fetching (News, Movie, MV)

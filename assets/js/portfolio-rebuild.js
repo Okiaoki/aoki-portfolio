@@ -55,45 +55,145 @@
     $('.fv__date .hd').eq(1).text(p.heroDateEn || '');
 
     // Works (news section)
-    const worksHtml = works.slice(0, 5).map((w, i) => (
-      '<li class="portfolioWorks__item">' +
-        '<a class="portfolioWorks__link" href="' + esc(w.url) + '" target="_blank" rel="noopener noreferrer">' +
-          '<span class="portfolioWorks__num">0' + (i + 1) + '</span>' +
-          '<span class="portfolioWorks__body">' +
-            '<strong class="portfolioWorks__title">' + esc(w.title) + '</strong>' +
-            '<span class="portfolioWorks__meta">' + esc(w.meta) + '</span>' +
-          '</span>' +
-        '</a>' +
-      '</li>'
-    )).join('');
+    const worksHtml = works.slice(0, 5).map((w, i) => {
+      const hasSiteUrl = Boolean(String(w.url || '').trim());
+      const siteUrl = hasSiteUrl ? esc(w.url) : '#';
+      const siteUrlNote = hasSiteUrl ? '' : '<!-- TODO: Add site URL for this work item -->';
+      const githubUrl = String(w.github || '').trim();
+      const githubButton = githubUrl
+        ? '<a class="portfolioWorks__btn portfolioWorks__btn--github" href="' + esc(githubUrl) + '" target="_blank" rel="noopener noreferrer">GitHub</a>'
+        : '';
+
+      return (
+        '<li class="portfolioWorks__item">' +
+          '<article class="portfolioWorks__card">' +
+            '<span class="portfolioWorks__num">0' + (i + 1) + '</span>' +
+            '<span class="portfolioWorks__body">' +
+              '<strong class="portfolioWorks__title">' + esc(w.title) + '</strong>' +
+              '<span class="portfolioWorks__meta">' + esc(w.meta) + '</span>' +
+            '</span>' +
+            '<div class="portfolioWorks__actions">' +
+              '<a class="portfolioWorks__btn portfolioWorks__btn--site" href="' + siteUrl + '" target="_blank" rel="noopener noreferrer">View Site</a>' +
+              githubButton +
+            '</div>' +
+            siteUrlNote +
+          '</article>' +
+        '</li>'
+      );
+    }).join('');
     if (worksHtml) {
       $('#js-newsLists').html(worksHtml).addClass('portfolioWorks');
-      $('.news__more').html('<a href="#movie" class="news__moreLink js-anchor"><span>制作実績をすべて見る</span></a>');
+      $('.news__more').html('<a href="#works-all" class="news__moreLink js-anchor"><span>制作実績をすべて見る</span></a>');
     }
 
-    // Featured (movie section)
-    const featuredHtml = works.map((w) => (
-      '<article class="featuredCard">' +
-        '<a href="' + esc(w.url) + '" target="_blank" rel="noopener noreferrer">' +
-          '<span class="featuredCard__img" style="background-image:url(' + esc(w.image) + ');"></span>' +
-          '<span class="featuredCard__title">' + esc(w.title) + '</span>' +
-          '<span class="featuredCard__meta">' + esc(w.meta) + '</span>' +
-        '</a>' +
-      '</article>'
-    )).join('');
-    if (featuredHtml) {
-      $('#movie .movie__inner').html(
-        '<h2 class="movie__title"><span class="hd">注目の制作実績</span></h2>' +
-        '<div class="featuredGrid">' + featuredHtml + '</div>'
+    // Works list with thumbnails (movie section)
+    const featuredHtml = works.map((w, i) => {
+      const hasSiteUrl = Boolean(String(w.url || '').trim());
+      const siteUrl = hasSiteUrl ? esc(w.url) : '#';
+      const siteUrlNote = hasSiteUrl ? '' : '<!-- TODO: Add site URL for this work item -->';
+      const githubUrl = String(w.github || '').trim();
+      const hiddenClass = i >= 6 ? ' is-hidden js-featuredExtra' : '';
+      const githubAction = githubUrl
+        ? '<a class="featuredCard__action featuredCard__action--github" href="' + esc(githubUrl) + '" target="_blank" rel="noopener noreferrer">GitHub</a>'
+        : '';
+
+      return (
+        '<article class="featuredCard' + hiddenClass + '">' +
+          '<a class="featuredCard__mainLink" href="' + siteUrl + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(w.title) + ' のサイトを開く">' +
+            '<span class="featuredCard__thumb">' +
+              '<img class="featuredCard__img" src="' + esc(w.image) + '" alt="' + esc(w.title) + ' サムネイル" loading="lazy">' +
+            '</span>' +
+            '<span class="featuredCard__title">' + esc(w.title) + '</span>' +
+            '<span class="featuredCard__meta">' + esc(w.meta) + '</span>' +
+          '</a>' +
+          '<span class="featuredCard__overlay" aria-hidden="true">' +
+            '<span class="featuredCard__actions">' +
+              '<a class="featuredCard__action featuredCard__action--site" href="' + siteUrl + '" target="_blank" rel="noopener noreferrer">View Site</a>' +
+              githubAction +
+            '</span>' +
+          '</span>' +
+          siteUrlNote +
+        '</article>'
       );
+    }).join('');
+    if (featuredHtml) {
+      const hasMoreWorks = works.length > 6;
+      const moreButtonHtml = hasMoreWorks
+        ? '<div class="featuredGrid__more"><button type="button" class="featuredGrid__moreBtn js-featuredToggle" aria-expanded="false">もっと見る</button></div>'
+        : '';
+      $('#movie .movie__inner').html(
+        '<h2 class="movie__title"><span class="hd">制作実績一覧</span></h2>' +
+        '<div class="featuredGrid">' + featuredHtml + '</div>' +
+        moreButtonHtml
+      );
+    }
+
+    if (!window.__featuredToggleBound) {
+      window.__featuredToggleBound = true;
+      $(document).on('click', '.js-featuredToggle', function() {
+        const $btn = $(this);
+        const isExpanded = $btn.attr('aria-expanded') === 'true';
+        const $extras = $('#movie .js-featuredExtra');
+        const $grid = $('#movie .featuredGrid');
+        const fromHeight = $grid.outerHeight();
+
+        $grid.addClass('is-animating').css('height', fromHeight + 'px');
+
+        if (isExpanded) {
+          $extras.addClass('is-hidden');
+          $btn.attr('aria-expanded', 'false').text('もっと見る');
+        } else {
+          $extras.removeClass('is-hidden');
+          $btn.attr('aria-expanded', 'true').text('閉じる');
+        }
+
+        const toHeight = $grid.get(0) ? $grid.get(0).scrollHeight : fromHeight;
+        $grid.stop(true).animate({ height: toHeight }, 220, 'swing', function() {
+          $grid.removeClass('is-animating').css('height', '');
+        });
+      });
     }
 
     // About + Story (introduction/story section)
     $('.introduction__catch .hd').text((p.about && p.about.title) || '私について');
     $('.introduction__text').html(esc((p.about && p.about.text) || '').replace(/\n/g, '<br>'));
     $('.introduction__subCatch .hd').text((p.about && p.about.sub) || '');
-    $('.story__catchText .hd').text((p.story && p.story.catch) || '');
-    $('.story__text').text((p.story && p.story.text) || '');
+    const storyText = String((p.story && p.story.text) || '');
+    $('#story .story__inner').html(
+      '<h2 class="story__title">' +
+        '<span class="hd">制作スタイル</span>' +
+        '<span class="story__title--sun"></span>' +
+        '<span class="story__title--en"></span>' +
+        '<span class="story__title--ja"></span>' +
+      '</h2>' +
+      '<div class="styleCards">' +
+        '<article class="styleCard">' +
+          '<h3 class="styleCard__title">設計</h3>' +
+          '<ul class="styleCard__list">' +
+            '<li>目的に沿った情報設計と優先順位整理</li>' +
+            '<li>離脱を減らす導線とCTA配置を設計</li>' +
+            '<li>運用を見据えた拡張可能な構造化</li>' +
+          '</ul>' +
+        '</article>' +
+        '<article class="styleCard">' +
+          '<h3 class="styleCard__title">実装</h3>' +
+          '<ul class="styleCard__list">' +
+            '<li>見本サイトを忠実に再現するコーディング</li>' +
+            '<li>軽量なJavaScriptで必要な演出を実装</li>' +
+            '<li>全デバイスで崩れないレスポンシブ対応</li>' +
+          '</ul>' +
+        '</article>' +
+        '<article class="styleCard">' +
+          '<h3 class="styleCard__title">品質</h3>' +
+          '<ul class="styleCard__list">' +
+            '<li>表示速度を意識した最適化と調整</li>' +
+            '<li>読みやすく修正しやすいコード設計</li>' +
+            '<li>長期運用に耐える保守性を担保</li>' +
+          '</ul>' +
+        '</article>' +
+      '</div>' +
+      '<p class="story__summary">' + esc(storyText).replace(/\n/g, '<br>') + '</p>'
+    );
 
     // Pricing (music section)
     $('#music .music__inner').html(
@@ -103,28 +203,47 @@
         '<div class="pricingPlan__section">' +
           '<h4 class="pricingPlan__heading">■ LP制作（静的コーディング）</h4>' +
           '<p class="pricingPlan__price">120,000円〜</p>' +
-          '<ul class="pricingPlan__list">' +
-            '<li>デザインデータ忠実再現</li>' +
-            '<li>レスポンシブ対応</li>' +
-            '<li>基本アニメーション実装</li>' +
-            '<li>表示速度最適化</li>' +
-          '</ul>' +
+          '<div class="pricingPlan__meta">' +
+            '<p class="pricingPlan__metaTitle">含まれるもの</p>' +
+            '<ul class="pricingPlan__list">' +
+              '<li>デザインデータ忠実再現</li>' +
+              '<li>レスポンシブ対応</li>' +
+              '<li>基本アニメーション実装・速度最適化</li>' +
+            '</ul>' +
+          '</div>' +
+          '<p class="pricingPlan__delivery"><span>目安納期</span>10日〜15日</p>' +
         '</div>' +
         '<div class="pricingPlan__section">' +
           '<h4 class="pricingPlan__heading">■ WordPressテーマ化（既存LP移行）</h4>' +
           '<p class="pricingPlan__price">150,000円〜</p>' +
-          '<ul class="pricingPlan__list">' +
-            '<li>固定ページ／投稿機能実装</li>' +
-            '<li>カスタムフィールド対応</li>' +
-            '<li>管理画面から更新可能な構成設計</li>' +
-          '</ul>' +
+          '<div class="pricingPlan__meta">' +
+            '<p class="pricingPlan__metaTitle">含まれるもの</p>' +
+            '<ul class="pricingPlan__list">' +
+              '<li>固定ページ／投稿機能実装</li>' +
+              '<li>カスタムフィールド対応</li>' +
+              '<li>管理画面から更新可能な構成設計</li>' +
+            '</ul>' +
+          '</div>' +
+          '<p class="pricingPlan__delivery"><span>目安納期</span>14日〜21日</p>' +
         '</div>' +
         '<div class="pricingPlan__section">' +
           '<h4 class="pricingPlan__heading">■ オプション</h4>' +
-          '<ul class="pricingPlan__list">' +
+          '<div class="pricingPlan__meta">' +
+            '<p class="pricingPlan__metaTitle">含まれるもの</p>' +
+            '<ul class="pricingPlan__list">' +
             '<li>JavaScript高度演出・機能追加　＋30,000円〜</li>' +
             '<li>セクション追加・長尺対応　＋20,000円〜</li>' +
             '<li>保守・月次更新サポート　月額15,000円〜</li>' +
+            '</ul>' +
+          '</div>' +
+          '<p class="pricingPlan__delivery"><span>目安納期</span>3日〜（内容により変動）</p>' +
+        '</div>' +
+        '<div class="pricingPlan__assurance">' +
+          '<p class="pricingPlan__assuranceTitle">安心してご相談いただくために</p>' +
+          '<ul class="pricingPlan__assuranceList">' +
+            '<li>お見積り無料（要件整理から対応）</li>' +
+            '<li>原則48時間以内に初回返信</li>' +
+            '<li>ご予算・納期に合わせた代替案も提示</li>' +
           '</ul>' +
         '</div>' +
         '<p class="pricingPlan__note">※内容・ボリュームにより個別お見積りいたします。</p>' +
@@ -312,6 +431,57 @@
             $send.prop('disabled', false).text('この内容で送信');
           });
       });
+    }
+
+    // KV orbit tooltip: render outside masked layers so it always appears above portal backgrounds.
+    if (!window.__kvOrbitFloatingTipBound) {
+      window.__kvOrbitFloatingTipBound = true;
+
+      const floatingTip = document.createElement('div');
+      floatingTip.className = 'kvOrbitFloatingTip';
+      floatingTip.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(floatingTip);
+
+      let activeOrbitBtn = null;
+
+      const placeTip = (btn) => {
+        if (!btn) return;
+        const rect = btn.getBoundingClientRect();
+        floatingTip.style.left = Math.round(rect.left + 34) + 'px';
+        floatingTip.style.top = Math.round(rect.top - 12) + 'px';
+      };
+
+      const showTip = (btn) => {
+        const tipId = btn.getAttribute('aria-describedby');
+        const tipEl = tipId ? document.getElementById(tipId) : null;
+        const text = tipEl ? String(tipEl.textContent || '').trim() : '';
+        if (!text) return;
+        activeOrbitBtn = btn;
+        floatingTip.textContent = text;
+        placeTip(btn);
+        floatingTip.classList.add('is-visible');
+      };
+
+      const hideTip = () => {
+        activeOrbitBtn = null;
+        floatingTip.classList.remove('is-visible');
+      };
+
+      $(document).on('mouseenter focusin', '.kvOrbit__btn', function() {
+        if (window.matchMedia && !window.matchMedia('(hover: hover)').matches) return;
+        showTip(this);
+      });
+
+      $(document).on('mouseleave focusout', '.kvOrbit__btn', function() {
+        hideTip();
+      });
+
+      window.addEventListener('resize', () => {
+        if (activeOrbitBtn) placeTip(activeOrbitBtn);
+      }, { passive: true });
+      window.addEventListener('scroll', () => {
+        if (activeOrbitBtn) placeTip(activeOrbitBtn);
+      }, { passive: true });
     }
   });
 })(jQuery);

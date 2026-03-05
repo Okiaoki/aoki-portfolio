@@ -77,8 +77,8 @@
   $('.fv__catch .hd').html('<span class="fv__catchMain">' + heroCatchMain + '</span><span class="fv__catchSub">' + heroCatchSub + '</span>');
   $('.fv__date .hd').eq(0).text(data.portfolio?.heroDateJa || '');
   $('.fv__date .hd').eq(1).text(data.portfolio?.heroDateEn || '');
-  $('.news__title .hd').text('制作実績');
-  $('.movie__title .hd').text('注目作品');
+  $('.news__title .hd').text('最新の制作実績');
+  $('.movie__title .hd').text('制作実績一覧');
   $('.introduction__title .hd').text('自己紹介');
   $('.story__title .hd').text('制作スタイル');
   $('.music__title .hd').text('料金');
