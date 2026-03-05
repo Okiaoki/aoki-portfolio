@@ -46,7 +46,7 @@
 	<div class="gnav">
 		<div class="gnav__inner">
 			<p class="gnav__logo"><a href="#top" class="gnav__logoLink js-anchor"><span class="hd">Aoki Portfolio</span></a></p>
-            <div class="gnav__menuBtn"><a href="javascript:;" class="gnav__menuBtnLink js-menu"><span class="gnav__menuBtnBox"><span class="gnav__menuLine gnav__menuLine--top"></span><span class="gnav__menuLine gnav__menuLine--bottom"></span><span class="gnav__menuLabel" id="js-gnavMenuLabel">メニュー</span></span></a></div>
+			<a href="javascript:;" class="headerCtaVertical js-openContactForm" aria-label="制作について相談する">制作について相談する</a>
 			<div class="gnav__content">
 				<div class="gnav__contentInner">
 					<nav class="gnav__nav">
@@ -91,6 +91,34 @@
 			<div class="fv__inner">
 				<h1 class="fv__logo"><span class="hd">Aoki Portfolio</span></h1>
 				<div class="fv__centerLogo" aria-hidden="true"></div>
+				<div class="kvOrbit" aria-label="対応範囲">
+					<ul class="kvOrbit__chips">
+						<li class="kvOrbit__item kvOrbit__item--service" style="--angle: 0deg; --angle-neg: 0deg; --chip-delay: 0s;">
+							<button type="button" class="kvOrbit__btn" aria-describedby="kvTipService">
+								<span class="kvOrbit__label">SERVICES</span>
+							</button>
+							<span class="kvOrbit__tip" role="tooltip" id="kvTipService">対応範囲：LP / HTML・CSS・JS / WordPress</span>
+						</li>
+						<li class="kvOrbit__item" style="--angle: 10deg; --angle-neg: -10deg; --chip-delay: 0.5s;">
+							<button type="button" class="kvOrbit__btn" aria-describedby="kvTipLP">
+								<span class="kvOrbit__label">LP</span>
+							</button>
+							<span class="kvOrbit__tip" role="tooltip" id="kvTipLP">LP制作（デザイン再現〜実装）</span>
+						</li>
+						<li class="kvOrbit__item" style="--angle: 19deg; --angle-neg: -19deg; --chip-delay: 1s;">
+							<button type="button" class="kvOrbit__btn" aria-describedby="kvTipFE">
+								<span class="kvOrbit__label">HTML/CSS/JS</span>
+							</button>
+							<span class="kvOrbit__tip" role="tooltip" id="kvTipFE">HTML/CSS/JavaScript 実装（軽量・保守性重視）</span>
+						</li>
+						<li class="kvOrbit__item" style="--angle: 28deg; --angle-neg: -28deg; --chip-delay: 1.5s; --chip-gap-nudge: 2px;">
+							<button type="button" class="kvOrbit__btn" aria-describedby="kvTipWP">
+								<span class="kvOrbit__label">WP</span>
+							</button>
+							<span class="kvOrbit__tip" role="tooltip" id="kvTipWP">WordPress移行対応（既存LP移行・更新導線）</span>
+						</li>
+					</ul>
+				</div>
 				<div class="fv__catch-date">
                     <div class="fv__catch"><span class="hd">デザインと技術で価値を届けるポートフォリオ</span></div>
                     <div class="fv__date"><p class="hd">2026年2月6日 更新</p><p class="hd">Aoki Portfolio</p></div>
@@ -100,6 +128,9 @@
 						<ul class="nav__lists" id="js-nav"></ul>
 					</div>
 				</nav>
+				<div class="fv__quickActions">
+					<a href="#works-all" class="fv__primaryCta js-anchor">制作実績を見る</a>
+				</div>
 				<div class="fv__sns pc">
 					<dl class="fv__snsLists" id="js-sns">
                         <dt class="fv__snsListTitle">公式</dt>
@@ -125,17 +156,18 @@
 		</div>
 		<section id="news" class="news sections">
 			<div class="news__inner">
-                    <h2 class="news__title"><span class="hd">制作実績</span><span class="news__title--ja"></span></h2>
+                    <h2 class="news__title"><span class="hd">最新の制作実績</span><span class="news__title--ja"></span></h2>
 				<div class="news__content">
 					<ul class="news__lists" id="js-newsLists"></ul>
 				</div>
 				<div class="news__more">
-                        <a href="./news/" class="news__moreLink"><span>もっと見る</span></a>
+                        <a href="#works-all" class="news__moreLink js-anchor"><span>制作実績をすべて見る</span></a>
 				</div>
 			</div>
 		</section>
 	</div>
 	<section id="movie" class="movie sections">
+		<div id="works-all" aria-hidden="true"></div>
 		<div class="movie__comment">
 			<div class="movie__commentContainer">
 				<div class="movie__commentR">
@@ -153,7 +185,7 @@
 		<div class="movie__container">
 			<div class="movie__inner">
 				<h2 class="movie__title">
-                    <span class="hd">注目作品</span>
+                    <span class="hd">制作実績一覧</span>
 					<span class="movie__title--sun"></span>
 					<span class="movie__title--en"></span>
 					<span class="movie__title--ja"></span>
