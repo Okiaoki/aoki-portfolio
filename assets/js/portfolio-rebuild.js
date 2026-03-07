@@ -158,7 +158,24 @@
     $('.introduction__catch .hd').text((p.about && p.about.title) || '私について');
     $('.introduction__text').html(esc((p.about && p.about.text) || '').replace(/\n/g, '<br>'));
     $('.introduction__subCatch .hd').text((p.about && p.about.sub) || '');
-    const storyText = String((p.story && p.story.text) || '');
+    const styleCards = [
+      {
+        label: 'STRATEGY',
+        title: '目的から逆算して設計',
+        text: '情報整理・導線設計・CTA配置まで、成果につながる構成を意識して組み立てます。'
+      },
+      {
+        label: 'FRONT-END',
+        title: 'デザインを忠実に実装',
+        text: '見本デザインの再現性を重視しつつ、軽量なアニメーションとレスポンシブ対応を行います。'
+      },
+      {
+        label: 'QUALITY',
+        title: '運用しやすい品質で納品',
+        text: '表示速度・可読性・保守性まで考慮し、修正や更新がしやすい構成で実装します。'
+      }
+    ];
+    const storySummary = '目的整理から実装・運用まで見据え、見た目だけで終わらないWeb制作を行います。';
     $('#story .story__inner').html(
       '<h2 class="story__title">' +
         '<span class="hd">制作スタイル</span>' +
@@ -167,87 +184,97 @@
         '<span class="story__title--ja"></span>' +
       '</h2>' +
       '<div class="styleCards">' +
-        '<article class="styleCard">' +
-          '<h3 class="styleCard__title">設計</h3>' +
-          '<ul class="styleCard__list">' +
-            '<li>目的に沿った情報設計と優先順位整理</li>' +
-            '<li>離脱を減らす導線とCTA配置を設計</li>' +
-            '<li>運用を見据えた拡張可能な構造化</li>' +
-          '</ul>' +
-        '</article>' +
-        '<article class="styleCard">' +
-          '<h3 class="styleCard__title">実装</h3>' +
-          '<ul class="styleCard__list">' +
-            '<li>見本サイトを忠実に再現するコーディング</li>' +
-            '<li>軽量なJavaScriptで必要な演出を実装</li>' +
-            '<li>全デバイスで崩れないレスポンシブ対応</li>' +
-          '</ul>' +
-        '</article>' +
-        '<article class="styleCard">' +
-          '<h3 class="styleCard__title">品質</h3>' +
-          '<ul class="styleCard__list">' +
-            '<li>表示速度を意識した最適化と調整</li>' +
-            '<li>読みやすく修正しやすいコード設計</li>' +
-            '<li>長期運用に耐える保守性を担保</li>' +
-          '</ul>' +
-        '</article>' +
+        styleCards.map(function(card) {
+          return (
+            '<article class="styleCard">' +
+              '<p class="styleCard__label">' + esc(card.label) + '</p>' +
+              '<h3 class="styleCard__lead">' + esc(card.title) + '</h3>' +
+              '<p class="styleCard__text">' + esc(card.text) + '</p>' +
+            '</article>'
+          );
+        }).join('') +
       '</div>' +
-      '<p class="story__summary">' + esc(storyText).replace(/\n/g, '<br>') + '</p>'
+      '<p class="story__summary">' + esc(storySummary) + '</p>'
     );
 
     // Pricing (music section)
+    const pricingPlans = [
+      {
+        label: 'LP CODING',
+        title: 'LP制作（静的コーディング）',
+        price: '120,000円〜',
+        delivery: '10日〜15日',
+        cta: 'このプランについて相談する',
+        items: [
+          'デザインデータ忠実再現',
+          'レスポンシブ対応',
+          '基本アニメーション実装・速度最適化'
+        ]
+      },
+      {
+        label: 'WORDPRESS',
+        title: 'WordPressテーマ化（既存LP移行）',
+        price: '150,000円〜',
+        delivery: '14日〜21日',
+        cta: 'このプランについて相談する',
+        items: [
+          '固定ページ / 投稿機能実装',
+          'カスタムフィールド対応',
+          '管理画面から更新可能な構成設計'
+        ]
+      }
+    ];
+    const pricingOptions = [
+      'JavaScript高度演出・機能追加　+30,000円〜',
+      'セクション追加・長尺対応　+20,000円〜',
+      '保守・月次更新サポート　月額15,000円〜'
+    ];
+    const pricingAssurances = [
+      'お見積り無料（要件整理から対応）',
+      '原則48時間以内に初回返信',
+      'ご予算・納期に合わせた代替案も提示'
+    ];
     $('#music .music__inner').html(
       '<h2 class="music__title"><span class="hd">料金</span></h2>' +
-      '<div class="portfolioPanel pricingPlan">' +
-        '<h3 class="portfolioPanel__title">料金プラン</h3>' +
-        '<div class="pricingPlan__section">' +
-          '<h4 class="pricingPlan__heading">■ LP制作（静的コーディング）</h4>' +
-          '<p class="pricingPlan__price">120,000円〜</p>' +
-          '<div class="pricingPlan__meta">' +
-            '<p class="pricingPlan__metaTitle">含まれるもの</p>' +
-            '<ul class="pricingPlan__list">' +
-              '<li>デザインデータ忠実再現</li>' +
-              '<li>レスポンシブ対応</li>' +
-              '<li>基本アニメーション実装・速度最適化</li>' +
-            '</ul>' +
-          '</div>' +
-          '<p class="pricingPlan__delivery"><span>目安納期</span>10日〜15日</p>' +
+      '<section class="portfolioPanel pricingPlan" aria-label="料金プラン">' +
+        '<div class="pricingPlan__grid">' +
+          pricingPlans.map(function(plan) {
+            return (
+              '<article class="pricingCard">' +
+                '<p class="pricingCard__eyebrow">' + esc(plan.label) + '</p>' +
+                '<h3 class="pricingCard__title">' + esc(plan.title) + '</h3>' +
+                '<p class="pricingCard__price">' + esc(plan.price) + '</p>' +
+                '<p class="pricingCard__delivery"><span>納期目安</span>' + esc(plan.delivery) + '</p>' +
+                '<ul class="pricingCard__list">' +
+                  plan.items.map(function(item) {
+                    return '<li>' + esc(item) + '</li>';
+                  }).join('') +
+                '</ul>' +
+                '<button type="button" class="pricingCard__cta js-openContactForm">' + esc(plan.cta) + '</button>' +
+              '</article>'
+            );
+          }).join('') +
         '</div>' +
-        '<div class="pricingPlan__section">' +
-          '<h4 class="pricingPlan__heading">■ WordPressテーマ化（既存LP移行）</h4>' +
-          '<p class="pricingPlan__price">150,000円〜</p>' +
-          '<div class="pricingPlan__meta">' +
-            '<p class="pricingPlan__metaTitle">含まれるもの</p>' +
-            '<ul class="pricingPlan__list">' +
-              '<li>固定ページ／投稿機能実装</li>' +
-              '<li>カスタムフィールド対応</li>' +
-              '<li>管理画面から更新可能な構成設計</li>' +
+        '<div class="pricingPlan__subgrid">' +
+          '<section class="pricingSupport pricingSupport--options" aria-label="オプション">' +
+            '<p class="pricingSupport__title">オプション</p>' +
+            '<ul class="pricingSupport__list">' +
+              pricingOptions.map(function(item) {
+                return '<li>' + esc(item) + '</li>';
+              }).join('') +
             '</ul>' +
-          '</div>' +
-          '<p class="pricingPlan__delivery"><span>目安納期</span>14日〜21日</p>' +
-        '</div>' +
-        '<div class="pricingPlan__section">' +
-          '<h4 class="pricingPlan__heading">■ オプション</h4>' +
-          '<div class="pricingPlan__meta">' +
-            '<p class="pricingPlan__metaTitle">含まれるもの</p>' +
-            '<ul class="pricingPlan__list">' +
-            '<li>JavaScript高度演出・機能追加　＋30,000円〜</li>' +
-            '<li>セクション追加・長尺対応　＋20,000円〜</li>' +
-            '<li>保守・月次更新サポート　月額15,000円〜</li>' +
+          '</section>' +
+          '<section class="pricingSupport pricingSupport--assurance" aria-label="安心材料">' +
+            '<p class="pricingSupport__title">安心してご相談いただくために</p>' +
+            '<ul class="pricingTrust">' +
+              pricingAssurances.map(function(item) {
+                return '<li class="pricingTrust__item">' + esc(item) + '</li>';
+              }).join('') +
             '</ul>' +
-          '</div>' +
-          '<p class="pricingPlan__delivery"><span>目安納期</span>3日〜（内容により変動）</p>' +
-        '</div>' +
-        '<div class="pricingPlan__assurance">' +
-          '<p class="pricingPlan__assuranceTitle">安心してご相談いただくために</p>' +
-          '<ul class="pricingPlan__assuranceList">' +
-            '<li>お見積り無料（要件整理から対応）</li>' +
-            '<li>原則48時間以内に初回返信</li>' +
-            '<li>ご予算・納期に合わせた代替案も提示</li>' +
-          '</ul>' +
+          '</section>' +
         '</div>' +
         '<p class="pricingPlan__note">※内容・ボリュームにより個別お見積りいたします。</p>' +
-      '</div>'
+      '</section>'
     );
 
     // Process (character section)
@@ -302,14 +329,21 @@
     $('#staffcast .staffcast__inner').html(
       '<h2 class="staffcast__title"><span class="hd">お問い合わせ</span></h2>' +
       '<div class="contactPanel">' +
-        '<p class="contactPanel__lead">LP制作・WordPress移行・既存サイト改善など、お気軽にご相談ください。<br>概要のみでも問題ございません。通常48時間以内にご返信いたします。<br>X（旧Twitter）のDMからのご相談も可能です。</p>' +
+        '<p class="contactPanel__lead">LP制作・WordPress移行・既存サイト改善など、まずはお気軽にご相談ください。<br>概要段階のご相談でも問題ありません。</p>' +
+        '<div class="contactPanel__ctaWrap">' +
+          '<button type="button" class="contactPanel__formBtn js-openContactForm">制作について相談する</button>' +
+          '<p class="contactPanel__assurance">通常48時間以内にご返信します。</p>' +
+        '</div>' +
+        '<p class="contactPanel__subLead">X（旧Twitter）のDMからもご相談いただけます。</p>' +
         '<div class="contactPanel__links">' +
           '<div class="contactPanel__xWrap">' +
-            '<a href="' + esc(contact.x || '#') + '" target="_blank" rel="noopener noreferrer">X</a>' +
+            '<a class="contactPanel__iconLink contactPanel__iconLink--x" href="' + esc(contact.x || '#') + '" target="_blank" rel="noopener noreferrer" aria-label="Xを開く"></a>' +
             '<p class="contactPanel__xNote">DMでも受付中</p>' +
           '</div>' +
-          '<a href="' + esc(contact.github || '#') + '" target="_blank" rel="noopener noreferrer">GitHub</a>' +
-          '<button type="button" class="contactPanel__formBtn js-openContactForm">制作について相談する</button>' +
+          '<a class="contactPanel__iconStack contactPanel__iconStack--github" href="' + esc(contact.github || '#') + '" target="_blank" rel="noopener noreferrer" aria-label="GitHubを開く">' +
+            '<span class="contactPanel__iconLink contactPanel__iconLink--github" aria-hidden="true"></span>' +
+            '<span class="contactPanel__iconLabel">GitHub</span>' +
+          '</a>' +
         '</div>' +
       '</div>'
     );

@@ -85,5 +85,14 @@
   $('.character__title .hd').text('制作の流れ');
   $('.staffcast__title .hd').text('お問い合わせ');
   $('.footer__copyright').text('© Aoki Portfolio');
-  $('.footer__policy a').text('プライバシーポリシー').attr('href', '#');
+  $('.footer__policy a')
+    .text('プライバシーポリシー')
+    .attr('href', './privacy.html')
+    .attr('target', '_blank')
+    .attr('rel', 'noopener noreferrer');
+
+  // Move fixed SNS outside the sticky FV layer so later sections cannot cover it.
+  if ($('.fv__sns').length) {
+    $('.fv__sns').appendTo('body');
+  }
 })(jQuery);

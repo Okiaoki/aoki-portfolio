@@ -441,7 +441,7 @@ a:hover{text-decoration:none}
 }
 .footer__toTop{
 	position:absolute;
-	right:min(calc(40 / var(--vw-min) * 100vw),40px);
+	right:min(calc(90 / var(--vw-min) * 100vw),90px);
 	top:0;
 }
 @media screen and (max-width:768px){
@@ -1631,5 +1631,4 @@ writing-mode:vertical-rl;
 	max-width:100%;
 	height:auto;
 }
-
 
