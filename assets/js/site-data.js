@@ -85,6 +85,12 @@
     },
     works: [
       {
+        title: 'Aoki Tech Studio',
+        meta: 'Web制作会社のオリジナルサイトLP',
+        url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',
+        image: 'assets/img/work-Aoki-Tech-Studio.jpg'
+      },
+      {
         title: 'lp-aoki-standard',
         meta: 'ファッションサイトのポップアップショップ宣伝用LP',
         url: 'https://okiaoki.github.io/lp-aoki-standard/',
