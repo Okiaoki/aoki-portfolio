@@ -36,20 +36,22 @@ window.SITE_DATA = {
     }
   },
   posts: [
-    { id: 1, date: '2026-03-10T12:00:00+09:00', title: { rendered: '美容クリニック向け広告LP（Aoki Beauty Clinic）を納品しました' }, link: '#movie' },
-    { id: 2, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' },
-    { id: 3, date: '2026-01-15T12:00:00+09:00', title: { rendered: 'LP制作・WordPress化のご相談は無料お見積りから承ります' },           link: '#staffcast' }
+    { id: 1, date: '2026-03-12T12:00:00+09:00', title: { rendered: '見積シミュレーターサイト（Aoki Mitumori）を公開しました' }, link: '#movie' },
+    { id: 2, date: '2026-03-10T12:00:00+09:00', title: { rendered: '美容クリニック向け広告LP（Aoki Beauty Clinic）を納品しました' }, link: '#movie' },
+    { id: 3, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' }
   ],
   movie: [
-    { id: 1, title: { rendered: 'Aoki Beauty Clinic' }, acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', image: 'assets/img/work-Aoki-BeautyClinic.jpg' },
-    { id: 2, title: { rendered: 'Aoki Tech Studio' },   acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  image: 'assets/img/work-Aoki-Tech-Studio.jpg'  },
-    { id: 3, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
+    { id: 1, title: { rendered: 'Aoki Mitumori' },      acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Mitumori/',     image: 'assets/img/work-Aoki-Mitumori.jpg'     },
+    { id: 2, title: { rendered: 'Aoki Beauty Clinic' }, acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', image: 'assets/img/work-Aoki-BeautyClinic.jpg' },
+    { id: 3, title: { rendered: 'Aoki Tech Studio' },   acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  image: 'assets/img/work-Aoki-Tech-Studio.jpg'  },
+    { id: 4, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
   ],
   mv: [
-    { id: 1, title: { rendered: 'Aoki Beauty Clinic LP' },   acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', mv_thumb: { sizes: { large: 'assets/img/work-Aoki-BeautyClinic.jpg' } } } },
-    { id: 2, title: { rendered: 'Aoki Tech Studio LP' },     acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Tech-Studio.jpg'  } } } },
-    { id: 3, title: { rendered: 'Cafe Aoki LP' },            acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/cafe-aoki/',         mv_thumb: { sizes: { large: 'assets/img/work-cafeaoki.jpg'          } } } },
-    { id: 4, title: { rendered: 'AokiCosmetic WP Theme' },   acf: { mv_ytid: '', mv_url: 'https://github.com/Okiaoki/aokicosmetic-wp', mv_thumb: { sizes: { large: 'assets/img/work-aokicosmetic-fv.png'   } } } }
+    { id: 1, title: { rendered: 'Aoki Mitumori' },           acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Mitumori/',     mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Mitumori.jpg'     } } } },
+    { id: 2, title: { rendered: 'Aoki Beauty Clinic LP' },   acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', mv_thumb: { sizes: { large: 'assets/img/work-Aoki-BeautyClinic.jpg' } } } },
+    { id: 3, title: { rendered: 'Aoki Tech Studio LP' },     acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Tech-Studio.jpg'  } } } },
+    { id: 4, title: { rendered: 'Cafe Aoki LP' },            acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/cafe-aoki/',         mv_thumb: { sizes: { large: 'assets/img/work-cafeaoki.jpg'          } } } },
+    { id: 5, title: { rendered: 'AokiCosmetic WP Theme' },   acf: { mv_ytid: '', mv_url: 'https://github.com/Okiaoki/aokicosmetic-wp', mv_thumb: { sizes: { large: 'assets/img/work-aokicosmetic-fv.png'   } } } }
   ],
   portfolio: {
     introShowcaseImages: [
@@ -65,7 +67,7 @@ window.SITE_DATA = {
       './assets/img/profile-showcase/portfolio-shot-10.jpg'
     ],
     leadJa: '医療・美容業界で培った精度への意識を軸に、設計から運用まで一貫したWeb制作を行っています。',
-    heroDateJa: '更新日: 2026年3月10日',
+    heroDateJa: '更新日: 2026年3月12日',
     heroDateEn: 'Aoki Portfolio',
     about: {
       title: '私について',
@@ -137,6 +139,12 @@ window.SITE_DATA = {
       form:   'https://formspree.io/f/xdkwllne'
     },
     works: [
+      {
+        title: 'Aoki Mitumori',
+        meta:  '見積シミュレーターUI。価格表を操作可能なインターフェースへ再構成し、問い合わせ導線を改善',
+        url:   'https://okiaoki.github.io/Aoki-Mitumori/',
+        image: 'assets/img/work-Aoki-Mitumori.jpg'
+      },
       {
         title: 'Aoki Beauty Clinic',
         meta:  '美容クリニック向け広告LP。高単価サービスへの信頼感と訴求力を両立',

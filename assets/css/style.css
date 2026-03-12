@@ -1782,6 +1782,7 @@ body.is-movie .kv__frame::before{
   display: inline-flex;
   gap: 8px;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .portfolioWorks__btn{
@@ -1798,6 +1799,7 @@ body.is-movie .kv__frame::before{
   font-weight: 700;
   letter-spacing: 0.06em;
   text-decoration: none;
+  white-space: nowrap;
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, opacity 200ms ease, background-color 200ms ease;
 }
 
