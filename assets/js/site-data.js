@@ -67,7 +67,7 @@ window.SITE_DATA = {
       './assets/img/profile-showcase/portfolio-shot-10.jpg'
     ],
     leadJa: '医療・美容業界で培った精度への意識を軸に、設計から運用まで一貫したWeb制作を行っています。',
-    heroDateJa: '更新日: 2026年3月12日',
+    heroDateJa: '更新日: 2026年3月14日',
     heroDateEn: 'Aoki Portfolio',
     about: {
       title: '私について',
@@ -139,6 +139,16 @@ window.SITE_DATA = {
       form:   'https://formspree.io/f/xdkwllne'
     },
     works: [
+      {
+        title: 'Aoki Design Studio Works Finder',
+        category: 'Archive UI / Search Experience',
+        meta:  '\u5236\u4f5c\u5b9f\u7e3e\u306e\u691c\u7d22\u30fb\u6bd4\u8f03\u30a2\u30fc\u30ab\u30a4\u30d6\u3092\u3001\u30c7\u30fc\u30bf\u99c6\u52d5UI\u3067\u8a2d\u8a08\u3057\u305f\u6848\u4ef6\u3067\u3059\u3002',
+        summary: '\u5236\u4f5c\u5b9f\u7e3e\u30c7\u30fc\u30bf\u3092\u3082\u3068\u306b\u3001\u30ad\u30fc\u30ef\u30fc\u30c9\u691c\u7d22\u3001\u8907\u6570\u6761\u4ef6\u306e\u7d5e\u308a\u8fbc\u307f\u3001\u4e26\u3073\u66ff\u3048\u3001\u6bd4\u8f03\u30ea\u30b9\u30c8\u3001\u8a73\u7d30\u78ba\u8a8d\u3001\u76f8\u8ac7\u30e1\u30e2\u751f\u6210\u307e\u3067\u3092\u72b6\u614b\u9023\u52d5\u3067\u3064\u306a\u304e\u3001\u8fd1\u3044\u4e8b\u4f8b\u3092\u305d\u306e\u307e\u307e\u76f8\u8ac7\u6e96\u5099\u306b\u6301\u3061\u8fbc\u3081\u308b\u4f53\u9a13\u3078\u8a2d\u8a08\u3057\u307e\u3057\u305f\u3002',
+        tags: ['\u30c7\u30fc\u30bf\u99c6\u52d5UI', '\u691c\u7d22UI', '\u6bd4\u8f03\u6a5f\u80fd', '\u72b6\u614b\u7ba1\u7406', '\u76f8\u8ac7\u5c0e\u7dda'],
+        publishedAt: '2026-03-14',
+        url:   'https://okiaoki.github.io/Aoki-Design-Studio-Works-Finder/',
+        image: 'assets/img/work-Aoki Design Studio Works Finder.jpg'
+      },
       {
         title: 'Aoki Mitumori',
         meta:  '見積シミュレーターUI。価格表を操作可能なインターフェースへ再構成し、問い合わせ導線を改善',

@@ -1,9 +1,9 @@
 (function($) {
   // ── Data references ────────────────────────────────────────────────────────
-  const data    = window.SITE_DATA || {};
-  const p       = data.portfolio   || {};
-  const works   = Array.isArray(p.works)   ? p.works   : [];
-  const process = Array.isArray(p.process) ? p.process : [];
+  const data     = window.SITE_DATA || {};
+  const p        = data.portfolio   || {};
+  const rawWorks = Array.isArray(p.works)   ? p.works   : [];
+  const process  = Array.isArray(p.process) ? p.process : [];
   const ga4Id   = String((data.analytics || {}).ga4MeasurementId || '').trim();
   let ga4Ready  = false;
 
@@ -11,6 +11,38 @@
   const esc = (v) => String(v || '')
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+  const toTimestamp = (value) => {
+    const ts = Date.parse(String(value || ''));
+    return Number.isNaN(ts) ? Number.NEGATIVE_INFINITY : ts;
+  };
+
+  const works = rawWorks
+    .map((work, index) => Object.assign({ __index: index }, work))
+    .sort((a, b) => {
+      const dateDiff = toTimestamp(b.publishedAt) - toTimestamp(a.publishedAt);
+      return dateDiff || (a.__index - b.__index);
+    })
+    .map((work) => {
+      delete work.__index;
+      return work;
+    });
+
+  const formatWorkNumber = (value) => String(value).padStart(2, '0');
+
+  const buildTagList = (tags, listClass, itemClass) => {
+    const safeTags = Array.isArray(tags)
+      ? tags.map((tag) => String(tag || '').trim()).filter(Boolean)
+      : [];
+
+    if (!safeTags.length) return '';
+
+    return (
+      `<ul class="${listClass}">` +
+        safeTags.map((tag) => `<li class="${itemClass}">${esc(tag)}</li>`).join('') +
+      `</ul>`
+    );
+  };
 
   // ── GA4 ───────────────────────────────────────────────────────────────────
   const ensureGa4 = () => {
@@ -32,19 +64,32 @@
 
   // ── Section builders ──────────────────────────────────────────────────────
   const buildWorksCard = (w, i) => {
-    const siteUrl  = String(w.url || '').trim() ? esc(w.url) : '#';
-    const ghBtn    = w.github
+    const siteUrl   = String(w.url || '').trim() ? esc(w.url) : '#';
+    const siteLabel = esc(w.linkLabel || 'View Site');
+    const ghBtn     = w.github
       ? `<a class="portfolioWorks__btn portfolioWorks__btn--github" href="${esc(w.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>`
       : '';
+    const thumb     = w.image
+      ? `<span class="portfolioWorks__thumb"><img class="portfolioWorks__img" src="${esc(w.image)}" alt="${esc(w.title)} サムネイル" loading="lazy"></span>`
+      : '';
+    const eyebrow   = w.category ? `<span class="portfolioWorks__eyebrow">${esc(w.category)}</span>` : '';
+    const summary   = String(w.summary || '').trim()
+      ? `<span class="portfolioWorks__summary">${esc(w.summary)}</span>`
+      : '';
+    const tags      = buildTagList(w.tags, 'portfolioWorks__tags', 'portfolioWorks__tag');
     return (
       `<li class="portfolioWorks__item"><article class="portfolioWorks__card">` +
-        `<span class="portfolioWorks__num">0${i + 1}</span>` +
-        `<span class="portfolioWorks__body">` +
+        `<span class="portfolioWorks__num">${formatWorkNumber(i + 1)}</span>` +
+        thumb +
+        `<div class="portfolioWorks__body">` +
+          eyebrow +
           `<strong class="portfolioWorks__title">${esc(w.title)}</strong>` +
           `<span class="portfolioWorks__meta">${esc(w.meta)}</span>` +
-        `</span>` +
+          summary +
+          tags +
+        `</div>` +
         `<div class="portfolioWorks__actions">` +
-          `<a class="portfolioWorks__btn portfolioWorks__btn--site" href="${siteUrl}" target="_blank" rel="noopener noreferrer">View Site</a>` +
+          `<a class="portfolioWorks__btn portfolioWorks__btn--site" href="${siteUrl}" target="_blank" rel="noopener noreferrer">${siteLabel}</a>` +
           ghBtn +
         `</div>` +
       `</article></li>`
@@ -53,10 +98,16 @@
 
   const buildFeaturedCard = (w, i) => {
     const siteUrl     = String(w.url || '').trim() ? esc(w.url) : '#';
+    const siteLabel   = esc(w.linkLabel || 'View Site');
     const hiddenClass = i >= 6 ? ' is-hidden js-featuredExtra' : '';
     const ghBtn       = w.github
       ? `<a class="featuredCard__action featuredCard__action--github" href="${esc(w.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>`
       : '';
+    const eyebrow     = w.category ? `<span class="featuredCard__eyebrow">${esc(w.category)}</span>` : '';
+    const summary     = String(w.summary || '').trim()
+      ? `<span class="featuredCard__summary">${esc(w.summary)}</span>`
+      : '';
+    const tags        = buildTagList(w.tags, 'featuredCard__tags', 'featuredCard__tag');
     return (
       `<article class="featuredCard${hiddenClass}">` +
         `<a class="featuredCard__mainLink" href="${siteUrl}" target="_blank" rel="noopener noreferrer" aria-label="${esc(w.title)} のサイトを開く">` +
@@ -66,6 +117,38 @@
         `</a>` +
         `<span class="featuredCard__overlay" aria-hidden="true"><span class="featuredCard__actions">` +
           `<a class="featuredCard__action featuredCard__action--site" href="${siteUrl}" target="_blank" rel="noopener noreferrer">View Site</a>` +
+          ghBtn +
+        `</span></span>` +
+      `</article>`
+    );
+  };
+
+  const buildFeaturedCardV2 = (w, i) => {
+    const siteUrl     = String(w.url || '').trim() ? esc(w.url) : '#';
+    const siteLabel   = esc(w.linkLabel || 'View Site');
+    const hiddenClass = i >= 6 ? ' is-hidden js-featuredExtra' : '';
+    const ghBtn       = w.github
+      ? `<a class="featuredCard__action featuredCard__action--github" href="${esc(w.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>`
+      : '';
+    const eyebrow     = w.category ? `<span class="featuredCard__eyebrow">${esc(w.category)}</span>` : '';
+    const summary     = String(w.summary || '').trim()
+      ? `<span class="featuredCard__summary">${esc(w.summary)}</span>`
+      : '';
+    const tags        = buildTagList(w.tags, 'featuredCard__tags', 'featuredCard__tag');
+    return (
+      `<article class="featuredCard${hiddenClass}">` +
+        `<a class="featuredCard__mainLink" href="${siteUrl}" target="_blank" rel="noopener noreferrer" aria-label="${esc(w.title)} のサイトを見る">` +
+          `<span class="featuredCard__thumb"><img class="featuredCard__img" src="${esc(w.image)}" alt="${esc(w.title)} サムネイル" loading="lazy"></span>` +
+          `<span class="featuredCard__body">` +
+            eyebrow +
+            `<span class="featuredCard__title">${esc(w.title)}</span>` +
+            `<span class="featuredCard__meta">${esc(w.meta)}</span>` +
+            summary +
+            tags +
+          `</span>` +
+        `</a>` +
+        `<span class="featuredCard__overlay" aria-hidden="true"><span class="featuredCard__actions">` +
+          `<a class="featuredCard__action featuredCard__action--site" href="${siteUrl}" target="_blank" rel="noopener noreferrer">${siteLabel}</a>` +
           ghBtn +
         `</span></span>` +
       `</article>`
@@ -176,7 +259,7 @@
     }
 
     // Featured grid — all works (movie section)
-    const featuredHtml = works.map(buildFeaturedCard).join('');
+    const featuredHtml = works.map(buildFeaturedCardV2).join('');
     if (featuredHtml) {
       const moreBtn = works.length > 6
         ? '<div class="featuredGrid__more"><button type="button" class="featuredGrid__moreBtn js-featuredToggle" aria-expanded="false">もっと見る</button></div>'
