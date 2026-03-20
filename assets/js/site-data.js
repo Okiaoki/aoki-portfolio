@@ -20,43 +20,48 @@ window.SITE_DATA = {
     { label: 'GitHub', url: 'https://github.com/Okiaoki', targetBlank: true }
   ],
   footerBanners: [
-    { image: 'assets/img/work-Aoki Design Studio Works Finder.jpg', url: 'https://okiaoki.github.io/works-finder/', targetBlank: true },
-    { image: 'assets/img/work-Aoki-BeautyClinic.jpg', url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', targetBlank: true },
-    { image: 'assets/img/work-Aoki-Tech-Studio.jpg',  url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  targetBlank: true },
-    { image: 'assets/img/work-cafeaoki.jpg',          url: 'https://okiaoki.github.io/cafe-aoki/',         targetBlank: true }
+    { image: 'assets/img/work-Aoki-Animation.jpg',                 url: 'https://okiaoki.github.io/Aoki-Animation/',  targetBlank: true },
+    { image: 'assets/img/work-Aoki Design Studio Works Finder.jpg', url: 'https://okiaoki.github.io/works-finder/',   targetBlank: true },
+    { image: 'assets/img/work-Aoki-BeautyClinic.jpg',              url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', targetBlank: true },
+    { image: 'assets/img/work-Aoki-Tech-Studio.jpg',               url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  targetBlank: true },
+    { image: 'assets/img/work-cafeaoki.jpg',                       url: 'https://okiaoki.github.io/cafe-aoki/',         targetBlank: true }
   ],
   pages: {
     131: {
       acf: {
         fv_bnrlists: [
-          { fv_bnrimg: 'assets/img/work-Aoki Design Studio Works Finder.jpg', fv_bnrurl: 'https://okiaoki.github.io/works-finder/', fv_bnrtarget: true },
-          { fv_bnrimg: 'assets/img/work-Aoki-BeautyClinic.jpg', fv_bnrurl: 'https://okiaoki.github.io/Aoki-BeautyClinic/', fv_bnrtarget: true },
-          { fv_bnrimg: 'assets/img/work-Aoki-Tech-Studio.jpg',  fv_bnrurl: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  fv_bnrtarget: true },
-          { fv_bnrimg: 'assets/img/work-cafeaoki.jpg',          fv_bnrurl: 'https://okiaoki.github.io/cafe-aoki/',         fv_bnrtarget: true }
+          { fv_bnrimg: 'assets/img/work-Aoki-Animation.jpg',                 fv_bnrurl: 'https://okiaoki.github.io/Aoki-Animation/',  fv_bnrtarget: true },
+          { fv_bnrimg: 'assets/img/work-Aoki Design Studio Works Finder.jpg', fv_bnrurl: 'https://okiaoki.github.io/works-finder/',   fv_bnrtarget: true },
+          { fv_bnrimg: 'assets/img/work-Aoki-BeautyClinic.jpg',              fv_bnrurl: 'https://okiaoki.github.io/Aoki-BeautyClinic/', fv_bnrtarget: true },
+          { fv_bnrimg: 'assets/img/work-Aoki-Tech-Studio.jpg',               fv_bnrurl: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  fv_bnrtarget: true },
+          { fv_bnrimg: 'assets/img/work-cafeaoki.jpg',                       fv_bnrurl: 'https://okiaoki.github.io/cafe-aoki/',         fv_bnrtarget: true }
         ]
       }
     }
   },
   posts: [
-    { id: 0, date: '2026-03-19T12:00:00+09:00', title: { rendered: 'Works Finder（React版）を公開しました' }, link: '#movie' },
-    { id: 1, date: '2026-03-12T12:00:00+09:00', title: { rendered: '見積シミュレーターサイト（Aoki Mitumori）を公開しました' }, link: '#movie' },
-    { id: 2, date: '2026-03-10T12:00:00+09:00', title: { rendered: '美容クリニック向け広告LP（Aoki Beauty Clinic）を納品しました' }, link: '#movie' },
-    { id: 3, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' }
+    { id: 0, date: '2026-03-21T12:00:00+09:00', title: { rendered: 'アニメ制作会社コーポレートサイト（Aoki Animation）を公開しました' }, link: '#movie' },
+    { id: 1, date: '2026-03-19T12:00:00+09:00', title: { rendered: 'Works Finder（React版）を公開しました' }, link: '#movie' },
+    { id: 2, date: '2026-03-12T12:00:00+09:00', title: { rendered: '見積シミュレーターサイト（Aoki Mitumori）を公開しました' }, link: '#movie' },
+    { id: 3, date: '2026-03-10T12:00:00+09:00', title: { rendered: '美容クリニック向け広告LP（Aoki Beauty Clinic）を納品しました' }, link: '#movie' },
+    { id: 4, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' }
   ],
   movie: [
-    { id: 0, title: { rendered: 'Works Finder' }, acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/works-finder/', image: 'assets/img/work-Aoki Design Studio Works Finder.jpg' },
-    { id: 1, title: { rendered: 'Aoki Mitumori' },      acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Mitumori/',     image: 'assets/img/work-Aoki-Mitumori.jpg'     },
-    { id: 2, title: { rendered: 'Aoki Beauty Clinic' }, acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', image: 'assets/img/work-Aoki-BeautyClinic.jpg' },
-    { id: 3, title: { rendered: 'Aoki Tech Studio' },   acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  image: 'assets/img/work-Aoki-Tech-Studio.jpg'  },
-    { id: 4, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
+    { id: 0, title: { rendered: 'Aoki Animation' },     acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Animation/',    image: 'assets/img/work-Aoki-Animation.jpg'    },
+    { id: 1, title: { rendered: 'Works Finder' },       acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/works-finder/',      image: 'assets/img/work-Aoki Design Studio Works Finder.jpg' },
+    { id: 2, title: { rendered: 'Aoki Mitumori' },      acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Mitumori/',     image: 'assets/img/work-Aoki-Mitumori.jpg'     },
+    { id: 3, title: { rendered: 'Aoki Beauty Clinic' }, acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', image: 'assets/img/work-Aoki-BeautyClinic.jpg' },
+    { id: 4, title: { rendered: 'Aoki Tech Studio' },   acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  image: 'assets/img/work-Aoki-Tech-Studio.jpg'  },
+    { id: 5, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
   ],
   mv: [
-    { id: 0, title: { rendered: 'Works Finder (React)' }, acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/works-finder/', mv_thumb: { sizes: { large: 'assets/img/work-Aoki Design Studio Works Finder.jpg' } } } },
-    { id: 1, title: { rendered: 'Aoki Mitumori' },           acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Mitumori/',     mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Mitumori.jpg'     } } } },
-    { id: 2, title: { rendered: 'Aoki Beauty Clinic LP' },   acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', mv_thumb: { sizes: { large: 'assets/img/work-Aoki-BeautyClinic.jpg' } } } },
-    { id: 3, title: { rendered: 'Aoki Tech Studio LP' },     acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Tech-Studio.jpg'  } } } },
-    { id: 4, title: { rendered: 'Cafe Aoki LP' },            acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/cafe-aoki/',         mv_thumb: { sizes: { large: 'assets/img/work-cafeaoki.jpg'          } } } },
-    { id: 5, title: { rendered: 'AokiCosmetic WP Theme' },   acf: { mv_ytid: '', mv_url: 'https://github.com/Okiaoki/aokicosmetic-wp', mv_thumb: { sizes: { large: 'assets/img/work-aokicosmetic-fv.jpg'   } } } }
+    { id: 0, title: { rendered: 'Aoki Animation' },          acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Animation/',    mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Animation.jpg'    } } } },
+    { id: 1, title: { rendered: 'Works Finder (React)' },    acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/works-finder/',      mv_thumb: { sizes: { large: 'assets/img/work-Aoki Design Studio Works Finder.jpg' } } } },
+    { id: 2, title: { rendered: 'Aoki Mitumori' },           acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Mitumori/',     mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Mitumori.jpg'     } } } },
+    { id: 3, title: { rendered: 'Aoki Beauty Clinic LP' },   acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', mv_thumb: { sizes: { large: 'assets/img/work-Aoki-BeautyClinic.jpg' } } } },
+    { id: 4, title: { rendered: 'Aoki Tech Studio LP' },     acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Tech-Studio/',  mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Tech-Studio.jpg'  } } } },
+    { id: 5, title: { rendered: 'Cafe Aoki LP' },            acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/cafe-aoki/',         mv_thumb: { sizes: { large: 'assets/img/work-cafeaoki.jpg'          } } } },
+    { id: 6, title: { rendered: 'AokiCosmetic WP Theme' },   acf: { mv_ytid: '', mv_url: 'https://github.com/Okiaoki/aokicosmetic-wp',  mv_thumb: { sizes: { large: 'assets/img/work-aokicosmetic-fv.jpg'   } } } }
   ],
   portfolio: {
     introShowcaseImages: [
@@ -145,6 +150,16 @@ window.SITE_DATA = {
     },
     works: [
       {
+        title: 'Aoki Animation',
+        category: 'アニメ制作会社 / コーポレートサイト',
+        meta: 'アニメーション制作会社のコーポレートサイト。幻想的なビジュアルと洗練されたUI設計',
+        summary: 'TVアニメ・劇場アニメの企画・制作を手がけるアニメーション制作会社のコーポレートサイトです。作品の世界観を反映したファンタジックなビジュアルと、グラデーション×グラスモーフィズムを基調にした透明感あるUIで、企業の制作姿勢とクリエイティブの質を直感的に伝える設計にしています。作品紹介・会社概要・採用情報・お問い合わせまで、全7ページ構成で制作しました。',
+        tags: ['コーポレートサイト', 'マルチページ構成', 'グラスモーフィズム', 'レスポンシブ', 'アニメーション演出'],
+        publishedAt: '2026-03-21',
+        url:   'https://okiaoki.github.io/Aoki-Animation/',
+        image: 'assets/img/work-Aoki-Animation.jpg'
+      },
+      {
         title: 'Aoki Design Studio Works Finder',
         category: 'React + TypeScript / Archive UI',
         meta:  '\u5236\u4f5c\u5b9f\u7e3e\u306e\u691c\u7d22\u30fb\u6bd4\u8f03\u30a2\u30fc\u30ab\u30a4\u30d6\u3092\u3001\u30c7\u30fc\u30bf\u99c6\u52d5UI\u3067\u8a2d\u8a08\u3057\u305f\u6848\u4ef6\u3067\u3059\u3002',
@@ -223,16 +238,6 @@ window.SITE_DATA = {
         publishedAt: '2026-03-04',
         url:   'https://okiaoki.github.io/lp-aoki-standard/',
         image: 'assets/img/work-lp-aoki-standard.jpg'
-      },
-      {
-        title: 'Aoki Design Studio',
-        category: 'Web制作 / エージェンシーサイト',
-        meta: 'デザインスタジオの実績訴求サイト。制作物の質を直接伝えるビジュアル設計',
-        summary: 'Web制作エージェンシーのポートフォリオサイトです。宇宙をモチーフにしたダークテーマに、ターコイズとバイオレットの発光アクセントで先進性を表現。JSによる星空アニメーション・サービス詳細モーダル・3ステップのコンタクトフォームなど、フレームワーク未使用ながら高密度なインタラクションを盛り込んでいます。',
-        tags: ['エージェンシーサイト', '星空アニメーション', 'モーダルUI', 'ダークテーマ', 'フォームバリデーション'],
-        publishedAt: '2025-10-19',
-        url:   'https://okiaoki.github.io/aoki-design-studio/',
-        image: 'assets/img/work-AokiDesignStudio.jpg'
       },
       {
         title: 'AokiCosmetic WP Theme',

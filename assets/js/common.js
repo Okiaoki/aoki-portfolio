@@ -131,19 +131,27 @@ $(function() {
 
 // ── Page load animation ────────────────────────────────────────────────────
 $(window).on('load', function() {
+  const $loading = $('#loading');
   const hs = location.hash;
+
   if (hs && $(hs)[0]) {
-    $('#loading').fadeOut(1000, 'linear', function() { $('#loading').remove(); });
+    // Deep-link: skip opening, remove immediately
+    $loading.remove();
     $('#fv').addClass('ani2');
-  } else {
-    $('html,body').animate({ scrollTop: 0 }, 10);
-    const delayTime = (!rt == './') ? 200 : 500;
-    setTimeout(() => {
-      $('#loading').addClass('ani1');
-      setTimeout(() => {
-        $('#loading').fadeOut(1500, 'linear', function() { $('#loading').remove(); });
-        setTimeout(() => { $('#fv').addClass('ani2'); }, 10);
-      }, 1000);
-    }, delayTime);
+    return;
   }
+
+  $('html,body').animate({ scrollTop: 0 }, 10);
+
+  // Phase 1: Logo + progress bar appear immediately
+  $loading.addClass('is-visible');
+
+  // Phase 2: 1.5s gauge fill → 0.5s exit → done at 2.0s
+  setTimeout(() => {
+    $loading.addClass('is-exit');
+    setTimeout(() => {
+      $loading.remove();
+      $('#fv').addClass('ani2');
+    }, 500);
+  }, 1500);
 });

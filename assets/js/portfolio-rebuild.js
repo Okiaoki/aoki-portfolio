@@ -71,8 +71,8 @@
     const ghBtn     = w.github
       ? `<a class="portfolioWorks__btn portfolioWorks__btn--github" href="${esc(w.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>`
       : '';
-    const thumb     = w.image
-      ? `<span class="portfolioWorks__thumb"><img class="portfolioWorks__img" src="${esc(w.image)}" alt="${esc(w.title)} サムネイル" ${buildImageAttrs(160, 90)}></span>`
+    const bg = w.image
+      ? `<span class="portfolioWorks__bg"><img class="portfolioWorks__bgImg" src="${esc(w.image)}" alt="" ${buildImageAttrs(640, 360)}></span>`
       : '';
     const eyebrow   = w.category ? `<span class="portfolioWorks__eyebrow">${esc(w.category)}</span>` : '';
     const summary   = String(w.summary || '').trim()
@@ -81,18 +81,20 @@
     const tags      = buildTagList(w.tags, 'portfolioWorks__tags', 'portfolioWorks__tag');
     return (
       `<li class="portfolioWorks__item"><article class="portfolioWorks__card">` +
-        `<span class="portfolioWorks__num">${formatWorkNumber(i + 1)}</span>` +
-        thumb +
-        `<div class="portfolioWorks__body">` +
-          eyebrow +
+        bg +
+        `<div class="portfolioWorks__content">` +
+          `<div class="portfolioWorks__header">` +
+            `<span class="portfolioWorks__num">${formatWorkNumber(i + 1)}</span>` +
+            eyebrow +
+          `</div>` +
           `<strong class="portfolioWorks__title">${esc(w.title)}</strong>` +
           `<span class="portfolioWorks__meta">${esc(w.meta)}</span>` +
           summary +
           tags +
-        `</div>` +
-        `<div class="portfolioWorks__actions">` +
-          `<a class="portfolioWorks__btn portfolioWorks__btn--site" href="${siteUrl}" target="_blank" rel="noopener noreferrer">${siteLabel}</a>` +
-          ghBtn +
+          `<div class="portfolioWorks__actions">` +
+            `<a class="portfolioWorks__btn portfolioWorks__btn--site" href="${siteUrl}" target="_blank" rel="noopener noreferrer">${siteLabel}</a>` +
+            ghBtn +
+          `</div>` +
         `</div>` +
       `</article></li>`
     );
