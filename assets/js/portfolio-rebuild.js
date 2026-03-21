@@ -131,6 +131,8 @@
     const siteUrl     = String(w.url || '').trim() ? esc(w.url) : '#';
     const siteLabel   = esc(w.linkLabel || 'View Site');
     const hiddenClass = i >= 6 ? ' is-hidden js-featuredExtra' : '';
+    const hasFullPage = Boolean(w.fullImage);
+    const fullpageClass = hasFullPage ? ' featuredCard--has-fullpage' : '';
     const ghBtn       = w.github
       ? `<a class="featuredCard__action featuredCard__action--github" href="${esc(w.github)}" target="_blank" rel="noopener noreferrer">GitHub</a>`
       : '';
@@ -139,10 +141,12 @@
       ? `<span class="featuredCard__summary">${esc(w.summary)}</span>`
       : '';
     const tags        = buildTagList(w.tags, 'featuredCard__tags', 'featuredCard__tag');
+    const imgSrc      = hasFullPage ? esc(w.fullImage) : esc(w.image);
+    const imgClass    = hasFullPage ? 'featuredCard__img featuredCard__img--fullpage' : 'featuredCard__img';
     return (
-      `<article class="featuredCard${hiddenClass}">` +
+      `<article class="featuredCard${hiddenClass}${fullpageClass}">` +
         `<a class="featuredCard__mainLink" href="${siteUrl}" target="_blank" rel="noopener noreferrer" aria-label="${esc(w.title)} のサイトを見る">` +
-          `<span class="featuredCard__thumb"><img class="featuredCard__img" src="${esc(w.image)}" alt="${esc(w.title)} サムネイル" ${buildImageAttrs(640, 360)}></span>` +
+          `<span class="featuredCard__thumb"><img class="${imgClass}" src="${imgSrc}" alt="${esc(w.title)} サムネイル" ${buildImageAttrs(640, 360)}></span>` +
           `<span class="featuredCard__body">` +
             eyebrow +
             `<span class="featuredCard__title">${esc(w.title)}</span>` +

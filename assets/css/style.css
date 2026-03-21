@@ -2128,6 +2128,35 @@ body.is-movie .kv__frame::before{
   filter: brightness(0.68);
 }
 
+/* ── Full-page screenshot — scroll preview on hover ── */
+.featuredCard__img--fullpage{
+  object-position: 50% 0%;
+  transition:
+    object-position 5s linear,
+    transform 400ms cubic-bezier(.215, .61, .355, 1),
+    filter 400ms cubic-bezier(.215, .61, .355, 1);
+}
+
+.featuredCard--has-fullpage:hover .featuredCard__img--fullpage,
+.featuredCard--has-fullpage:focus-within .featuredCard__img--fullpage{
+  object-position: 50% 100%;
+  transform: scale(1.04);
+  filter: brightness(0.78);
+}
+
+.featuredCard--has-fullpage{
+  transition: transform 400ms cubic-bezier(.215, .61, .355, 1);
+}
+
+.featuredCard--has-fullpage:hover .featuredCard__mainLink,
+.featuredCard--has-fullpage:focus-within .featuredCard__mainLink{
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow:
+    0 0 20px rgba(139, 92, 246, 0.15),
+    0 0 40px rgba(54, 226, 220, 0.1),
+    0 12px 28px rgba(0, 0, 0, 0.34);
+}
+
 .featuredCard:hover .featuredCard__overlay,
 .featuredCard:focus-within .featuredCard__overlay{
   opacity: 1;

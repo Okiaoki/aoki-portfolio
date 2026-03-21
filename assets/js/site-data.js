@@ -157,7 +157,8 @@ window.SITE_DATA = {
         tags: ['コーポレートサイト', 'マルチページ構成', 'グラスモーフィズム', 'レスポンシブ', 'アニメーション演出'],
         publishedAt: '2026-03-21',
         url:   'https://okiaoki.github.io/Aoki-Animation/',
-        image: 'assets/img/work-Aoki-Animation.jpg'
+        image: 'assets/img/work-Aoki-Animation.jpg',
+        fullImage: 'assets/img/work-Aoki-Animation-full.jpg'
       },
       {
         title: 'Aoki Design Studio Works Finder',
@@ -177,7 +178,8 @@ window.SITE_DATA = {
         tags: ['JavaScript', 'シミュレーターUI', 'PDF出力', 'i18n対応', '導線設計'],
         publishedAt: '2026-03-12',
         url:   'https://okiaoki.github.io/Aoki-Mitumori/',
-        image: 'assets/img/work-Aoki-Mitumori.jpg'
+        image: 'assets/img/work-Aoki-Mitumori.jpg',
+        fullImage: 'assets/img/work-Aoki-Mitumori-full.jpg'
       },
       {
         title: 'Aoki Beauty Clinic',
@@ -187,7 +189,8 @@ window.SITE_DATA = {
         tags: ['広告LP', 'CTA設計', 'ライトボックス', 'コンバージョン最適化', 'レスポンシブ'],
         publishedAt: '2026-03-10',
         url:   'https://okiaoki.github.io/Aoki-BeautyClinic/',
-        image: 'assets/img/work-Aoki-BeautyClinic.jpg'
+        image: 'assets/img/work-Aoki-BeautyClinic.jpg',
+        fullImage: 'assets/img/work-Aoki-BeautyClinic-full.jpg'
       },
       {
         title: 'Aoki Tech Studio',
@@ -197,7 +200,8 @@ window.SITE_DATA = {
         tags: ['コーポレートLP', 'カウントアップ演出', 'Netlifyフォーム', 'パララックス', 'アクセシビリティ'],
         publishedAt: '2026-02-28',
         url:   'https://okiaoki.github.io/Aoki-Tech-Studio/',
-        image: 'assets/img/work-Aoki-Tech-Studio.jpg'
+        image: 'assets/img/work-Aoki-Tech-Studio.jpg',
+        fullImage: 'assets/img/work-Aoki-Tech-Studio-full.jpg'
       },
       {
         title: 'Cafe Aoki',
@@ -207,7 +211,8 @@ window.SITE_DATA = {
         tags: ['ブランドサイト', 'パララックス', '予約フォーム', 'ダークUI', '世界観設計'],
         publishedAt: '2025-10-21',
         url:   'https://okiaoki.github.io/cafe-aoki/',
-        image: 'assets/img/work-cafeaoki.jpg'
+        image: 'assets/img/work-cafeaoki.jpg',
+        fullImage: 'assets/img/work-cafeaoki-full.jpg'
       },
       {
         title: 'Aoki Family English',
@@ -217,7 +222,8 @@ window.SITE_DATA = {
         tags: ['集客LP', 'モーダルUI', '予約フォーム', 'モバイルCTA', 'スクロールアニメーション'],
         publishedAt: '2025-10-19',
         url:   'https://okiaoki.github.io/aoki-family-english/',
-        image: 'assets/img/work-AokiFamilyEnglish.jpg'
+        image: 'assets/img/work-AokiFamilyEnglish.jpg',
+        fullImage: 'assets/img/work-AokiFamilyEnglish-full.jpg'
       },
       {
         title: 'AokiLotion',
@@ -227,7 +233,8 @@ window.SITE_DATA = {
         tags: ['販売LP', '購買導線', 'BEM設計', 'レスポンシブ画像', 'フォームUI'],
         publishedAt: '2025-11-15',
         url:   'https://okiaoki.github.io/aoki-lotion-lp/',
-        image: 'assets/img/work-AokiLotion.jpg'
+        image: 'assets/img/work-AokiLotion.jpg',
+        fullImage: 'assets/img/work-AokiLotion-full.jpg'
       },
       {
         title: 'ポップアップストア 告知LP',
@@ -237,7 +244,8 @@ window.SITE_DATA = {
         tags: ['イベントLP', 'SVGアニメーション', 'パララックス', 'YouTube埋め込み', '高級感演出'],
         publishedAt: '2026-03-04',
         url:   'https://okiaoki.github.io/lp-aoki-standard/',
-        image: 'assets/img/work-lp-aoki-standard.jpg'
+        image: 'assets/img/work-lp-aoki-standard.jpg',
+        fullImage: 'assets/img/work-lp-aoki-standard-full.jpg'
       },
       {
         title: 'AokiCosmetic WP Theme',
