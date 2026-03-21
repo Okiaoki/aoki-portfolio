@@ -168,7 +168,8 @@ window.SITE_DATA = {
         tags: ['React', 'TypeScript', 'データ駆動UI', '検索UI', '比較機能', '状態管理', '相談導線'],
         publishedAt: '2026-03-14',
         url:   'https://okiaoki.github.io/works-finder/',
-        image: 'assets/img/work-Aoki Design Studio Works Finder.jpg'
+        image: 'assets/img/work-Aoki Design Studio Works Finder.jpg',
+        fullImage: 'assets/img/work-Aoki Design Studio Works Finder.jpg'
       },
       {
         title: 'Aoki Mitumori',
