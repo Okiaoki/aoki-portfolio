@@ -106,7 +106,7 @@ window.SITE_DATA = {
       {
         label: 'LP CODING',
         title: 'LP制作（静的コーディング）',
-        price: '120,000円〜',
+        price: '150,000円〜',
         delivery: '10日〜15日',
         cta: 'このプランについて相談する',
         items: ['デザインデータ忠実再現', 'レスポンシブ対応', '基本アニメーション実装・速度最適化']
@@ -114,7 +114,7 @@ window.SITE_DATA = {
       {
         label: 'WORDPRESS',
         title: 'WordPressテーマ化（既存LP移行）',
-        price: '150,000円〜',
+        price: '200,000円〜',
         delivery: '14日〜21日',
         cta: 'このプランについて相談する',
         items: ['固定ページ / 投稿機能実装', 'カスタムフィールド対応', '管理画面から更新可能な構成設計']

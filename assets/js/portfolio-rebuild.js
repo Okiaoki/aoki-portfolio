@@ -174,7 +174,7 @@
     `<article class="pricingCard">` +
       `<p class="pricingCard__eyebrow">${esc(plan.label)}</p>` +
       `<h3 class="pricingCard__title">${esc(plan.title)}</h3>` +
-      `<p class="pricingCard__price">${esc(plan.price)}</p>` +
+      `<p class="pricingCard__price">${esc(plan.price).replace(/(円〜?)/, '<span class="pricingCard__unit">$1</span>')}</p>` +
       `<p class="pricingCard__delivery"><span>納期目安</span>${esc(plan.delivery)}</p>` +
       `<ul class="pricingCard__list">${(plan.items || []).map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` +
       `<button type="button" class="pricingCard__cta js-openContactForm">${esc(plan.cta)}</button>` +
@@ -326,6 +326,11 @@
       '<h2 class="music__title"><span class="hd">料金</span></h2>' +
       '<section class="portfolioPanel pricingPlan" aria-label="料金プラン">' +
         '<div class="pricingPlan__grid">' + pricingPlans.map(buildPricingCard).join('') + '</div>' +
+        '<a href="https://okiaoki.github.io/works-finder/" class="pricingBridge" target="_blank" rel="noopener noreferrer">' +
+          '<span class="pricingBridge__label">WORKS FINDER</span>' +
+          '<span class="pricingBridge__text">近い事例を探して、相談の準備を始める</span>' +
+          '<span class="pricingBridge__arrow">\u2192</span>' +
+        '</a>' +
         '<div class="pricingPlan__subgrid">' +
           '<section class="pricingSupport pricingSupport--options" aria-label="オプション">' +
             '<p class="pricingSupport__title">オプション</p>' +
