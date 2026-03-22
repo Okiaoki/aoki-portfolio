@@ -2077,10 +2077,10 @@ body.is-movie .kv__frame::before{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(5, 12, 22, 0.28);
+  background: transparent;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 220ms ease, background-color 220ms ease;
+  transition: opacity 220ms ease;
 }
 
 .featuredCard__actions{
@@ -2160,7 +2160,7 @@ body.is-movie .kv__frame::before{
 .featuredCard:hover .featuredCard__overlay,
 .featuredCard:focus-within .featuredCard__overlay{
   opacity: 1;
-  background: rgba(5, 12, 22, 0.48);
+  background: transparent;
 }
 
 .featuredCard:hover .featuredCard__actions,
