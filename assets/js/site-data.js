@@ -266,10 +266,10 @@ window.SITE_DATA = {
       {
         title: 'Aoki Family English',
         category: '英語教室 / 集客LP',
-        meta: '英語教室の入会促進LP。子育て世代に響く情報構成と安心感の演出',
-        summary: '家族向け英語教室の入会促進LPです。コーラルカラーと丸ゴシックで親しみやすさを前面に出しつつ、コース詳細モーダル・予約フォーム・確認ステップまで一通りの問い合わせ導線を実装。モバイルでは固定CTAボタンで離脱を防ぐ構成にしています。',
-        tags: ['集客LP', 'モーダルUI', '予約フォーム', 'モバイルCTA', 'スクロールアニメーション'],
-        publishedAt: '2025-10-19',
+        meta: '家族向け英会話教室LP。キッズ・ママ・パパの3プランと無料体験導線を設計',
+        summary: '経堂の家族向け英会話教室LP。キッズ・ママ・パパ3プラン紹介、講師紹介、料金表、無料体験予約フォームを1ページに集約。',
+        tags: ['英会話教室LP', 'プラン紹介', '予約フォーム', 'レスポンシブ', 'スクロールアニメーション'],
+        publishedAt: '2026-03-22',
         url:   'https://okiaoki.github.io/aoki-family-english/',
         image: 'assets/img/work-AokiFamilyEnglish.jpg',
         fullImage: 'assets/img/work-AokiFamilyEnglish-full.jpg'
