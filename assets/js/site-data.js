@@ -20,6 +20,7 @@ window.SITE_DATA = {
     { label: 'GitHub', url: 'https://github.com/Okiaoki', targetBlank: true }
   ],
   footerBanners: [
+    { image: 'assets/img/work-AokiGym.jpg',                        url: 'https://okiaoki.github.io/AokiGym/',         targetBlank: true },
     { image: 'assets/img/work-BistroAoki.jpg',                     url: 'https://okiaoki.github.io/BistroAoki/',      targetBlank: true },
     { image: 'assets/img/work-AokiEstate.jpg',                     url: 'https://okiaoki.github.io/AokiEstate/',      targetBlank: true },
     { image: 'assets/img/work-Aoki-Animation.jpg',                 url: 'https://okiaoki.github.io/Aoki-Animation/',  targetBlank: true },
@@ -32,6 +33,7 @@ window.SITE_DATA = {
     131: {
       acf: {
         fv_bnrlists: [
+          { fv_bnrimg: 'assets/img/work-AokiGym.jpg',                        fv_bnrurl: 'https://okiaoki.github.io/AokiGym/',         fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-BistroAoki.jpg',                     fv_bnrurl: 'https://okiaoki.github.io/BistroAoki/',      fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-AokiEstate.jpg',                     fv_bnrurl: 'https://okiaoki.github.io/AokiEstate/',      fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-Aoki-Animation.jpg',                 fv_bnrurl: 'https://okiaoki.github.io/Aoki-Animation/',  fv_bnrtarget: true },
@@ -44,7 +46,8 @@ window.SITE_DATA = {
     }
   },
   posts: [
-    { id: 0, date: '2026-03-22T18:00:00+09:00', title: { rendered: 'イタリアン・ビストロサイト（Bistro Aoki）を公開しました' }, link: '#movie' },
+    { id: 0, date: '2026-03-22T20:00:00+09:00', title: { rendered: 'パーソナルジムLP（Aoki Gym）を公開しました' }, link: '#movie' },
+    { id: 1, date: '2026-03-22T18:00:00+09:00', title: { rendered: 'イタリアン・ビストロサイト（Bistro Aoki）を公開しました' }, link: '#movie' },
     { id: 1, date: '2026-03-22T12:00:00+09:00', title: { rendered: '不動産会社サイト（Aoki Estate）を公開しました' }, link: '#movie' },
     { id: 1, date: '2026-03-21T12:00:00+09:00', title: { rendered: 'アニメ制作会社コーポレートサイト（Aoki Animation）を公開しました' }, link: '#movie' },
     { id: 1, date: '2026-03-19T12:00:00+09:00', title: { rendered: 'Works Finder（React版）を公開しました' }, link: '#movie' },
@@ -53,7 +56,8 @@ window.SITE_DATA = {
     { id: 4, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' }
   ],
   movie: [
-    { id: 0, title: { rendered: 'Bistro Aoki' },        acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/BistroAoki/',        image: 'assets/img/work-BistroAoki.jpg'        },
+    { id: 0, title: { rendered: 'Aoki Gym' },           acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiGym/',           image: 'assets/img/work-AokiGym.jpg'           },
+    { id: 1, title: { rendered: 'Bistro Aoki' },        acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/BistroAoki/',        image: 'assets/img/work-BistroAoki.jpg'        },
     { id: 1, title: { rendered: 'Aoki Estate' },        acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiEstate/',        image: 'assets/img/work-AokiEstate.jpg'        },
     { id: 1, title: { rendered: 'Aoki Animation' },     acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Animation/',    image: 'assets/img/work-Aoki-Animation.jpg'    },
     { id: 1, title: { rendered: 'Works Finder' },       acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/works-finder/',      image: 'assets/img/work-Aoki Design Studio Works Finder.jpg' },
@@ -63,7 +67,8 @@ window.SITE_DATA = {
     { id: 5, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
   ],
   mv: [
-    { id: 0, title: { rendered: 'Bistro Aoki' },             acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/BistroAoki/',        mv_thumb: { sizes: { large: 'assets/img/work-BistroAoki.jpg'        } } } },
+    { id: 0, title: { rendered: 'Aoki Gym' },                acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiGym/',           mv_thumb: { sizes: { large: 'assets/img/work-AokiGym.jpg'           } } } },
+    { id: 1, title: { rendered: 'Bistro Aoki' },             acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/BistroAoki/',        mv_thumb: { sizes: { large: 'assets/img/work-BistroAoki.jpg'        } } } },
     { id: 1, title: { rendered: 'Aoki Estate' },             acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiEstate/',        mv_thumb: { sizes: { large: 'assets/img/work-AokiEstate.jpg'        } } } },
     { id: 1, title: { rendered: 'Aoki Animation' },          acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Animation/',    mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Animation.jpg'    } } } },
     { id: 1, title: { rendered: 'Works Finder (React)' },    acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/works-finder/',      mv_thumb: { sizes: { large: 'assets/img/work-Aoki Design Studio Works Finder.jpg' } } } },
@@ -159,6 +164,17 @@ window.SITE_DATA = {
       form:   'https://formspree.io/f/xdkwllne'
     },
     works: [
+      {
+        title: 'Aoki Gym',
+        category: 'パーソナルジム / LP',
+        meta: 'パーソナルジムの集客LP。ビフォーアフター・プログラム紹介・トレーナー紹介で入会導線を設計',
+        summary: '架空のパーソナルジムLP。ビフォーアフター比較・プログラム紹介・トレーナー紹介・予約導線を1ページに集約した集客LP。',
+        tags: ['ジムLP', 'ビフォーアフター', 'CTA設計', 'レスポンシブ', 'スクロールアニメーション'],
+        publishedAt: '2026-03-22',
+        url:   'https://okiaoki.github.io/AokiGym/',
+        image: 'assets/img/work-AokiGym.jpg',
+        fullImage: 'assets/img/work-AokiGym-full.jpg'
+      },
       {
         title: 'Bistro Aoki',
         category: 'イタリアン・ビストロ / レストランサイト',
