@@ -20,6 +20,7 @@ window.SITE_DATA = {
     { label: 'GitHub', url: 'https://github.com/Okiaoki', targetBlank: true }
   ],
   footerBanners: [
+    { image: 'assets/img/work-AokiEstate.jpg',                     url: 'https://okiaoki.github.io/AokiEstate/',      targetBlank: true },
     { image: 'assets/img/work-Aoki-Animation.jpg',                 url: 'https://okiaoki.github.io/Aoki-Animation/',  targetBlank: true },
     { image: 'assets/img/work-Aoki Design Studio Works Finder.jpg', url: 'https://okiaoki.github.io/works-finder/',   targetBlank: true },
     { image: 'assets/img/work-Aoki-BeautyClinic.jpg',              url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', targetBlank: true },
@@ -30,6 +31,7 @@ window.SITE_DATA = {
     131: {
       acf: {
         fv_bnrlists: [
+          { fv_bnrimg: 'assets/img/work-AokiEstate.jpg',                     fv_bnrurl: 'https://okiaoki.github.io/AokiEstate/',      fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-Aoki-Animation.jpg',                 fv_bnrurl: 'https://okiaoki.github.io/Aoki-Animation/',  fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-Aoki Design Studio Works Finder.jpg', fv_bnrurl: 'https://okiaoki.github.io/works-finder/',   fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-Aoki-BeautyClinic.jpg',              fv_bnrurl: 'https://okiaoki.github.io/Aoki-BeautyClinic/', fv_bnrtarget: true },
@@ -40,14 +42,16 @@ window.SITE_DATA = {
     }
   },
   posts: [
-    { id: 0, date: '2026-03-21T12:00:00+09:00', title: { rendered: 'アニメ制作会社コーポレートサイト（Aoki Animation）を公開しました' }, link: '#movie' },
+    { id: 0, date: '2026-03-22T12:00:00+09:00', title: { rendered: '不動産会社サイト（Aoki Estate）を公開しました' }, link: '#movie' },
+    { id: 1, date: '2026-03-21T12:00:00+09:00', title: { rendered: 'アニメ制作会社コーポレートサイト（Aoki Animation）を公開しました' }, link: '#movie' },
     { id: 1, date: '2026-03-19T12:00:00+09:00', title: { rendered: 'Works Finder（React版）を公開しました' }, link: '#movie' },
     { id: 2, date: '2026-03-12T12:00:00+09:00', title: { rendered: '見積シミュレーターサイト（Aoki Mitumori）を公開しました' }, link: '#movie' },
     { id: 3, date: '2026-03-10T12:00:00+09:00', title: { rendered: '美容クリニック向け広告LP（Aoki Beauty Clinic）を納品しました' }, link: '#movie' },
     { id: 4, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' }
   ],
   movie: [
-    { id: 0, title: { rendered: 'Aoki Animation' },     acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Animation/',    image: 'assets/img/work-Aoki-Animation.jpg'    },
+    { id: 0, title: { rendered: 'Aoki Estate' },        acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiEstate/',        image: 'assets/img/work-AokiEstate.jpg'        },
+    { id: 1, title: { rendered: 'Aoki Animation' },     acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Animation/',    image: 'assets/img/work-Aoki-Animation.jpg'    },
     { id: 1, title: { rendered: 'Works Finder' },       acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/works-finder/',      image: 'assets/img/work-Aoki Design Studio Works Finder.jpg' },
     { id: 2, title: { rendered: 'Aoki Mitumori' },      acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Mitumori/',     image: 'assets/img/work-Aoki-Mitumori.jpg'     },
     { id: 3, title: { rendered: 'Aoki Beauty Clinic' }, acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', image: 'assets/img/work-Aoki-BeautyClinic.jpg' },
@@ -55,7 +59,8 @@ window.SITE_DATA = {
     { id: 5, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
   ],
   mv: [
-    { id: 0, title: { rendered: 'Aoki Animation' },          acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Animation/',    mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Animation.jpg'    } } } },
+    { id: 0, title: { rendered: 'Aoki Estate' },             acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiEstate/',        mv_thumb: { sizes: { large: 'assets/img/work-AokiEstate.jpg'        } } } },
+    { id: 1, title: { rendered: 'Aoki Animation' },          acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Animation/',    mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Animation.jpg'    } } } },
     { id: 1, title: { rendered: 'Works Finder (React)' },    acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/works-finder/',      mv_thumb: { sizes: { large: 'assets/img/work-Aoki Design Studio Works Finder.jpg' } } } },
     { id: 2, title: { rendered: 'Aoki Mitumori' },           acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Mitumori/',     mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Mitumori.jpg'     } } } },
     { id: 3, title: { rendered: 'Aoki Beauty Clinic LP' },   acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-BeautyClinic/', mv_thumb: { sizes: { large: 'assets/img/work-Aoki-BeautyClinic.jpg' } } } },
@@ -77,7 +82,7 @@ window.SITE_DATA = {
       './assets/img/profile-showcase/portfolio-shot-10.jpg'
     ],
     leadJa: '医療・美容業界で培った精度への意識を軸に、設計から運用まで一貫したWeb制作を行っています。',
-    heroDateJa: '更新日: 2026年3月14日',
+    heroDateJa: '更新日: 2026年3月22日',
     heroDateEn: 'Aoki Portfolio',
     about: {
       title: '私について',
@@ -149,6 +154,17 @@ window.SITE_DATA = {
       form:   'https://formspree.io/f/xdkwllne'
     },
     works: [
+      {
+        title: 'Aoki Estate',
+        category: '不動産会社 / マルチページサイト',
+        meta: '架空の地域密着型不動産会社サイト。モダン×ナチュラルのデザインと本格的なJS機能を実装',
+        summary: '杉並・中野・世田谷エリアに密着する架空の不動産会社のコーポレートサイトです。全16ページ構成（トップ・物件一覧・物件詳細6件・会社概要・スタッフ・オーナー向け・お客様の声・コラム・採用・お問い合わせ）。明朝体×ゴシック体のタイポグラフィ、アースカラー基調のモダンナチュラルなデザイン。物件検索フィルタリング・並び替え・ギャラリーモーダル・フォームバリデーション等のVanilla JS機能を実装。レスポンシブ対応・WCAG AAコントラスト準拠。',
+        tags: ['マルチページサイト', 'Vanilla HTML/CSS/JS', '物件検索UI', 'フォームバリデーション', 'ギャラリーUI', 'レスポンシブ', 'アクセシビリティ'],
+        publishedAt: '2026-03-22',
+        url:   'https://okiaoki.github.io/AokiEstate/',
+        image: 'assets/img/work-AokiEstate.jpg',
+        fullImage: 'assets/img/work-AokiEstate-full.jpg'
+      },
       {
         title: 'Aoki Animation',
         category: 'アニメ制作会社 / コーポレートサイト',
