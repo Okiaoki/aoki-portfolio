@@ -7,7 +7,7 @@ window.SITE_DATA = {
     subtitle: 'Design × Code × Precision'
   },
   nav: [
-    { id: 'news',         label: '制作実績',     en: 'WORKS',    ja: '制作実績' },
+    { id: 'news',         label: 'Pick Up',      en: 'PICK UP',  ja: '注目の制作実績' },
     { id: 'movie',        label: '注目作品',     en: 'FEATURED', ja: '注目作品' },
     { id: 'introduction', label: '自己紹介',     en: 'PROFILE',  ja: '自己紹介' },
     { id: 'story',        label: '制作スタイル', en: 'STYLE',    ja: '制作スタイル' },
@@ -156,6 +156,24 @@ window.SITE_DATA = {
       { step: '02', title: '設計',       text: 'レスポンシブ対応を前提に、構成とビジュアル方針を設計します。' },
       { step: '03', title: '実装',       text: 'セマンティックなHTML、拡張しやすいCSS、必要なJSで構築します。' },
       { step: '04', title: '公開',       text: '公開後の確認、運用引き継ぎ、更新フローまで整備します。' }
+    ],
+    pickup: [
+      {
+        title: 'Aoki Gym',
+        category: 'パーソナルジム / LP',
+        url: 'https://okiaoki.github.io/AokiGym/',
+        image: 'assets/img/work-AokiGym.jpg',
+        fullImage: 'assets/img/work-AokiGym-full.jpg'
+      },
+      {
+        title: 'Bistro Aoki',
+        category: 'イタリアン・ビストロ / レストランサイト',
+        url: 'https://okiaoki.github.io/BistroAoki/',
+        image: 'assets/img/work-BistroAoki.jpg',
+        fullImage: 'assets/img/work-BistroAoki-full.jpg'
+      },
+      { comingSoon: true },
+      { comingSoon: true }
     ],
     contact: {
       lead: '新規制作や既存サイト改善のご相談をお気軽にどうぞ。',

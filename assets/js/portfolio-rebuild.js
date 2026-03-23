@@ -259,11 +259,34 @@
     $('.fv__date .hd').eq(0).text(p.heroDateJa || '');
     $('.fv__date .hd').eq(1).text(p.heroDateEn || '');
 
-    // Works — first 5 (news section)
-    const worksHtml = works.slice(0, 5).map(buildWorksCard).join('');
-    if (worksHtml) {
-      $('#js-newsLists').html(worksHtml).addClass('portfolioWorks');
-      $('.news__more').html('<a href="#works-all" class="news__moreLink js-anchor"><span>制作実績をすべて見る</span></a>');
+    // Pick Up (news section)
+    const pickup = Array.isArray(p.pickup) ? p.pickup : [];
+    const pickupCards = pickup.map(function(item) {
+      if (item.comingSoon) {
+        return '<article class="pickupCard--comingSoon"><span class="pickupCard--comingSoonText">Coming Soon</span></article>';
+      }
+      var hasFullPage = Boolean(item.fullImage);
+      var fullpageClass = hasFullPage ? ' featuredCard--has-fullpage' : '';
+      var imgSrc = hasFullPage ? esc(item.fullImage) : esc(item.image);
+      var imgClass = hasFullPage ? 'featuredCard__img featuredCard__img--fullpage' : 'featuredCard__img';
+      return (
+        '<article class="featuredCard' + fullpageClass + '">' +
+          '<a class="featuredCard__mainLink" href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(item.title) + ' のサイトを見る">' +
+            '<span class="featuredCard__thumb"><img class="' + imgClass + '" src="' + imgSrc + '" alt="' + esc(item.title) + ' サムネイル" loading="lazy" decoding="async" width="640" height="360"></span>' +
+            '<span class="featuredCard__body">' +
+              '<span class="featuredCard__title">' + esc(item.title) + '</span>' +
+              '<span class="featuredCard__meta">' + esc(item.category) + '</span>' +
+            '</span>' +
+          '</a>' +
+        '</article>'
+      );
+    }).join('');
+    if (pickupCards) {
+      $('#news .news__inner').html(
+        '<h2 class="news__title"><span class="hd">注目の制作実績</span></h2>' +
+        '<div class="pickupGrid">' + pickupCards + '</div>' +
+        '<div class="news__more"><a href="#works-all" class="news__moreLink js-anchor"><span>制作実績をすべて見る</span></a></div>'
+      );
     }
 
     // Featured grid — all works (movie section)
