@@ -20,6 +20,7 @@ window.SITE_DATA = {
     { label: 'GitHub', url: 'https://github.com/Okiaoki', targetBlank: true }
   ],
   footerBanners: [
+    { image: 'assets/img/work-AokiTax.jpg',                        url: 'https://okiaoki.github.io/AokiTax/',         targetBlank: true },
     { image: 'assets/img/work-AokiGym.jpg',                        url: 'https://okiaoki.github.io/AokiGym/',         targetBlank: true },
     { image: 'assets/img/work-BistroAoki.jpg',                     url: 'https://okiaoki.github.io/BistroAoki/',      targetBlank: true },
     { image: 'assets/img/work-AokiEstate.jpg',                     url: 'https://okiaoki.github.io/AokiEstate/',      targetBlank: true },
@@ -33,6 +34,7 @@ window.SITE_DATA = {
     131: {
       acf: {
         fv_bnrlists: [
+          { fv_bnrimg: 'assets/img/work-AokiTax.jpg',                        fv_bnrurl: 'https://okiaoki.github.io/AokiTax/',         fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-AokiGym.jpg',                        fv_bnrurl: 'https://okiaoki.github.io/AokiGym/',         fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-BistroAoki.jpg',                     fv_bnrurl: 'https://okiaoki.github.io/BistroAoki/',      fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-AokiEstate.jpg',                     fv_bnrurl: 'https://okiaoki.github.io/AokiEstate/',      fv_bnrtarget: true },
@@ -46,6 +48,7 @@ window.SITE_DATA = {
     }
   },
   posts: [
+    { id: 0, date: '2026-03-24T20:00:00+09:00', title: { rendered: '税理士事務所サイト（Aoki Tax Office）を公開しました' }, link: '#movie' },
     { id: 0, date: '2026-03-22T20:00:00+09:00', title: { rendered: 'パーソナルジムLP（Aoki Gym）を公開しました' }, link: '#movie' },
     { id: 1, date: '2026-03-22T18:00:00+09:00', title: { rendered: 'イタリアン・ビストロサイト（Bistro Aoki）を公開しました' }, link: '#movie' },
     { id: 1, date: '2026-03-22T12:00:00+09:00', title: { rendered: '不動産会社サイト（Aoki Estate）を公開しました' }, link: '#movie' },
@@ -56,6 +59,7 @@ window.SITE_DATA = {
     { id: 4, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' }
   ],
   movie: [
+    { id: 0, title: { rendered: 'Aoki Tax Office' },    acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiTax/',           image: 'assets/img/work-AokiTax.jpg'           },
     { id: 0, title: { rendered: 'Aoki Gym' },           acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiGym/',           image: 'assets/img/work-AokiGym.jpg'           },
     { id: 1, title: { rendered: 'Bistro Aoki' },        acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/BistroAoki/',        image: 'assets/img/work-BistroAoki.jpg'        },
     { id: 1, title: { rendered: 'Aoki Estate' },        acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiEstate/',        image: 'assets/img/work-AokiEstate.jpg'        },
@@ -67,6 +71,7 @@ window.SITE_DATA = {
     { id: 5, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
   ],
   mv: [
+    { id: 0, title: { rendered: 'Aoki Tax Office' },          acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiTax/',           mv_thumb: { sizes: { large: 'assets/img/work-AokiTax.jpg'           } } } },
     { id: 0, title: { rendered: 'Aoki Gym' },                acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiGym/',           mv_thumb: { sizes: { large: 'assets/img/work-AokiGym.jpg'           } } } },
     { id: 1, title: { rendered: 'Bistro Aoki' },             acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/BistroAoki/',        mv_thumb: { sizes: { large: 'assets/img/work-BistroAoki.jpg'        } } } },
     { id: 1, title: { rendered: 'Aoki Estate' },             acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiEstate/',        mv_thumb: { sizes: { large: 'assets/img/work-AokiEstate.jpg'        } } } },
@@ -182,6 +187,17 @@ window.SITE_DATA = {
       form:   'https://formspree.io/f/xdkwllne'
     },
     works: [
+      {
+        title: 'Aoki Tax Office',
+        category: '税理士事務所 / マルチページサイト',
+        meta: '架空の税理士事務所サイト。紺×白×金の王道トーンに、エディトリアル型の実績表現やマーキー演出で差別化',
+        summary: '個人税理士事務所の全3ページサイト。紺×白×金の王道トーンに、全幅レイアウトとマーキー演出で情報密度と格式を両立。',
+        tags: ['士業サイト', 'マルチページ', 'パララックス', 'マーキー', 'フォームUI', 'レスポンシブ', 'エディトリアルデザイン'],
+        publishedAt: '2026-03-24',
+        url:   'https://okiaoki.github.io/AokiTax/',
+        image: 'assets/img/work-AokiTax.jpg',
+        fullImage: 'assets/img/work-AokiTax-full.jpg'
+      },
       {
         title: 'Aoki Gym',
         category: 'パーソナルジム / LP',
