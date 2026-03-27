@@ -195,6 +195,8 @@ const navLinkSel    = '.nav__itemLink, .gnav__itemLink';
 const sectionVis    = new Map();
 let currentSection  = '';
 let kvOrbitHideTimer = null;
+let heroShiftTimer   = null;
+let heroShiftedOnce  = false;
 
 const setActiveNavById = (id) => {
   if (!id) return;
@@ -212,6 +214,18 @@ const applyActiveSection = (id) => {
   $body.addClass(`is-${id}`);
   setActiveNavById(id);
   currentSection = id;
+
+  // Hero circle shift
+  if (heroShiftTimer) { clearTimeout(heroShiftTimer); heroShiftTimer = null; }
+  if (id === 'fv') {
+    const delay = heroShiftedOnce ? 300 : 3000;
+    heroShiftTimer = setTimeout(() => {
+      $body.addClass('is-hero-shifted');
+      heroShiftedOnce = true;
+    }, delay);
+  } else {
+    $body.removeClass('is-hero-shifted');
+  }
 
   if (kvOrbitHideTimer) { clearTimeout(kvOrbitHideTimer); kvOrbitHideTimer = null; }
   $body.removeClass('is-kv-orbit-force-hide');

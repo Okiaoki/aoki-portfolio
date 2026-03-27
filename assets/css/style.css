@@ -339,7 +339,7 @@ body.is-footer .gnav__logo .gnav__logoLink::after{
 
 .fv__catchSub{
   color: #aab6c9;
-  font-size: min(calc(17 / var(--vw-min) * 100vw), 17px);
+  font-size: min(calc(18 / var(--vw-min) * 100vw), 18px);
   letter-spacing: 0.08em;
   line-height: 1.6;
   -webkit-text-stroke: 0.4px rgba(14, 20, 30, 0.3);
@@ -1669,6 +1669,48 @@ body.is-movie .kv__frame::before{
 
 .loading__logo img{
   filter:drop-shadow(0 0 60px rgba(100,180,255,.35)) drop-shadow(0 0 20px rgba(160,130,255,.25));
+}
+
+/* ============================================
+   Loading: 円のグロウアニメーション
+   ============================================ */
+.loading__circle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(75vw, 680px);
+  height: min(75vw, 680px);
+  transform: translate(-50%, -50%) scale(0);
+  border: 1px solid rgba(100, 180, 255, 0.25);
+  border-radius: 50%;
+  box-shadow:
+    0 0 40px rgba(74, 158, 255, 0.15),
+    0 0 80px rgba(74, 158, 255, 0.08),
+    0 0 120px rgba(123, 110, 255, 0.06),
+    inset 0 0 40px rgba(74, 158, 255, 0.08),
+    inset 0 0 80px rgba(123, 110, 255, 0.04);
+  opacity: 0;
+  z-index: 1;
+}
+
+.loading.is-visible .loading__circle {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: opacity 0.4s ease,
+              transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.loading.is-exit .loading__circle {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.05);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .loading__circle {
+    width: 90vw;
+    height: 90vw;
+  }
 }
 
 .movie__swiper-slideLink,
@@ -4419,5 +4461,523 @@ body.is-introduction .introduction__title{
   .story__summary{
     padding: calc(16 / var(--vw-min) * 100vw) 0;
     border-radius: 0;
+  }
+}
+
+/* ============================================
+   Hero 改修: 円サイズ縮小（Hero 限定）
+   ============================================ */
+body.is-fv {
+  --kv-circle-width: calc(
+    min(
+      calc(var(--vh) * 1.23809523809),
+      100vw - min(calc(160 / var(--vw-min) * 100vw), 160px)
+    ) * 0.7
+  );
+}
+
+@media screen and (max-width: 768px) {
+  body.is-fv {
+    --kv-circle-width: calc(
+      calc(1040 / var(--vw-min) * 100vw) * 0.7
+    );
+  }
+}
+
+/* c2s アニメーションの開始サイズを小さい円に合わせる */
+body.is-news .kv__fixedInner,
+body.is-news .kv__fixedInner2 {
+  animation: c2s-hero-small 0.5s ease forwards;
+}
+
+@keyframes c2s-hero-small {
+  0% {
+    mask-size: 100% 100%,
+      calc(min(calc(var(--vh) * 1.23809523809), 100vw - min(calc(160 / var(--vw-min) * 100vw), 160px)) * 0.7)
+      calc(min(calc(var(--vh) * 1.23809523809), 100vw - min(calc(160 / var(--vw-min) * 100vw), 160px)) * 0.7);
+    -webkit-mask-size: 100% 100%,
+      calc(min(calc(var(--vh) * 1.23809523809), 100vw - min(calc(160 / var(--vw-min) * 100vw), 160px)) * 0.7)
+      calc(min(calc(var(--vh) * 1.23809523809), 100vw - min(calc(160 / var(--vw-min) * 100vw), 160px)) * 0.7);
+    mask-image: linear-gradient(#000,#000), radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70.5%, rgba(0,0,0,0) 70.6%, rgba(0,0,0,0) 100%);
+    -webkit-mask-image: linear-gradient(#000,#000), radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70.5%, rgba(0,0,0,0) 70.6%, rgba(0,0,0,0) 100%);
+  }
+  50% {
+    -webkit-mask-size: 100% 100%, 0 calc(var(--kv-circle-width) * 0.5625);
+    mask-size: 100% 100%, 0 calc(var(--kv-circle-width) * 0.5625);
+    -webkit-mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000);
+    mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000);
+  }
+  100% {
+    -webkit-mask-size: 100% 100%, var(--kv-circle-width) calc(var(--kv-circle-width) * 0.5625);
+    mask-size: 100% 100%, var(--kv-circle-width) calc(var(--kv-circle-width) * 0.5625);
+    -webkit-mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000);
+    mask-image: linear-gradient(#000,#000), linear-gradient(#000,#000);
+  }
+}
+
+/* ============================================
+   Hero 改修: 不要要素の非表示（Hero 限定）
+   ============================================ */
+
+/* 1. 左上ロゴ — Hero 時のみ強制非表示。スクロール後の表示は既存ロジックで自動復帰 */
+body.is-fv .gnav__logo {
+  display: none !important;
+}
+
+/* 1-b. Hero 大ロゴ（h1.fv__logo）— Hero 時のみ非表示 */
+body.is-fv .fv__logo {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 2. 上部ナビ — Hero 時のみ非表示 */
+body.is-fv #nav {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+body:not(.is-fv) #nav {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 300ms ease, visibility 300ms ease;
+}
+
+/* 3. KV スイッチャー（ドット 3 つ）— 完全非表示 */
+.fv__kvSwitcher {
+  display: none !important;
+}
+
+/* 4. 左下キャッチコピー — 常時非表示 */
+.fv__catch-date {
+  display: none !important;
+}
+
+/* 5. CTA ボタン — Hero 時のみ非表示 */
+body.is-fv .fv__quickActions {
+  display: none !important;
+}
+
+/* 6. カテゴリタグ群 — 完全非表示 */
+.kvOrbit {
+  display: none !important;
+}
+
+/* 7. 縦書き相談ボタン — Hero 時のみ非表示 */
+body.is-fv .headerCtaVertical {
+  display: none !important;
+}
+
+/* ============================================
+   AIO Block — 5段構成
+   ============================================ */
+.fv__aio {
+  position: absolute;
+  left: min(calc(180 / var(--vw-min) * 100vw), 180px);
+  top: min(calc(50 / var(--vw-min) * 100vw), 50px);
+  z-index: 600;
+  max-width: min(calc(600 / var(--vw-min) * 100vw), 600px);
+  pointer-events: none;
+}
+
+body:not(.is-fv) .fv__aio {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+body.is-fv .fv__aio {
+  opacity: 1;
+  transition: opacity 600ms ease 0.3s;
+}
+
+/* --- 1. Question (大見出し・円弧インデント) --- */
+.fv__aio-question {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0;
+  text-align: center;
+  padding-left: min(calc(80 / var(--vw-min) * 100vw), 80px);
+}
+
+.fv__aio-line {
+  display: block;
+  font-family: "Noto Serif JP", "游明朝", "Yu Mincho", serif;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.9),
+    0 4px 16px rgba(0,0,0,0.7),
+    0 8px 32px rgba(0,0,0,0.5),
+    0 0 60px rgba(0,0,0,0.4);
+  line-height: 1.2;
+}
+
+.fv__aio-line--1 {
+  font-size: min(calc(29 / var(--vw-min) * 100vw), 29px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.78);
+  padding-left: min(calc(100 / var(--vw-min) * 100vw), 100px);
+  text-shadow:
+    0 0 6px rgba(0,0,0,1),
+    0 2px 8px rgba(0,0,0,0.9),
+    0 4px 20px rgba(0,0,0,0.6);
+}
+
+.fv__aio-line--2 {
+  font-size: min(calc(55 / var(--vw-min) * 100vw), 55px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  padding-left: min(calc(100 / var(--vw-min) * 100vw), 100px);
+  -webkit-text-stroke: 0.5px rgba(255,255,255,0.3);
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.15),
+    0 2px 8px rgba(0,0,0,0.95),
+    0 4px 20px rgba(0,0,0,0.8),
+    0 8px 40px rgba(0,0,0,0.5);
+}
+
+.fv__aio-line--3 {
+  font-size: min(calc(55 / var(--vw-min) * 100vw), 55px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  padding-left: min(calc(40 / var(--vw-min) * 100vw), 40px);
+  white-space: nowrap;
+  -webkit-text-stroke: 0.5px rgba(255,255,255,0.3);
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.15),
+    0 2px 8px rgba(0,0,0,0.95),
+    0 4px 20px rgba(0,0,0,0.8),
+    0 8px 40px rgba(0,0,0,0.5);
+}
+
+/* --- Dividers --- */
+.fv__aio-divider {
+  display: block;
+  height: 1px;
+  width: min(calc(240 / var(--vw-min) * 100vw), 240px);
+  background: linear-gradient(90deg, rgba(255,255,255,0.35), rgba(255,255,255,0));
+  margin: min(calc(20 / var(--vw-min) * 100vw), 20px) 0;
+  margin-left: min(calc(30 / var(--vw-min) * 100vw), 30px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.fv__aio-divider--short {
+  width: min(calc(160 / var(--vw-min) * 100vw), 160px);
+  margin: min(calc(16 / var(--vw-min) * 100vw), 16px) 0;
+  margin-left: min(calc(4 / var(--vw-min) * 100vw), 4px);
+}
+
+.fv__aio-divider--short:last-of-type {
+  margin-left: 0;
+}
+
+/* --- 2. Context (時代認識) --- */
+.fv__aio-context-single {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: min(calc(22 / var(--vw-min) * 100vw), 22px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  color: #ffffff !important;
+  margin: 0;
+  white-space: nowrap;
+  text-shadow:
+    0 0 6px rgba(0,0,0,1),
+    0 1px 4px rgba(0,0,0,0.95),
+    0 3px 16px rgba(0,0,0,0.7);
+  padding-bottom: min(calc(4 / var(--vw-min) * 100vw), 4px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  display: inline;
+}
+
+.fv__aio-context {
+  margin: 0;
+  text-align: center;
+  padding-left: min(calc(80 / var(--vw-min) * 100vw), 80px);
+}
+
+.fv__aio-context-line {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: min(calc(18 / var(--vw-min) * 100vw), 18px);
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: #ffffff !important;
+  text-shadow:
+    0 0 6px rgba(0,0,0,1),
+    0 1px 4px rgba(0,0,0,0.95),
+    0 3px 16px rgba(0,0,0,0.7);
+  margin: 0;
+  padding-left: min(calc(20 / var(--vw-min) * 100vw), 20px);
+}
+
+.fv__aio-context-line:nth-child(2) {
+  padding-left: min(calc(12 / var(--vw-min) * 100vw), 12px);
+}
+
+.fv__aio-context-accent {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: min(calc(18 / var(--vw-min) * 100vw), 18px);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  color: #ffffff !important;
+  text-shadow:
+    0 0 6px rgba(0,0,0,1),
+    0 1px 4px rgba(0,0,0,0.95),
+    0 3px 16px rgba(0,0,0,0.7);
+  margin: min(calc(4 / var(--vw-min) * 100vw), 4px) 0 0;
+  padding-left: min(calc(6 / var(--vw-min) * 100vw), 6px);
+}
+
+/* --- 3. Tech × Benefit (技術ラベル+説明) --- */
+.fv__aio-tech-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: min(calc(4 / var(--vw-min) * 100vw), 4px);
+}
+
+.fv__aio-tech-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.fv__aio-tech-label {
+  font-family: "Courier New", "SF Mono", monospace;
+  font-size: min(calc(16 / var(--vw-min) * 100vw), 16px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ef9f27;
+  text-shadow:
+    0 0 6px rgba(0,0,0,0.9),
+    0 2px 8px rgba(0,0,0,0.7);
+}
+
+.fv__aio-tech-desc {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: min(calc(16 / var(--vw-min) * 100vw), 16px);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #ffffff !important;
+  text-shadow:
+    0 0 8px rgba(0,0,0,1),
+    0 1px 4px rgba(0,0,0,0.9),
+    0 2px 12px rgba(0,0,0,0.7);
+}
+
+/* --- Benefit (ベネフィット2行) --- */
+.fv__aio-benefit {
+  margin: 0 0 min(calc(16 / var(--vw-min) * 100vw), 16px);
+}
+
+.fv__aio-benefit-line {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: min(calc(19 / var(--vw-min) * 100vw), 19px);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.8;
+  color: #ef9f27 !important;
+  margin: 0;
+  white-space: nowrap;
+  text-shadow:
+    0 0 6px rgba(0,0,0,0.9),
+    0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* --- 4. Statement (宣言) --- */
+.fv__aio-statement {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: min(calc(23 / var(--vw-min) * 100vw), 23px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.85);
+  text-shadow:
+    0 0 8px rgba(0,0,0,1),
+    0 2px 8px rgba(0,0,0,0.9),
+    0 4px 20px rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+/* --- 5. CTA --- */
+.fv__aio-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: min(calc(22 / var(--vw-min) * 100vw), 22px);
+  padding: 14px 34px 14px 26px;
+  border-radius: 999px;
+  background: rgba(15, 29, 50, 0.85);
+  border: 1px solid rgba(100, 160, 220, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff !important;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  font-size: min(calc(15 / var(--vw-min) * 100vw), 15px);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-decoration: none !important;
+  pointer-events: auto;
+  box-shadow:
+    0 0 8px rgba(126, 228, 255, 0.4),
+    0 0 20px rgba(112, 191, 255, 0.2),
+    0 0 40px rgba(164, 129, 255, 0.12),
+    inset 0 0 8px rgba(180, 240, 255, 0.1),
+    0 2px 12px rgba(0, 0, 0, 0.3);
+  transition: background 300ms ease, border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+  animation: ctaBoundaryPulse 3s ease-in-out infinite;
+}
+
+.fv__aio-cta:hover,
+.fv__aio-cta:focus-visible {
+  background: rgba(20, 40, 65, 0.92);
+  border-color: rgba(120, 180, 240, 0.5);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 14px rgba(147, 240, 255, 0.6),
+    0 0 32px rgba(126, 204, 255, 0.35),
+    0 0 60px rgba(185, 147, 255, 0.2),
+    inset 0 0 14px rgba(205, 246, 255, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.4);
+  outline: none;
+  animation: none;
+}
+
+@keyframes ctaBoundaryPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(126, 228, 255, 0.4),
+      0 0 20px rgba(112, 191, 255, 0.2),
+      0 0 40px rgba(164, 129, 255, 0.12),
+      inset 0 0 8px rgba(180, 240, 255, 0.1),
+      0 2px 12px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(147, 240, 255, 0.6),
+      0 0 30px rgba(126, 204, 255, 0.35),
+      0 0 56px rgba(185, 147, 255, 0.2),
+      inset 0 0 14px rgba(205, 246, 255, 0.18),
+      0 2px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* --- Mobile --- */
+@media screen and (max-width: 768px) {
+  .fv__aio {
+    left: calc(20 / var(--vw-min) * 100vw);
+    top: auto;
+    bottom: calc(80 / var(--vw-min) * 100vw);
+    max-width: 90vw;
+  }
+  .fv__aio-line--1 {
+    font-size: calc(23 / var(--vw-min) * 100vw);
+    padding-left: 0;
+  }
+  .fv__aio-line--2,
+  .fv__aio-line--3 {
+    font-size: calc(38 / var(--vw-min) * 100vw);
+    padding-left: 0;
+  }
+  .fv__aio-context-single {
+    font-size: calc(14 / var(--vw-min) * 100vw);
+    white-space: normal;
+  }
+  .fv__aio-divider,
+  .fv__aio-divider--short,
+  .fv__aio-divider--short:last-of-type {
+    margin-left: 0;
+  }
+  .fv__aio-tech-label {
+    font-size: calc(14 / var(--vw-min) * 100vw);
+  }
+  .fv__aio-tech-desc {
+    font-size: calc(12 / var(--vw-min) * 100vw);
+  }
+  .fv__aio-statement {
+    font-size: calc(16 / var(--vw-min) * 100vw);
+  }
+  .fv__aio-benefit-line {
+    font-size: calc(14 / var(--vw-min) * 100vw);
+    white-space: normal;
+  }
+}
+
+/* ============================================
+   Hero 改修: 円の右移動アニメーション（PC のみ）
+   ============================================ */
+
+/* 白い隙間対策 — コンテナ拡大 + 画像拡大率アップ */
+body.is-fv .kv__img {
+  max-width: calc(var(--kv-circle-width) + 30vw) !important;
+}
+
+body.is-fv .kv__imgOn {
+  background-size: 140% auto !important;
+  background-position: center center !important;
+}
+
+@media screen and (min-width: 769px) {
+
+  /* 通常状態のtransition定義 */
+  .kv__fixedInner,
+  .kv__fixedInner2 {
+    transition: mask-position 1.2s cubic-bezier(0.22, 0.61, 0.36, 1),
+                -webkit-mask-position 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .kv__circle {
+    transition: background-position 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  }
+
+  .kv__frame {
+    transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  .fv__centerLogo {
+    transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.75s ease !important;
+  }
+
+  /* Shifted — mask-position で円の穴を右に移動 */
+  body.is-hero-shifted .kv__fixedInner,
+  body.is-hero-shifted .kv__fixedInner2 {
+    -webkit-mask-position: center center, calc(50% + 15vw) center;
+    mask-position: center center, calc(50% + 15vw) center;
+  }
+
+  body.is-hero-shifted .kv__circle {
+    background-position: calc(50% + 15vw) center !important;
+  }
+
+  body.is-hero-shifted .kv__frame {
+    transform: translateX(15vw);
+  }
+
+  body.is-hero-shifted .fv__centerLogo {
+    transform: translate(calc(-50% + 15vw), -50%) scale(1);
+  }
+
+  /* AIO テキスト — 円移動に連動したフェードイン */
+  body.is-fv:not(.is-hero-shifted) .fv__aio {
+    opacity: 0;
+  }
+  body.is-fv.is-hero-shifted .fv__aio {
+    opacity: 1;
+    transition: opacity 800ms ease 0.4s;
+  }
+
+}
+
+/* SP: 円移動なし、AIO は is-fv 時に即表示 */
+@media screen and (max-width: 768px) {
+  body.is-fv .fv__aio {
+    opacity: 1 !important;
+    transition: opacity 600ms ease 0.3s;
   }
 }
