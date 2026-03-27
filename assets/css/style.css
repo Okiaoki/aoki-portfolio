@@ -4868,44 +4868,131 @@ body.is-fv .fv__aio {
   }
 }
 
+/* PC: benefit-line の br を非表示（nowrap で1行表示のため不要） */
+@media screen and (min-width: 769px) {
+  .fv__aio-benefit-line br,
+  .fv__aio-context-single br {
+    display: none;
+  }
+}
+
 /* --- Mobile --- */
 @media screen and (max-width: 768px) {
-  .fv__aio {
-    left: calc(20 / var(--vw-min) * 100vw);
-    top: auto;
-    bottom: calc(80 / var(--vw-min) * 100vw);
-    max-width: 90vw;
+
+  /* 1. 中央ロゴを非表示 */
+  .fv__centerLogo {
+    display: none !important;
   }
-  .fv__aio-line--1 {
-    font-size: calc(23 / var(--vw-min) * 100vw);
-    padding-left: 0;
+
+  /* 2. 左上にロゴを2倍サイズで表示 */
+  body.is-fv .fv__logo {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    width: calc(400 / var(--vw-min) * 100vw) !important;
+    height: calc(100 / var(--vw-min) * 100vw) !important;
+    position: absolute;
+    top: calc(16 / var(--vw-min) * 100vw);
+    left: calc(16 / var(--vw-min) * 100vw);
+    z-index: 700;
   }
+
+  /* ハンバーガーメニューをHero時にも表示 */
+  body.is-fv .gnav {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  /* 3. AIOブロックを上に詰める — 円に被せる配置 */
+  body.is-fv .fv__aio {
+    left: 50% !important;
+    top: calc(340 / var(--vw-min) * 100vw) !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    max-width: 90vw !important;
+    text-align: center;
+  }
+
+  .fv__aio-question {
+    align-items: center;
+    padding-left: 0 !important;
+  }
+
+  .fv__aio-line--1,
   .fv__aio-line--2,
   .fv__aio-line--3 {
+    padding-left: 0 !important;
+    text-align: center;
+  }
+
+  /* 4. フォントサイズ ×1.25 */
+  .fv__aio-line--1 {
     font-size: calc(38 / var(--vw-min) * 100vw);
-    padding-left: 0;
   }
+
+  .fv__aio-line--2,
+  .fv__aio-line--3 {
+    font-size: calc(61 / var(--vw-min) * 100vw);
+  }
+
+  .fv__aio-divider {
+    margin-left: auto !important;
+    margin-right: auto;
+  }
+
+  .fv__aio-divider--short {
+    margin-left: auto !important;
+    margin-right: auto;
+  }
+
+  .fv__aio-context {
+    padding-left: 0 !important;
+  }
+
   .fv__aio-context-single {
-    font-size: calc(14 / var(--vw-min) * 100vw);
+    font-size: calc(23 / var(--vw-min) * 100vw);
     white-space: normal;
+    text-align: center;
   }
-  .fv__aio-divider,
-  .fv__aio-divider--short,
-  .fv__aio-divider--short:last-of-type {
-    margin-left: 0;
+
+  .fv__aio-tech-list {
+    align-items: center;
   }
+
+  .fv__aio-tech-item {
+    align-items: center;
+    text-align: center;
+  }
+
   .fv__aio-tech-label {
-    font-size: calc(14 / var(--vw-min) * 100vw);
+    font-size: calc(23 / var(--vw-min) * 100vw);
   }
+
   .fv__aio-tech-desc {
-    font-size: calc(12 / var(--vw-min) * 100vw);
+    font-size: calc(20 / var(--vw-min) * 100vw);
   }
-  .fv__aio-statement {
-    font-size: calc(16 / var(--vw-min) * 100vw);
+
+  .fv__aio-benefit {
+    text-align: center;
   }
+
   .fv__aio-benefit-line {
-    font-size: calc(14 / var(--vw-min) * 100vw);
+    font-size: calc(23 / var(--vw-min) * 100vw);
     white-space: normal;
+  }
+
+  .fv__aio-statement {
+    font-size: calc(26 / var(--vw-min) * 100vw);
+    text-align: center;
+  }
+
+  .fv__aio-cta {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: calc(23 / var(--vw-min) * 100vw) !important;
   }
 }
 
