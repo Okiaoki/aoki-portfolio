@@ -20,6 +20,7 @@ window.SITE_DATA = {
     { label: 'GitHub', url: 'https://github.com/Okiaoki', targetBlank: true }
   ],
   footerBanners: [
+    { image: 'assets/img/work-Aoki-Reform.jpg',                    url: 'https://okiaoki.github.io/Aoki-Reform/',              targetBlank: true },
     { image: 'assets/img/work-Aoki-BeautyClinic-No2.jpg',          url: 'https://okiaoki.github.io/Aoki-BeautyClinic-No2/ja/', targetBlank: true },
     { image: 'assets/img/work-AokiTax.jpg',                        url: 'https://okiaoki.github.io/AokiTax/',         targetBlank: true },
     { image: 'assets/img/work-AokiGym.jpg',                        url: 'https://okiaoki.github.io/AokiGym/',         targetBlank: true },
@@ -35,6 +36,7 @@ window.SITE_DATA = {
     131: {
       acf: {
         fv_bnrlists: [
+          { fv_bnrimg: 'assets/img/work-Aoki-Reform.jpg',                    fv_bnrurl: 'https://okiaoki.github.io/Aoki-Reform/',              fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-Aoki-BeautyClinic-No2.jpg',          fv_bnrurl: 'https://okiaoki.github.io/Aoki-BeautyClinic-No2/ja/', fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-AokiTax.jpg',                        fv_bnrurl: 'https://okiaoki.github.io/AokiTax/',         fv_bnrtarget: true },
           { fv_bnrimg: 'assets/img/work-AokiGym.jpg',                        fv_bnrurl: 'https://okiaoki.github.io/AokiGym/',         fv_bnrtarget: true },
@@ -50,6 +52,7 @@ window.SITE_DATA = {
     }
   },
   posts: [
+    { id: 0, date: '2026-03-28T18:00:00+09:00', title: { rendered: 'リフォーム会社コーポレートサイト（Aoki Reform）を公開しました' }, link: '#movie' },
     { id: 0, date: '2026-03-28T12:00:00+09:00', title: { rendered: '美容クリニック総合サイト（Aoki Beauty Clinic No2）を公開しました' }, link: '#movie' },
     { id: 0, date: '2026-03-24T20:00:00+09:00', title: { rendered: '税理士事務所サイト（Aoki Tax Office）を公開しました' }, link: '#movie' },
     { id: 0, date: '2026-03-22T20:00:00+09:00', title: { rendered: 'パーソナルジムLP（Aoki Gym）を公開しました' }, link: '#movie' },
@@ -62,6 +65,7 @@ window.SITE_DATA = {
     { id: 4, date: '2026-02-18T12:00:00+09:00', title: { rendered: 'WordPressテーマ開発（AokiCosmetic）の実績を公開しました' },         link: '#news' }
   ],
   movie: [
+    { id: 0, title: { rendered: 'Aoki Reform' },             acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-Reform/',              image: 'assets/img/work-Aoki-Reform.jpg'              },
     { id: 0, title: { rendered: 'Aoki Beauty Clinic No2' }, acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/Aoki-BeautyClinic-No2/ja/', image: 'assets/img/work-Aoki-BeautyClinic-No2.jpg' },
     { id: 0, title: { rendered: 'Aoki Tax Office' },    acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiTax/',           image: 'assets/img/work-AokiTax.jpg'           },
     { id: 0, title: { rendered: 'Aoki Gym' },           acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/AokiGym/',           image: 'assets/img/work-AokiGym.jpg'           },
@@ -75,6 +79,7 @@ window.SITE_DATA = {
     { id: 5, title: { rendered: 'Cafe Aoki' },          acf: { youtube_id: '' }, url: 'https://okiaoki.github.io/cafe-aoki/',         image: 'assets/img/work-cafeaoki.jpg'          }
   ],
   mv: [
+    { id: 0, title: { rendered: 'Aoki Reform' },                acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-Reform/',              mv_thumb: { sizes: { large: 'assets/img/work-Aoki-Reform.jpg'              } } } },
     { id: 0, title: { rendered: 'Aoki Beauty Clinic No2' },    acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/Aoki-BeautyClinic-No2/ja/', mv_thumb: { sizes: { large: 'assets/img/work-Aoki-BeautyClinic-No2.jpg' } } } },
     { id: 0, title: { rendered: 'Aoki Tax Office' },          acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiTax/',           mv_thumb: { sizes: { large: 'assets/img/work-AokiTax.jpg'           } } } },
     { id: 0, title: { rendered: 'Aoki Gym' },                acf: { mv_ytid: '', mv_url: 'https://okiaoki.github.io/AokiGym/',           mv_thumb: { sizes: { large: 'assets/img/work-AokiGym.jpg'           } } } },
@@ -169,6 +174,13 @@ window.SITE_DATA = {
     ],
     pickup: [
       {
+        title: 'Aoki Reform',
+        category: 'リフォーム会社 / マルチページコーポレートサイト',
+        url: 'https://okiaoki.github.io/Aoki-Reform/',
+        image: 'assets/img/work-Aoki-Reform.jpg',
+        fullImage: 'assets/img/work-Aoki-Reform-full.jpg'
+      },
+      {
         title: 'Aoki Gym',
         category: 'パーソナルジム / LP',
         url: 'https://okiaoki.github.io/AokiGym/',
@@ -189,7 +201,6 @@ window.SITE_DATA = {
         image: 'assets/img/work-Aoki-BeautyClinic-No2.jpg',
         fullImage: 'assets/img/work-Aoki-BeautyClinic-No2-full.jpg'
       },
-      { comingSoon: true }
     ],
     contact: {
       lead: '新規制作や既存サイト改善のご相談をお気軽にどうぞ。',
@@ -198,6 +209,17 @@ window.SITE_DATA = {
       form:   'https://formspree.io/f/xdkwllne'
     },
     works: [
+      {
+        title: 'Aoki Reform',
+        category: 'リフォーム会社 / マルチページコーポレートサイト',
+        meta: '地域密着型リフォーム会社の全13ページサイト。手書き風書体×自然素材トーンで温かみ���演出し、見積シミュレーターや施工事例フィルターなどJS機能も充実',
+        summary: '地域密着型リフォーム会社の全13ページコーポレートサイトです。Klee One書体と自然素材カラーで安心感・温かみを演出。リアルタイム見積シミュレーター・施工事例フィルタリング・ビフォーアフターフリップカード・パララックス背景など、Vanilla JSで多彩なインタラクションを実装しています。',
+        tags: ['マルチページサイト（13P）', '見積シミュレーター', '施工事例フィルター', 'ビフォーアフターUI', 'パララックス', 'アクセシビリティ', 'レスポンシブ'],
+        publishedAt: '2026-03-28',
+        url:   'https://okiaoki.github.io/Aoki-Reform/',
+        image: 'assets/img/work-Aoki-Reform.jpg',
+        fullImage: 'assets/img/work-Aoki-Reform-full.jpg'
+      },
       {
         title: 'Aoki Beauty Clinic No2',
         category: '美容クリニック / 多言語マルチページサイト',
