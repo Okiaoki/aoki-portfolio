@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTACT — AKASHIKI | お問い合わせ</title>
+  <meta name="description" content="AKASHIKI（灯敷）へのお問い合わせ。LP制作・WordPress構築・Webデザインのご相談はお気軽にどうぞ。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="CONTACT — AKASHIKI | お問い合わせ">
+  <meta property="og:description" content="AKASHIKI（灯敷）へのお問い合わせ。LP制作・WordPress構築・Webデザインのご相談はお気軽にどうぞ。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sumiyakaa.github.io/portfolio/contact.html">
+  <meta property="og:image" content="https://sumiyakaa.github.io/portfolio/assets/img/ogp/OGP-05.png">
+  <meta property="og:site_name" content="AKASHIKI">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/common/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/common/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/common/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;600;800&family=Noto+Sans+JP:wght@100;300;400;500;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/transition.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "CONTACT — AKASHIKI",
+        "url": "https://sumiyakaa.github.io/portfolio/contact.html",
+        "description": "AKASHIKIへのお問い合わせページ。Web制作のご相談・お見積もりはこちらから。",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "AKASHIKI",
+          "url": "https://sumiyakaa.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "ContactPage",
+        "name": "お問い合わせ",
+        "url": "https://sumiyakaa.github.io/portfolio/contact.html",
+        "mainEntity": {
+          "@type": "Person",
+          "name": "SUMIYAKA",
+          "alternateName": "墨家",
+          "email": "leliel.soukomu74@gmail.com"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========== Page Transition Overlay ========== -->
+  <div class="page-transition" aria-hidden="true">
+    <div class="page-transition__line"></div>
+  </div>
+
+  <!-- ========== Header ========== -->
+  <header class="header" role="banner">
+    <div class="header__logo"><a href="index.html">AKASHIKI</a></div>
+    <nav class="header__nav" role="navigation" aria-label="メインナビゲーション">
+      <a href="about.html" class="header__nav-link">ABOUT</a>
+      <a href="service.html" class="header__nav-link">SERVICE</a>
+      <a href="works.html" class="header__nav-link">WORKS</a>
+      <a href="contact.html" class="header__nav-link">CONTACT</a>
+    </nav>
+    <button class="header__burger" aria-label="メニューを開く" aria-expanded="false">
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
+  </header>
+
+  <!-- ========== SP Fullscreen Menu ========== -->
+  <nav class="sp-menu" role="navigation" aria-label="モバイルナビゲーション" aria-hidden="true">
+    <a href="about.html" class="sp-menu__link">ABOUT</a>
+    <a href="service.html" class="sp-menu__link">SERVICE</a>
+    <a href="works.html" class="sp-menu__link">WORKS</a>
+    <a href="contact.html" class="sp-menu__link">CONTACT</a>
+    <div class="sp-menu__logo">AKASHIKI</div>
+  </nav>
+
+  <main>
+
+    <!-- ========== FV — 100vh ========== -->
+    <section class="contact-fv" aria-label="ファーストビュー">
+      <div class="contact-fv__bg">
+        <div class="contact-fv__grain" aria-hidden="true"></div>
+        <div class="contact-fv__scanline" aria-hidden="true"></div>
+      </div>
+      <div class="contact-fv__content">
+        <h1 class="contact-fv__title">CONTACT</h1>
+        <p class="contact-fv__sub">お気軽にご相談ください</p>
+        <div class="contact-fv__hr" aria-hidden="true"></div>
+      </div>
+      <div class="contact-fv__edge contact-fv__edge--bl">
+        <span class="contact-fv__edge-text">CONTACT</span>
+      </div>
+      <div class="contact-fv__edge contact-fv__edge--br">
+        <span class="contact-fv__edge-text">SCROLL</span>
+      </div>
+    </section>
+
+    <!-- ========== フォームセクション（白背景） ========== -->
+    <section class="contact-form-section" aria-label="お問い合わせフォーム">
+      <div class="contact-form__inner">
+
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/xdkwllne" method="POST" novalidate>
+
+          <!-- お名前 -->
+          <div class="contact-form__field">
+            <label for="contact-name" class="contact-form__label">NAME<span class="contact-form__required">*</span></label>
+            <input type="text" id="contact-name" name="name" class="contact-form__input" placeholder="お名前をご記入ください" required autocomplete="name">
+            <span class="contact-form__error" aria-live="polite"></span>
+          </div>
+
+          <!-- メールアドレス -->
+          <div class="contact-form__field">
+            <label for="contact-email" class="contact-form__label">EMAIL<span class="contact-form__required">*</span></label>
+            <input type="email" id="contact-email" name="email" class="contact-form__input" placeholder="example@email.com" required autocomplete="email">
+            <span class="contact-form__error" aria-live="polite"></span>
+          </div>
+
+          <!-- ご予算 -->
+          <div class="contact-form__field">
+            <label for="contact-budget" class="contact-form__label">BUDGET</label>
+            <div class="contact-form__select-wrap">
+              <select id="contact-budget" name="budget" class="contact-form__select">
+                <option value="" disabled selected>選択してください</option>
+                <option value="〜10万円">〜10万円</option>
+                <option value="10万円〜20万円">10万円〜20万円</option>
+                <option value="20万円〜30万円">20万円〜30万円</option>
+                <option value="30万円〜50万円">30万円〜50万円</option>
+                <option value="50万円〜">50万円〜</option>
+                <option value="未定・相談したい">未定・相談したい</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ご希望納期 -->
+          <div class="contact-form__field">
+            <label for="contact-deadline" class="contact-form__label">DEADLINE</label>
+            <div class="contact-form__select-wrap">
+              <select id="contact-deadline" name="deadline" class="contact-form__select">
+                <option value="" disabled selected>選択してください</option>
+                <option value="1ヶ月以内">1ヶ月以内</option>
+                <option value="1〜2ヶ月">1〜2ヶ月</option>
+                <option value="2〜3ヶ月">2〜3ヶ月</option>
+                <option value="3ヶ月以上">3ヶ月以上</option>
+                <option value="未定・相談したい">未定・相談したい</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ご相談内容 -->
+          <div class="contact-form__field">
+            <label for="contact-message" class="contact-form__label">MESSAGE<span class="contact-form__required">*</span></label>
+            <textarea id="contact-message" name="message" class="contact-form__textarea" placeholder="ご相談内容をご記入ください" rows="6" required></textarea>
+            <span class="contact-form__error" aria-live="polite"></span>
+          </div>
+
+          <!-- 送信ボタン -->
+          <button type="submit" class="contact-form__submit">SEND →</button>
+
+        </form>
+
+        <!-- 送信完了 -->
+        <div id="contact-thanks" class="contact-thanks" style="display:none;">
+          <h2 class="contact-thanks__title">THANK YOU.</h2>
+          <p class="contact-thanks__text">お問い合わせを受け付けました。<br>2営業日以内にご返信いたします。</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">AKASHIKI</div>
+        <div class="footer__sub">SUMIYAKA — 墨家</div>
+      </div>
+      <div class="footer__right">
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
+          <a href="about.html" class="footer__nav-link">ABOUT</a>
+          <a href="service.html" class="footer__nav-link">SERVICE</a>
+          <a href="works.html" class="footer__nav-link">WORKS</a>
+          <a href="contact.html" class="footer__nav-link">CONTACT</a>
+        </nav>
+        <div class="footer__sns">
+          <a href="https://x.com/sumiyakaaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">X</a>
+          <a href="https://github.com/sumiyakaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small class="footer__copy">&copy; 2026 AKASHIKI</small>
+      <a href="privacy.html" class="footer__privacy">PRIVACY POLICY</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/contact.js" defer></script>
+</body>
+</html>

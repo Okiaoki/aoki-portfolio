@@ -1,0 +1,21 @@
+{
+  "name": "AKASHIKI — Web Design & Development Portfolio",
+  "short_name": "AKASHIKI",
+  "description": "灯敷（AKASHIKI）— Webデザイン・コーディングのポートフォリオサイト",
+  "start_url": "/portfolio/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "assets/img/common/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/common/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

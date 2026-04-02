@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERVICE — AKASHIKI | Web制作サービス・料金</title>
+  <meta name="description" content="AKASHIKI（灯敷）のWeb制作サービス。LP制作・WordPress構築・AI検索最適化（AIO）を、構成からデザイン、コーディング、公開まで一括対応。料金・制作の流れをご案内します。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="SERVICE — AKASHIKI | Web制作サービス・料金">
+  <meta property="og:description" content="AKASHIKI（灯敷）のWeb制作サービス。LP制作・WordPress構築・AI検索最適化（AIO）を、構成からデザイン、コーディング、公開まで一括対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sumiyakaa.github.io/portfolio/service.html">
+  <meta property="og:image" content="https://sumiyakaa.github.io/portfolio/assets/img/ogp/OGP-03.png">
+  <meta property="og:site_name" content="AKASHIKI">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/common/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/common/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/common/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;600;800&family=Noto+Sans+JP:wght@100;300;400;500;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/transition.css">
+  <link rel="stylesheet" href="assets/css/service.css">
+
+  <!-- JSON-LD: WebPage + Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "SERVICE — AKASHIKI",
+        "url": "https://sumiyakaa.github.io/portfolio/service.html",
+        "description": "AKASHIKIのWeb制作サービス・料金ページ。LP制作・WordPress構築・AIO対応。",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "AKASHIKI",
+          "url": "https://sumiyakaa.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "Service",
+        "provider": {
+          "@type": "Person",
+          "name": "SUMIYAKA",
+          "alternateName": "墨家"
+        },
+        "name": "Web制作サービス",
+        "description": "LP制作・WordPress構築・AI検索最適化を、構成からデザイン、コーディング、公開まで一括対応。",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "LP DESIGN",
+            "description": "静的コーディング / レスポンシブ対応 / 5ページまで",
+            "price": "150000",
+            "priceCurrency": "JPY"
+          },
+          {
+            "@type": "Offer",
+            "name": "WORDPRESS",
+            "description": "テーマ構築 / カスタマイズ / 管理画面設計",
+            "price": "200000",
+            "priceCurrency": "JPY"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "LP制作の料金はいくらですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LP制作（静的コーディング）は15万円〜、WordPress構築は20万円〜です。ページ数・機能により変動します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "制作の流れを教えてください",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ヒアリング→ラフ提案→デザイン・コーディング→確認・修正→公開の5ステップで進行します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "AI検索最適化（AIO）とは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ChatGPTやPerplexity等のAIアシスタントがサイト情報を正確に読み取れるよう、構造化データやセマンティックHTMLを実装する最適化手法です。"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========== Page Transition Overlay ========== -->
+  <div class="page-transition" aria-hidden="true">
+    <div class="page-transition__line"></div>
+  </div>
+
+  <!-- ========== Header ========== -->
+  <header class="header" role="banner">
+    <div class="header__logo"><a href="index.html">AKASHIKI</a></div>
+    <nav class="header__nav" role="navigation" aria-label="メインナビゲーション">
+      <a href="about.html" class="header__nav-link">ABOUT</a>
+      <a href="service.html" class="header__nav-link">SERVICE</a>
+      <a href="works.html" class="header__nav-link">WORKS</a>
+      <a href="contact.html" class="header__nav-link">CONTACT</a>
+    </nav>
+    <button class="header__burger" aria-label="メニューを開く" aria-expanded="false">
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
+  </header>
+
+  <!-- ========== SP Fullscreen Menu ========== -->
+  <nav class="sp-menu" role="navigation" aria-label="モバイルナビゲーション" aria-hidden="true">
+    <a href="about.html" class="sp-menu__link">ABOUT</a>
+    <a href="service.html" class="sp-menu__link">SERVICE</a>
+    <a href="works.html" class="sp-menu__link">WORKS</a>
+    <a href="contact.html" class="sp-menu__link">CONTACT</a>
+    <div class="sp-menu__logo">AKASHIKI</div>
+  </nav>
+
+  <main>
+
+    <!-- ========== FV — 100vh ========== -->
+    <section class="service-fv" aria-label="ファーストビュー">
+      <div class="service-fv__bg">
+        <div class="service-fv__grain" aria-hidden="true"></div>
+        <div class="service-fv__scanline" aria-hidden="true"></div>
+      </div>
+      <div class="service-fv__content">
+        <h1 class="service-fv__title">SERVICE</h1>
+        <p class="service-fv__sub">提供するサービスと制作の進め方</p>
+        <div class="service-fv__hr" aria-hidden="true"></div>
+      </div>
+      <div class="service-fv__edge service-fv__edge--bl">
+        <span class="service-fv__edge-text">SERVICE</span>
+      </div>
+      <div class="service-fv__edge service-fv__edge--br">
+        <span class="service-fv__edge-text">SCROLL</span>
+      </div>
+    </section>
+
+    <!-- ========== 制作スタイル（黒背景） ========== -->
+    <section class="service-style" aria-label="制作スタイル">
+      <div class="service-style__inner">
+        <div class="service-style__left">
+          <h2 class="service-style__title">HOW I WORK</h2>
+        </div>
+        <div class="service-style__right">
+
+          <article class="service-style__item">
+            <span class="service-style__num">01</span>
+            <h3 class="service-style__name">STRATEGY</h3>
+            <p class="service-style__text">制作に入る前に、まず訊く。誰に届けるのか、何を伝えたいのか、競合はどこか。ヒアリングで得た情報を構造化し、訴求軸を定め、ワイヤーフレームに落とし込む。見た目の前に、設計がある。</p>
+          </article>
+          <div class="service-style__divider" aria-hidden="true"></div>
+
+          <article class="service-style__item">
+            <span class="service-style__num">02</span>
+            <h3 class="service-style__name">FRONT-END</h3>
+            <p class="service-style__text">HTML/CSS/JavaScriptを手書きで組む。Figma/XDのデザインデータを受け取り、ピクセル単位の再現性を担保しながら、表示速度・アクセシビリティ・保守性を同時に達成する。GSAP、CSS 3D Transform、ScrollTriggerを用いたインタラクティブな演出も対応。</p>
+          </article>
+          <div class="service-style__divider" aria-hidden="true"></div>
+
+          <article class="service-style__item">
+            <span class="service-style__num">03</span>
+            <h3 class="service-style__name">WORDPRESS</h3>
+            <p class="service-style__text">静的サイトのWordPress化、既存テーマのカスタマイズ、Swellを使ったサイト構築。更新しやすさを第一に設計し、クライアントが自分で運用できる状態で納品する。</p>
+          </article>
+          <div class="service-style__divider" aria-hidden="true"></div>
+
+          <article class="service-style__item">
+            <span class="service-style__num">04</span>
+            <h3 class="service-style__name">QUALITY ASSURANCE</h3>
+            <p class="service-style__text">納品前にLighthouseスコア、レスポンシブ表示、ブラウザ互換性、リンク切れ、画像最適化を全チェック。公開してから「あれ？」がない状態を作る。納期厳守、進捗は随時共有。</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== AIO説明（白背景） ========== -->
+    <section class="service-aio" aria-label="AI検索最適化">
+      <div class="service-aio__inner">
+        <h2 class="service-aio__title">AI SEARCH OPTIMIZATION</h2>
+        <p class="service-aio__lead">AI検索に対応した設計を、標準で組み込んでいます。</p>
+        <div class="service-aio__body">
+          <p class="service-aio__text">Google検索だけでなく、ChatGPTやPerplexity、Claude等のAIアシスタントが情報を探す時代に入っています。AIが正確にサイトの情報を読み取り、検索者に推薦できるよう、構造化データ（JSON-LD）、セマンティックHTML、FAQ Schema、エンティティ定義を全ページに実装します。</p>
+          <p class="service-aio__text">具体的には：</p>
+          <ul class="service-aio__list">
+            <li class="service-aio__list-item">JSON-LD で「この会社/この人は何者で、何ができるか」を機械が読める形で定義</li>
+            <li class="service-aio__list-item">各ページに検索者の意図に直接答えるQ&A構造を設計</li>
+            <li class="service-aio__list-item">ページ間の相互参照（内部リンク）を明示的に設計し、サイト全体の情報構造を最適化</li>
+          </ul>
+          <p class="service-aio__text">従来のSEOに加え、AIウェブサーチへの最適化を標準装備。まだ対応しているWeb制作者が少ない今こそ、差別化の武器になります。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 料金詳細 + オプション（黒背景） ========== -->
+    <section class="service-price" aria-label="料金">
+      <div class="service-price__inner">
+        <div class="service-price__head">
+          <h2 class="service-price__title">PRICE</h2>
+          <div class="service-price__hr" aria-hidden="true"></div>
+        </div>
+
+        <!-- 基本料金 -->
+        <div class="service-price__list">
+          <div class="service-price__item">
+            <div class="service-price__item-top">
+              <span class="service-price__num">01</span>
+              <h3 class="service-price__name">LP DESIGN</h3>
+              <span class="service-price__amount">¥150,000〜</span>
+            </div>
+            <p class="service-price__desc">静的コーディング / レスポンシブ対応 / 5ページまで</p>
+          </div>
+          <div class="service-price__item">
+            <div class="service-price__item-top">
+              <span class="service-price__num">02</span>
+              <h3 class="service-price__name">WORDPRESS</h3>
+              <span class="service-price__amount">¥200,000〜</span>
+            </div>
+            <p class="service-price__desc">テーマ構築 / カスタマイズ / 管理画面設計</p>
+          </div>
+        </div>
+
+        <!-- オプション -->
+        <div class="service-price__option">
+          <p class="service-price__option-label">OPTION</p>
+          <div class="service-price__option-list">
+            <div class="service-price__option-item">
+              <span class="service-price__option-prefix">+</span>
+              <span class="service-price__option-name">JS高度演出（GSAP / パララックス / 3D）</span>
+              <span class="service-price__option-amount">¥30,000〜</span>
+            </div>
+            <div class="service-price__option-item">
+              <span class="service-price__option-prefix">+</span>
+              <span class="service-price__option-name">セクション追加（1セクションあたり）</span>
+              <span class="service-price__option-amount">¥20,000〜</span>
+            </div>
+            <div class="service-price__option-item">
+              <span class="service-price__option-prefix">+</span>
+              <span class="service-price__option-name">保守・運用サポート（月額）</span>
+              <span class="service-price__option-amount">¥15,000〜</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="service-price__note">上記は目安です。ページ数・機能・素材の有無により変動します。お気軽にご相談ください。</p>
+      </div>
+    </section>
+
+    <!-- ========== 制作の流れ（白背景） ========== -->
+    <section class="service-process" aria-label="制作の流れ">
+      <div class="service-process__inner">
+        <div class="service-process__head">
+          <h2 class="service-process__title">PROCESS</h2>
+          <div class="service-process__hr" aria-hidden="true"></div>
+        </div>
+
+        <div class="service-process__flow">
+          <div class="service-process__line" aria-hidden="true"></div>
+
+          <article class="service-process__step">
+            <span class="service-process__num">STEP 01</span>
+            <h3 class="service-process__name">ヒアリング</h3>
+            <p class="service-process__text">ご要望・ターゲット層・競合・ご予算・納期をお伺いします。ヒアリングシートをご用意しておりますので、回答いただくだけで方向性が整理されます。</p>
+          </article>
+
+          <article class="service-process__step">
+            <span class="service-process__num">STEP 02</span>
+            <h3 class="service-process__name">ラフ提案</h3>
+            <p class="service-process__text">ヒアリング内容をもとに、デザインラフを複数パターンご提案します。この段階では費用は発生しません。方向性の合意が取れたら、1案に絞って詳細を詰めていきます。</p>
+          </article>
+
+          <article class="service-process__step">
+            <span class="service-process__num">STEP 03</span>
+            <h3 class="service-process__name">デザイン・コーディング</h3>
+            <p class="service-process__text">確定した方向性に基づき、デザインとコーディングを進行します。途中経過は随時共有し、修正対応も含めて丁寧にお作りします。</p>
+          </article>
+
+          <article class="service-process__step">
+            <span class="service-process__num">STEP 04</span>
+            <h3 class="service-process__name">確認・修正</h3>
+            <p class="service-process__text">テスト環境でPC/タブレット/スマートフォン全デバイスの表示を確認いただきます。修正は2回まで標準対応。細部まで納得いただける状態を目指します。</p>
+          </article>
+
+          <article class="service-process__step">
+            <span class="service-process__num">STEP 05</span>
+            <h3 class="service-process__name">公開・納品</h3>
+            <p class="service-process__text">最終確認後、本番環境に公開します。WordPress案件の場合は管理画面の操作方法もご案内します。公開後の軽微な修正は1週間以内であれば無償対応いたします。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">AKASHIKI</div>
+        <div class="footer__sub">SUMIYAKA — 墨家</div>
+      </div>
+      <div class="footer__right">
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
+          <a href="about.html" class="footer__nav-link">ABOUT</a>
+          <a href="service.html" class="footer__nav-link">SERVICE</a>
+          <a href="works.html" class="footer__nav-link">WORKS</a>
+          <a href="contact.html" class="footer__nav-link">CONTACT</a>
+        </nav>
+        <div class="footer__sns">
+          <a href="https://x.com/sumiyakaaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">X</a>
+          <a href="https://github.com/sumiyakaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small class="footer__copy">© 2026 AKASHIKI</small>
+      <a href="privacy.html" class="footer__privacy">PRIVACY POLICY</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/service.js" defer></script>
+</body>
+</html>

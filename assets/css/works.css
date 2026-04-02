@@ -1,0 +1,324 @@
+/* ========================================
+   works.css — AKASHIKI Portfolio
+   works.html 固有スタイル
+   ======================================== */
+
+/* ========================================
+   FV — 100vh 全画面
+   ======================================== */
+.works-fv {
+  position: relative;
+  height: 100vh;
+  background: var(--c-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---- Background Layers ---- */
+.works-fv__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.works-fv__grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  animation: worksGrain 0.5s steps(5) infinite;
+}
+
+@keyframes worksGrain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(3%, -15%); }
+  50% { transform: translate(12%, 9%); }
+  70% { transform: translate(9%, 4%); }
+  90% { transform: translate(-1%, 7%); }
+}
+
+.works-fv__scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.015) 2px,
+    rgba(255,255,255,0.015) 4px
+  );
+  pointer-events: none;
+  opacity: 0.02;
+}
+
+/* ---- Content ---- */
+.works-fv__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.works-fv__title {
+  font-family: var(--ff-en);
+  font-weight: 100;
+  font-size: clamp(48px, 8vw, 120px);
+  letter-spacing: 0.25em;
+  color: var(--c-white);
+  opacity: 0;
+}
+
+.works-fv__sub {
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--c-gray-400);
+  margin-top: 16px;
+  opacity: 0;
+}
+
+.works-fv__count {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #333;
+  margin-top: 12px;
+  opacity: 0;
+}
+
+.works-fv__hr {
+  width: 60px;
+  height: 1px;
+  background: #333;
+  margin: 24px auto 0;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+/* ---- Edge Text ---- */
+.works-fv__edge {
+  position: absolute;
+  z-index: 2;
+}
+
+.works-fv__edge-text {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #222;
+}
+
+.works-fv__edge--bl {
+  bottom: 40px;
+  left: 40px;
+  opacity: 0;
+}
+
+.works-fv__edge--br {
+  bottom: 40px;
+  right: 40px;
+  opacity: 0;
+}
+
+/* ========================================
+   絞り込みフィルター（黒背景）
+   ======================================== */
+.works-filter {
+  background: var(--c-black);
+  padding: 0 80px 40px;
+}
+
+.works-filter__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.works-filter__btn {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--c-gray-600);
+  background: none;
+  border: none;
+  padding: 0 0 4px;
+  cursor: pointer;
+  transition: color 0.3s;
+  border-bottom: 1px solid transparent;
+}
+
+.works-filter__btn:hover {
+  color: var(--c-gray-300);
+}
+
+.works-filter__btn.is-active {
+  color: var(--c-pure-white);
+  border-bottom-color: var(--c-pure-white);
+}
+
+/* ========================================
+   作品一覧グリッド（黒背景）
+   ======================================== */
+.works-grid {
+  background: var(--c-gray-800);
+  padding: 0 80px 80px;
+}
+
+.works-grid__inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--c-gray-800);
+}
+
+/* ========================================
+   作品カード
+   ======================================== */
+.work-card {
+  display: block;
+  background: var(--c-black);
+  border: 1px solid var(--c-gray-800);
+  transition: border-color 0.3s;
+  opacity: 0;
+}
+
+.work-card:hover {
+  border-color: #333;
+}
+
+.work-card.is-hidden {
+  display: none;
+}
+
+/* ---- サムネイル ---- */
+.work-card__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+}
+
+.work-card__thumb-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.work-card__thumb-inner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s var(--ease-mechanical);
+}
+
+/* ---- テキストエリア ---- */
+.work-card__info {
+  padding: 20px 24px;
+}
+
+.work-card__num {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+
+.work-card:hover .work-card__num {
+  color: var(--c-gray-400);
+}
+
+.work-card__name {
+  font-family: var(--ff-en);
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: var(--c-pure-white);
+  line-height: 1.4;
+}
+
+.work-card__genre {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #555;
+  margin-top: 6px;
+}
+
+.work-card__date {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #333;
+  display: block;
+  margin-top: 8px;
+}
+
+/* ========================================
+   Responsive — Tablet (768–1279)
+   ======================================== */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .works-fv__edge--bl { left: 24px; bottom: 24px; }
+  .works-fv__edge--br { right: 24px; bottom: 24px; }
+
+  .works-filter { padding: 0 40px 40px; }
+  .works-filter__inner { gap: 24px; }
+
+  .works-grid { padding: 0 40px 60px; }
+  .works-grid__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   Responsive — SP (–767)
+   ======================================== */
+@media (max-width: 767px) {
+  /* FV */
+  .works-fv__title {
+    font-size: clamp(36px, 12vw, 64px);
+    letter-spacing: 0.15em;
+  }
+  .works-fv__sub { font-size: 12px; }
+  .works-fv__count { font-size: 10px; }
+  .works-fv__edge--bl { left: 16px; bottom: 20px; }
+  .works-fv__edge--br { right: 16px; bottom: 20px; }
+
+  /* Filter */
+  .works-filter {
+    padding: 0 20px 24px;
+  }
+  .works-filter__inner {
+    gap: 16px;
+  }
+  .works-filter__btn {
+    font-size: 11px;
+  }
+
+  /* Grid */
+  .works-grid {
+    padding: 0 20px 40px;
+  }
+  .works-grid__inner {
+    grid-template-columns: 1fr;
+  }
+
+  /* Card */
+  .work-card__info {
+    padding: 16px 20px;
+  }
+}

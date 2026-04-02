@@ -1,0 +1,430 @@
+/* ========================================
+   about.css — AKASHIKI Portfolio
+   about.html 固有スタイル
+   ======================================== */
+
+/* ========================================
+   FV — 100vh 全画面
+   ======================================== */
+.about-fv {
+  position: relative;
+  height: 100vh;
+  background: var(--c-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---- Background Layers ---- */
+.about-fv__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.about-fv__grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  animation: aboutGrain 0.5s steps(5) infinite;
+}
+
+@keyframes aboutGrain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(3%, -15%); }
+  50% { transform: translate(12%, 9%); }
+  70% { transform: translate(9%, 4%); }
+  90% { transform: translate(-1%, 7%); }
+}
+
+.about-fv__scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.015) 2px,
+    rgba(255,255,255,0.015) 4px
+  );
+  pointer-events: none;
+  opacity: 0.02;
+}
+
+/* ---- Content ---- */
+.about-fv__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.about-fv__title {
+  font-family: var(--ff-en);
+  font-weight: 200;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: 0.2em;
+  color: var(--c-white);
+  opacity: 0;
+}
+
+.about-fv__sub {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--c-gray-400);
+  margin-top: 16px;
+  opacity: 0;
+}
+
+.about-fv__hr {
+  width: 60px;
+  height: 1px;
+  background: #333;
+  margin: 24px auto 0;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+/* ---- Edge Text ---- */
+.about-fv__edge {
+  position: absolute;
+  z-index: 2;
+}
+
+.about-fv__edge-text {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #222;
+}
+
+.about-fv__edge--bl {
+  bottom: 40px;
+  left: 40px;
+  opacity: 0;
+}
+
+.about-fv__edge--br {
+  bottom: 40px;
+  right: 40px;
+  opacity: 0;
+}
+
+/* ========================================
+   経歴ストーリーセクション（黒背景）
+   ======================================== */
+.about-story {
+  background: var(--c-black);
+  padding: 160px 80px;
+}
+
+.about-story__inner {
+  max-width: 640px;
+  /* 左寄せ — 右に空白を大きく残す */
+  margin: 0 auto 0 calc((100% - 640px) / 3);
+}
+
+.about-story__lead {
+  font-family: var(--ff-jp);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 2.0;
+  color: var(--c-white);
+  opacity: 0;
+}
+
+.about-story__body {
+  margin-top: 48px;
+}
+
+.about-story__paragraph {
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 2.2;
+  letter-spacing: 0.04em;
+  color: var(--c-gray-200);
+  margin-bottom: 32px;
+  opacity: 0;
+}
+
+.about-story__paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.about-story__highlight {
+  font-family: var(--ff-en);
+  font-weight: 200;
+  font-size: 24px;
+  letter-spacing: 0.1em;
+  color: var(--c-pure-white);
+  padding: 40px 0;
+  opacity: 0;
+}
+
+/* ========================================
+   信条・こだわりセクション（白背景）
+   ======================================== */
+.about-belief {
+  background: var(--c-white);
+  padding: 160px 80px;
+}
+
+.about-belief__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-belief__item {
+  padding: 48px 0;
+  opacity: 0;
+}
+
+.about-belief__item:first-child {
+  padding-top: 0;
+}
+
+.about-belief__heading {
+  font-family: var(--ff-jp);
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--c-gray-900);
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+}
+
+.about-belief__text {
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--c-gray-400);
+  margin-top: 16px;
+  letter-spacing: 0.04em;
+}
+
+.about-belief__divider {
+  width: 100%;
+  height: 1px;
+  background: #e0e0e0;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* ========================================
+   スキルセット Terminal Index（黒背景）
+   ======================================== */
+.about-skill {
+  background: var(--c-black);
+  padding: 160px 80px 0;
+}
+
+.about-skill__inner {
+  max-width: 700px;
+  /* 左寄せ */
+  margin: 0 auto 0 calc((100% - 700px) / 3);
+}
+
+.about-skill__head {
+  margin-bottom: 64px;
+}
+
+.about-skill__title {
+  font-family: var(--ff-en);
+  font-weight: 200;
+  font-size: 48px;
+  letter-spacing: 0.2em;
+  color: var(--c-white);
+  opacity: 0;
+}
+
+.about-skill__hr {
+  width: 40px;
+  height: 1px;
+  background: #333;
+  margin-top: 24px;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* ---- Skill Grid ---- */
+.about-skill__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-skill__row {
+  display: grid;
+  grid-template-columns: 60px 180px 1fr;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--c-gray-800);
+  opacity: 0;
+}
+
+.about-skill__row:first-child {
+  border-top: 1px solid var(--c-gray-800);
+}
+
+.about-skill__num {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: #333;
+  align-self: center;
+}
+
+.about-skill__name {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--c-gray-300);
+  align-self: center;
+}
+
+.about-skill__desc {
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: var(--c-gray-600);
+  align-self: center;
+  line-height: 1.8;
+}
+
+/* ========================================
+   SNSセクション（スキルセットと連続）
+   ======================================== */
+.about-sns {
+  padding: 80px 0 160px;
+}
+
+.about-sns__inner {
+  max-width: 700px;
+  margin: 0 auto 0 calc((100% - 700px) / 3);
+}
+
+.about-sns__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--c-gray-800);
+  margin-bottom: 32px;
+}
+
+.about-sns__label {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-sns__links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-sns__link {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--c-gray-400);
+  transition: color 0.3s;
+  letter-spacing: 0.04em;
+}
+
+.about-sns__link:hover {
+  color: var(--c-pure-white);
+}
+
+/* ========================================
+   Responsive — Tablet (768–1279)
+   ======================================== */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .about-fv__edge--bl { left: 24px; bottom: 24px; }
+  .about-fv__edge--br { right: 24px; bottom: 24px; }
+
+  .about-story { padding: 120px 40px; }
+  .about-story__inner { margin: 0 auto 0 40px; }
+
+  .about-belief { padding: 120px 40px; }
+
+  .about-skill { padding: 120px 40px 0; }
+  .about-skill__inner { margin: 0 auto 0 40px; }
+
+  .about-sns { padding: 60px 0 120px; }
+  .about-sns__inner { margin: 0 auto 0 40px; }
+}
+
+/* ========================================
+   Responsive — SP (–767)
+   ======================================== */
+@media (max-width: 767px) {
+  /* FV */
+  .about-fv__title {
+    font-size: clamp(24px, 7vw, 40px);
+    letter-spacing: 0.12em;
+  }
+  .about-fv__sub { font-size: 11px; }
+  .about-fv__edge--bl { left: 16px; bottom: 20px; }
+  .about-fv__edge--br { right: 16px; bottom: 20px; }
+
+  /* Story */
+  .about-story {
+    padding: 80px 20px;
+  }
+  .about-story__inner {
+    margin: 0;
+    max-width: 100%;
+  }
+  .about-story__lead { font-size: 16px; }
+  .about-story__paragraph { font-size: 14px; }
+  .about-story__highlight { font-size: 18px; }
+
+  /* Belief */
+  .about-belief {
+    padding: 80px 20px;
+  }
+  .about-belief__heading { font-size: 18px; }
+  .about-belief__text { font-size: 13px; }
+  .about-belief__item { padding: 32px 0; }
+
+  /* Skill */
+  .about-skill {
+    padding: 80px 20px 0;
+  }
+  .about-skill__inner {
+    margin: 0;
+    max-width: 100%;
+  }
+  .about-skill__title { font-size: 36px; }
+  .about-skill__row {
+    grid-template-columns: 40px 1fr;
+    gap: 4px;
+  }
+  .about-skill__desc {
+    grid-column: 1 / -1;
+    padding-left: 40px;
+    margin-top: 4px;
+  }
+
+  /* SNS */
+  .about-sns {
+    padding: 60px 0 80px;
+  }
+  .about-sns__inner {
+    margin: 0;
+    padding: 0 20px;
+    max-width: 100%;
+  }
+}

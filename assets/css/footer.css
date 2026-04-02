@@ -1,0 +1,150 @@
+/* ========================================
+   footer.css — AKASHIKI Portfolio
+   フッター
+   ======================================== */
+
+.footer {
+  background: var(--c-black);
+  padding: 80px;
+  border-top: 1px solid var(--c-gray-800);
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---- Left ---- */
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer__logo {
+  font-family: var(--ff-en);
+  font-weight: 200;
+  font-size: 36px;
+  letter-spacing: 0.2em;
+  color: var(--c-white);
+}
+
+.footer__sub {
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 11px;
+  color: var(--c-gray-600);
+  letter-spacing: 0.02em;
+}
+
+/* ---- Right ---- */
+.footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.footer__nav-link {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--c-gray-400);
+  transition: color 0.3s;
+}
+
+.footer__nav-link:hover {
+  color: var(--c-pure-white);
+}
+
+.footer__sns {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__sns-link {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--c-gray-400);
+  transition: color 0.3s;
+}
+
+.footer__sns-link:hover {
+  color: var(--c-pure-white);
+}
+
+/* ---- Bottom ---- */
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--c-gray-800);
+}
+
+.footer__copy {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 10px;
+  color: #333;
+  letter-spacing: 0.05em;
+}
+
+.footer__privacy {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer__privacy:hover {
+  color: var(--c-gray-400);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 767px) {
+  .footer {
+    padding: 60px 20px;
+  }
+  .footer__inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .footer__right {
+    align-items: flex-start;
+  }
+  .footer__nav {
+    align-items: flex-start;
+  }
+  .footer__logo {
+    font-size: 28px;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .footer {
+    padding: 60px 40px;
+  }
+}

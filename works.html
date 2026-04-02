@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WORKS — AKASHIKI | Web制作実績一覧</title>
+  <meta name="description" content="AKASHIKI（灯敷）のWeb制作実績一覧。LP制作・コーポレートサイト・WordPress構築・多言語対応など、全制作実績をご覧いただけます。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="WORKS — AKASHIKI | Web制作実績一覧">
+  <meta property="og:description" content="AKASHIKI（灯敷）のWeb制作実績一覧。LP制作・コーポレートサイト・WordPress構築・多言語対応など、全制作実績をご覧いただけます。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sumiyakaa.github.io/portfolio/works.html">
+  <meta property="og:image" content="https://sumiyakaa.github.io/portfolio/assets/img/ogp/OGP-04.png">
+  <meta property="og:site_name" content="AKASHIKI">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/common/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/common/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/common/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;600;800&family=Noto+Sans+JP:wght@100;300;400;500;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/transition.css">
+  <link rel="stylesheet" href="assets/css/works.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "name": "WORKS — AKASHIKI",
+        "url": "https://sumiyakaa.github.io/portfolio/works.html",
+        "description": "AKASHIKIのWeb制作実績一覧ページ。LP・コーポレートサイト・WordPress構築等の全制作実績を掲載。",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "AKASHIKI",
+          "url": "https://sumiyakaa.github.io/portfolio/"
+        }
+      },
+      {
+        "@type": "CollectionPage",
+        "name": "制作実績",
+        "url": "https://sumiyakaa.github.io/portfolio/works.html",
+        "description": "灯敷（AKASHIKI）が手がけたWeb制作実績の一覧。",
+        "creator": {
+          "@type": "Person",
+          "name": "SUMIYAKA",
+          "alternateName": "墨家"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========== Page Transition Overlay ========== -->
+  <div class="page-transition" aria-hidden="true">
+    <div class="page-transition__line"></div>
+  </div>
+
+  <!-- ========== Header ========== -->
+  <header class="header" role="banner">
+    <div class="header__logo"><a href="index.html">AKASHIKI</a></div>
+    <nav class="header__nav" role="navigation" aria-label="メインナビゲーション">
+      <a href="about.html" class="header__nav-link">ABOUT</a>
+      <a href="service.html" class="header__nav-link">SERVICE</a>
+      <a href="works.html" class="header__nav-link">WORKS</a>
+      <a href="contact.html" class="header__nav-link">CONTACT</a>
+    </nav>
+    <button class="header__burger" aria-label="メニューを開く" aria-expanded="false">
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
+  </header>
+
+  <!-- ========== SP Fullscreen Menu ========== -->
+  <nav class="sp-menu" role="navigation" aria-label="モバイルナビゲーション" aria-hidden="true">
+    <a href="about.html" class="sp-menu__link">ABOUT</a>
+    <a href="service.html" class="sp-menu__link">SERVICE</a>
+    <a href="works.html" class="sp-menu__link">WORKS</a>
+    <a href="contact.html" class="sp-menu__link">CONTACT</a>
+    <div class="sp-menu__logo">AKASHIKI</div>
+  </nav>
+
+  <main>
+
+    <!-- ========== FV — 100vh ========== -->
+    <section class="works-fv" aria-label="ファーストビュー">
+      <div class="works-fv__bg">
+        <div class="works-fv__grain" aria-hidden="true"></div>
+        <div class="works-fv__scanline" aria-hidden="true"></div>
+      </div>
+      <div class="works-fv__content">
+        <h1 class="works-fv__title">WORKS</h1>
+        <p class="works-fv__sub">すべての制作実績</p>
+        <p class="works-fv__count">18 PROJECTS</p>
+        <div class="works-fv__hr" aria-hidden="true"></div>
+      </div>
+      <div class="works-fv__edge works-fv__edge--bl">
+        <span class="works-fv__edge-text">WORKS</span>
+      </div>
+      <div class="works-fv__edge works-fv__edge--br">
+        <span class="works-fv__edge-text">SCROLL</span>
+      </div>
+    </section>
+
+    <!-- ========== 絞り込みフィルター（黒背景） ========== -->
+    <section class="works-filter" aria-label="カテゴリフィルター">
+      <div class="works-filter__inner">
+        <button class="works-filter__btn is-active" data-filter="all">ALL</button>
+        <button class="works-filter__btn" data-filter="lp">LP</button>
+        <button class="works-filter__btn" data-filter="corporate">CORPORATE</button>
+        <button class="works-filter__btn" data-filter="multi-lang">MULTI-LANG</button>
+        <button class="works-filter__btn" data-filter="wordpress">WORDPRESS</button>
+      </div>
+    </section>
+
+    <!-- ========== 作品一覧グリッド（黒背景） ========== -->
+    <section class="works-grid" aria-label="制作実績一覧">
+      <div class="works-grid__inner">
+
+        <!-- Card 01 — J. Caldwell & Sons -->
+        <a href="https://sumiyakaa.github.io/caldwell-sons/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="multi-lang" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/caldwell-sons.webp" alt="J. Caldwell &amp; Sons — アパレル / バイリンガルサイト" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">01</span>
+            <h2 class="work-card__name">J. CALDWELL &amp; SONS</h2>
+            <p class="work-card__genre">Apparel / Bilingual</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 02 — Aoki Atelier -->
+        <a href="https://sumiyakaa.github.io/Aoki-Atelier/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="corporate" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-atelier.webp" alt="Aoki Atelier — ジュエリーブランドサイト" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">02</span>
+            <h2 class="work-card__name">AOKI ATELIER</h2>
+            <p class="work-card__genre">Jewelry Brand</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 03 — Aoki Reform -->
+        <a href="https://sumiyakaa.github.io/Aoki-Reform/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="corporate" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-reform.webp" alt="Aoki Reform — リフォーム / 13P" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">03</span>
+            <h2 class="work-card__name">AOKI REFORM</h2>
+            <p class="work-card__genre">Reform / 13P</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 04 — Aoki Beauty Clinic No2 -->
+        <a href="https://sumiyakaa.github.io/Aoki-BeautyClinic-No2/ja/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="multi-lang" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/beauty-clinic-no2.webp" alt="Aoki Beauty Clinic No2 — 美容 / 3言語36P" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">04</span>
+            <h2 class="work-card__name">AOKI BEAUTY CLINIC NO2</h2>
+            <p class="work-card__genre">Beauty / 3 Languages / 36P</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 05 — Aoki Tax Office -->
+        <a href="https://sumiyakaa.github.io/AokiTax/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="corporate" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-tax.webp" alt="Aoki Tax Office — 税理士事務所サイト" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">05</span>
+            <h2 class="work-card__name">AOKI TAX OFFICE</h2>
+            <p class="work-card__genre">Tax Office</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 06 — Aoki Gym -->
+        <a href="https://sumiyakaa.github.io/AokiGym/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-gym.webp" alt="Aoki Gym — パーソナルジム LP" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">06</span>
+            <h2 class="work-card__name">AOKI GYM</h2>
+            <p class="work-card__genre">Personal Gym LP</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 07 — Bistro Aoki -->
+        <a href="https://sumiyakaa.github.io/BistroAoki/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/bistro-aoki.webp" alt="Bistro Aoki — レストランサイト" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">07</span>
+            <h2 class="work-card__name">BISTRO AOKI</h2>
+            <p class="work-card__genre">Restaurant</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 08 — Aoki Estate -->
+        <a href="https://sumiyakaa.github.io/AokiEstate/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="corporate" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-estate.webp" alt="Aoki Estate — 不動産 / 16P" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">08</span>
+            <h2 class="work-card__name">AOKI ESTATE</h2>
+            <p class="work-card__genre">Real Estate / 16P</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 09 — Aoki Family English -->
+        <a href="https://sumiyakaa.github.io/aoki-family-english/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-family-english.webp" alt="Aoki Family English — 英語教室 LP" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">09</span>
+            <h2 class="work-card__name">AOKI FAMILY ENGLISH</h2>
+            <p class="work-card__genre">English School LP</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 10 — Aoki Animation -->
+        <a href="https://sumiyakaa.github.io/Aoki-Animation/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="corporate" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-animation.webp" alt="Aoki Animation — アニメ制作 / 7P" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">10</span>
+            <h2 class="work-card__name">AOKI ANIMATION</h2>
+            <p class="work-card__genre">Animation Studio / 7P</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 11 — AKASHIKI Works Finder -->
+        <a href="https://sumiyakaa.github.io/works-finder/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="corporate" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/works-finder.webp" alt="AKASHIKI Works Finder — React+TS / ツール" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">11</span>
+            <h2 class="work-card__name">AKASHIKI WORKS FINDER</h2>
+            <p class="work-card__genre">React + TypeScript / Tool</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 12 — Aoki Mitumori -->
+        <a href="https://sumiyakaa.github.io/Aoki-Mitumori/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="corporate" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-mitumori.webp" alt="Aoki Mitumori — 見積シミュレーター" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">12</span>
+            <h2 class="work-card__name">AOKI MITUMORI</h2>
+            <p class="work-card__genre">Estimate Simulator</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 13 — Aoki Beauty Clinic -->
+        <a href="https://sumiyakaa.github.io/Aoki-BeautyClinic/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/beauty-clinic.webp" alt="Aoki Beauty Clinic — 美容 / 広告LP" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">13</span>
+            <h2 class="work-card__name">AOKI BEAUTY CLINIC</h2>
+            <p class="work-card__genre">Beauty / Ad LP</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 14 — ポップアップストア告知LP -->
+        <a href="https://sumiyakaa.github.io/lp-aoki-standard/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2026-03">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/lp-aoki-standard.webp" alt="ポップアップストア告知LP — イベントLP" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">14</span>
+            <h2 class="work-card__name">POP-UP STORE LP</h2>
+            <p class="work-card__genre">Event LP</p>
+            <time class="work-card__date" datetime="2026-03">2026.03</time>
+          </div>
+        </a>
+
+        <!-- Card 15 — Aoki Tech Studio -->
+        <a href="https://sumiyakaa.github.io/Aoki-Tech-Studio/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2026-02">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-tech-studio.webp" alt="Aoki Tech Studio — コーポレートLP" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">15</span>
+            <h2 class="work-card__name">AOKI TECH STUDIO</h2>
+            <p class="work-card__genre">Corporate LP</p>
+            <time class="work-card__date" datetime="2026-02">2026.02</time>
+          </div>
+        </a>
+
+        <!-- Card 16 — AokiCosmetic WP Theme -->
+        <a href="https://github.com/sumiyakaa/aokicosmetic-wp" target="_blank" rel="noopener noreferrer" class="work-card" data-category="wordpress" data-date="2026-02">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-cosmetic-wp.webp" alt="AokiCosmetic WP Theme — WordPress" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">16</span>
+            <h2 class="work-card__name">AOKICOSMETIC WP</h2>
+            <p class="work-card__genre">WordPress Theme</p>
+            <time class="work-card__date" datetime="2026-02">2026.02</time>
+          </div>
+        </a>
+
+        <!-- Card 17 — AokiLotion -->
+        <a href="https://sumiyakaa.github.io/aoki-lotion-lp/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2025-11">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/aoki-lotion.webp" alt="AokiLotion — 化粧品 / 販売LP" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">17</span>
+            <h2 class="work-card__name">AOKI LOTION</h2>
+            <p class="work-card__genre">Cosmetics / Sales LP</p>
+            <time class="work-card__date" datetime="2025-11">2025.11</time>
+          </div>
+        </a>
+
+        <!-- Card 18 — Cafe Aoki -->
+        <a href="https://sumiyakaa.github.io/cafe-aoki/" target="_blank" rel="noopener noreferrer" class="work-card" data-category="lp" data-date="2025-10">
+          <div class="work-card__thumb">
+            <div class="work-card__thumb-inner">
+              <img src="assets/img/works/cafe-aoki.webp" alt="Cafe Aoki — カフェサイト" width="400" height="2400" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__num">18</span>
+            <h2 class="work-card__name">CAFE AOKI</h2>
+            <p class="work-card__genre">Cafe</p>
+            <time class="work-card__date" datetime="2025-10">2025.10</time>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">AKASHIKI</div>
+        <div class="footer__sub">SUMIYAKA — 墨家</div>
+      </div>
+      <div class="footer__right">
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
+          <a href="about.html" class="footer__nav-link">ABOUT</a>
+          <a href="service.html" class="footer__nav-link">SERVICE</a>
+          <a href="works.html" class="footer__nav-link">WORKS</a>
+          <a href="contact.html" class="footer__nav-link">CONTACT</a>
+        </nav>
+        <div class="footer__sns">
+          <a href="https://x.com/sumiyakaaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">X</a>
+          <a href="https://github.com/sumiyakaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small class="footer__copy">&copy; 2026 AKASHIKI</small>
+      <a href="privacy.html" class="footer__privacy">PRIVACY POLICY</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/works.js" defer></script>
+</body>
+</html>

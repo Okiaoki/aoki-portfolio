@@ -1,0 +1,28 @@
+/* ========================================
+   transition.css — AKASHIKI Portfolio
+   ページ遷移トランジション
+   ======================================== */
+
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-transition);
+  background: var(--c-pure-black);
+  clip-path: inset(50% 0);
+  pointer-events: none;
+}
+
+.page-transition.is-active {
+  pointer-events: auto;
+}
+
+.page-transition__line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--c-gray-800);
+  transform: scaleX(0);
+  transform-origin: center;
+}

@@ -1,0 +1,341 @@
+/* ========================================
+   contact.css — AKASHIKI Portfolio
+   contact.html 固有スタイル
+   ======================================== */
+
+/* ========================================
+   FV — 100vh 全画面
+   ======================================== */
+.contact-fv {
+  position: relative;
+  height: 100vh;
+  background: var(--c-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---- Background Layers ---- */
+.contact-fv__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact-fv__grain {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  animation: contactGrain 0.5s steps(5) infinite;
+}
+
+@keyframes contactGrain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(3%, -15%); }
+  50% { transform: translate(12%, 9%); }
+  70% { transform: translate(9%, 4%); }
+  90% { transform: translate(-1%, 7%); }
+}
+
+.contact-fv__scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.015) 2px,
+    rgba(255,255,255,0.015) 4px
+  );
+  pointer-events: none;
+  opacity: 0.02;
+}
+
+/* ---- Content ---- */
+.contact-fv__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.contact-fv__title {
+  font-family: var(--ff-en);
+  font-weight: 100;
+  font-size: clamp(48px, 8vw, 120px);
+  letter-spacing: 0.25em;
+  color: var(--c-white);
+  opacity: 0;
+}
+
+.contact-fv__sub {
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--c-gray-400);
+  margin-top: 16px;
+  opacity: 0;
+}
+
+.contact-fv__hr {
+  width: 60px;
+  height: 1px;
+  background: #333;
+  margin: 24px auto 0;
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+/* ---- Edge Text ---- */
+.contact-fv__edge {
+  position: absolute;
+  z-index: 2;
+}
+
+.contact-fv__edge-text {
+  font-family: var(--ff-mono);
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #222;
+}
+
+.contact-fv__edge--bl {
+  bottom: 40px;
+  left: 40px;
+  opacity: 0;
+}
+
+.contact-fv__edge--br {
+  bottom: 40px;
+  right: 40px;
+  opacity: 0;
+}
+
+/* ========================================
+   フォームセクション（白背景）
+   ======================================== */
+.contact-form-section {
+  background: var(--c-white);
+  padding: 160px 80px;
+}
+
+.contact-form__inner {
+  max-width: 640px;
+  /* 左寄せ — 右に空白を残す */
+  margin: 0 auto 0 calc((100% - 640px) / 3);
+}
+
+/* ========================================
+   フォーム
+   ======================================== */
+.contact-form__field {
+  margin-bottom: 48px;
+  opacity: 0;
+}
+
+.contact-form__label {
+  display: block;
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--c-gray-900);
+  margin-bottom: 8px;
+}
+
+.contact-form__required {
+  color: var(--c-gray-300);
+  margin-left: 4px;
+}
+
+/* ---- Input / Textarea 共通 ---- */
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 0;
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--c-gray-900);
+  outline: none;
+  transition: border-color 0.3s;
+  border-radius: 0;
+}
+
+.contact-form__input:focus,
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+  border-bottom-color: var(--c-gray-900);
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: var(--c-gray-300);
+}
+
+/* ---- Select（プルダウン） ---- */
+.contact-form__select-wrap {
+  position: relative;
+}
+
+.contact-form__select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid var(--c-gray-300);
+  border-bottom: 1px solid var(--c-gray-300);
+  transform: translateY(-60%) rotate(45deg);
+  pointer-events: none;
+}
+
+.contact-form__select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 24px;
+}
+
+.contact-form__select:invalid,
+.contact-form__select option[disabled] {
+  color: var(--c-gray-300);
+}
+
+.contact-form__select option {
+  color: var(--c-gray-900);
+  background: var(--c-white);
+}
+
+/* ---- Textarea ---- */
+.contact-form__textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 2.0;
+}
+
+/* ---- バリデーションエラー ---- */
+.contact-form__error {
+  display: block;
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 12px;
+  color: #c00;
+  margin-top: 8px;
+  min-height: 18px;
+}
+
+/* ---- 送信ボタン ---- */
+.contact-form__submit {
+  font-family: var(--ff-en);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  background: var(--c-gray-900);
+  color: var(--c-pure-white);
+  padding: 16px 48px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  opacity: 0;
+}
+
+.contact-form__submit:hover {
+  background: #333;
+}
+
+.contact-form__submit:active {
+  transform: scale(0.98);
+}
+
+.contact-form__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   送信完了
+   ======================================== */
+.contact-thanks {
+  text-align: left;
+}
+
+.contact-thanks__title {
+  font-family: var(--ff-en);
+  font-weight: 200;
+  font-size: 36px;
+  letter-spacing: 0.15em;
+  color: var(--c-gray-900);
+  opacity: 0;
+}
+
+.contact-thanks__text {
+  font-family: var(--ff-jp);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--c-gray-400);
+  margin-top: 24px;
+  opacity: 0;
+}
+
+/* ========================================
+   Responsive — Tablet (768–1279)
+   ======================================== */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .contact-fv__edge--bl { left: 24px; bottom: 24px; }
+  .contact-fv__edge--br { right: 24px; bottom: 24px; }
+
+  .contact-form-section { padding: 120px 40px; }
+  .contact-form__inner { margin: 0 auto 0 40px; }
+}
+
+/* ========================================
+   Responsive — SP (–767)
+   ======================================== */
+@media (max-width: 767px) {
+  /* FV */
+  .contact-fv__title {
+    font-size: clamp(36px, 12vw, 64px);
+    letter-spacing: 0.15em;
+  }
+  .contact-fv__sub { font-size: 12px; }
+  .contact-fv__edge--bl { left: 16px; bottom: 20px; }
+  .contact-fv__edge--br { right: 16px; bottom: 20px; }
+
+  /* Form */
+  .contact-form-section {
+    padding: 80px 24px;
+  }
+  .contact-form__inner {
+    margin: 0;
+    max-width: 100%;
+  }
+  .contact-form__field {
+    margin-bottom: 36px;
+  }
+
+  /* Submit: full width on SP */
+  .contact-form__submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Thanks */
+  .contact-thanks__title {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AKASHIKI — Web Design & Development Portfolio</title>
+  <meta name="description" content="灯敷（AKASHIKI）— Webデザイン・コーディングのポートフォリオサイト。LP制作・WordPress構築を中心に、設計から実装までワンストップで対応します。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="AKASHIKI — Web Design & Development Portfolio">
+  <meta property="og:description" content="灯敷（AKASHIKI）— Webデザイン・コーディングのポートフォリオサイト。LP制作・WordPress構築を中心に、設計から実装までワンストップで対応します。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sumiyakaa.github.io/portfolio/">
+  <meta property="og:image" content="https://sumiyakaa.github.io/portfolio/assets/img/ogp/OGP-01.png">
+  <meta property="og:site_name" content="AKASHIKI">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/common/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/common/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/common/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;600;800&family=Noto+Sans+JP:wght@100;300;400;500;700&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/transition.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "AKASHIKI",
+        "url": "https://sumiyakaa.github.io/portfolio/",
+        "description": "灯敷（AKASHIKI）— Webデザイン・コーディングのポートフォリオサイト"
+      },
+      {
+        "@type": "Person",
+        "name": "SUMIYAKA",
+        "alternateName": "墨家",
+        "url": "https://sumiyakaa.github.io/portfolio/",
+        "jobTitle": "Web Designer / Developer",
+        "knowsAbout": ["Web Design", "Frontend Development", "WordPress", "LP制作"],
+        "sameAs": [
+          "https://github.com/sumiyakaa",
+          "https://x.com/sumiyakaa"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "AKASHIKI",
+        "alternateName": "灯敷",
+        "url": "https://sumiyakaa.github.io/portfolio/",
+        "founder": {
+          "@type": "Person",
+          "name": "SUMIYAKA"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========== Splash Screen ========== -->
+  <div class="splash" id="splash" aria-hidden="true">
+    <div class="splash__line"></div>
+    <div class="splash__text">AKASHIKI</div>
+  </div>
+
+  <!-- ========== Page Transition Overlay ========== -->
+  <div class="page-transition" aria-hidden="true">
+    <div class="page-transition__line"></div>
+  </div>
+
+  <!-- ========== Header ========== -->
+  <header class="header" role="banner">
+    <div class="header__logo"><a href="index.html">AKASHIKI</a></div>
+    <nav class="header__nav" role="navigation" aria-label="メインナビゲーション">
+      <a href="about.html" class="header__nav-link">ABOUT</a>
+      <a href="service.html" class="header__nav-link">SERVICE</a>
+      <a href="works.html" class="header__nav-link">WORKS</a>
+      <a href="contact.html" class="header__nav-link">CONTACT</a>
+    </nav>
+    <button class="header__burger" aria-label="メニューを開く" aria-expanded="false">
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
+  </header>
+
+  <!-- ========== SP Fullscreen Menu ========== -->
+  <nav class="sp-menu" role="navigation" aria-label="モバイルナビゲーション" aria-hidden="true">
+    <a href="about.html" class="sp-menu__link">ABOUT</a>
+    <a href="service.html" class="sp-menu__link">SERVICE</a>
+    <a href="works.html" class="sp-menu__link">WORKS</a>
+    <a href="contact.html" class="sp-menu__link">CONTACT</a>
+    <div class="sp-menu__logo">AKASHIKI</div>
+  </nav>
+
+  <main>
+
+    <!-- ========== Hero FV ========== -->
+    <section class="fv" aria-label="ファーストビュー">
+      <div class="fv__scroll-area">
+        <div class="fv__sticky">
+
+          <!-- Background Layers -->
+          <div class="fv__bg">
+            <div class="fv__grain" aria-hidden="true"></div>
+            <div class="fv__radial" aria-hidden="true"></div>
+            <div class="fv__orb fv__orb--1" aria-hidden="true"></div>
+            <div class="fv__orb fv__orb--2" aria-hidden="true"></div>
+            <div class="fv__orb fv__orb--3" aria-hidden="true"></div>
+          </div>
+
+          <!-- 3D Container -->
+          <div class="fv__container">
+            <h1 class="fv__main-text" style="visibility:hidden">
+              <span class="fv__letter">W</span><span class="fv__letter">E</span><span class="fv__letter">B</span>
+              <span class="fv__space"></span>
+              <span class="fv__letter">D</span><span class="fv__letter">E</span><span class="fv__letter">S</span><span class="fv__letter">I</span><span class="fv__letter">G</span><span class="fv__letter">N</span>
+              <br>
+              <span class="fv__letter">&amp;</span>
+              <span class="fv__space"></span>
+              <span class="fv__letter">D</span><span class="fv__letter">E</span><span class="fv__letter">V</span><span class="fv__letter">E</span><span class="fv__letter">L</span><span class="fv__letter">O</span><span class="fv__letter">P</span><span class="fv__letter">M</span><span class="fv__letter">E</span><span class="fv__letter">N</span><span class="fv__letter">T</span>
+            </h1>
+            <p class="fv__sub" style="visibility:hidden">DESIGNED WITH PRECISION</p>
+            <p class="fv__jp" style="visibility:hidden">— 静寂の裏に、精密な機械。</p>
+            <div class="fv__hr" style="visibility:hidden" aria-hidden="true"></div>
+            <div class="fv__edge fv__edge--bl" style="visibility:hidden">
+              <span class="fv__edge-text">PORTFOLIO 2026</span>
+            </div>
+            <div class="fv__edge fv__edge--br" style="visibility:hidden">
+              <span class="fv__edge-text">TOKYO, JAPAN</span>
+            </div>
+          </div>
+
+          <!-- Corner Frames -->
+          <svg class="fv__corners" style="visibility:hidden" aria-hidden="true" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+            <polyline class="fv__corner fv__corner--tl" points="40,80 40,40 80,40" />
+            <polyline class="fv__corner fv__corner--tr" points="1840,40 1880,40 1880,80" />
+            <polyline class="fv__corner fv__corner--bl" points="40,1000 40,1040 80,1040" />
+            <polyline class="fv__corner fv__corner--br" points="1840,1040 1880,1040 1880,1000" />
+          </svg>
+
+          <!-- Scanline Overlay -->
+          <div class="fv__scanline" aria-hidden="true"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== Works Section ========== -->
+    <section class="works" aria-label="実績紹介">
+      <div class="works__inner">
+
+        <!-- Left: Typography Area -->
+        <div class="works__typo">
+          <p class="works__index">
+            <span class="works__index-num">01</span>
+            <span class="works__index-label">WORKS</span>
+          </p>
+          <div class="works__title-area">
+            <h2 class="works__selected">SELECTED</h2>
+            <div class="works__typed" aria-live="polite">
+              <span class="works__typed-name"></span>
+              <span class="works__typed-cursor" aria-hidden="true"></span>
+            </div>
+            <p class="works__typed-sub"></p>
+          </div>
+        </div>
+
+        <!-- SVG Leader Lines -->
+        <svg class="works__lines" aria-hidden="true">
+          <line class="works__line" data-index="0" x1="0" y1="0" x2="0" y2="0" />
+          <line class="works__line" data-index="1" x1="0" y1="0" x2="0" y2="0" />
+          <line class="works__line" data-index="2" x1="0" y1="0" x2="0" y2="0" />
+          <line class="works__line--cable" data-index="0" x1="0" y1="0" x2="0" y2="0" />
+          <line class="works__line--cable" data-index="1" x1="0" y1="0" x2="0" y2="0" />
+          <line class="works__line--cable" data-index="2" x1="0" y1="0" x2="0" y2="0" />
+        </svg>
+
+        <!-- Right: Thumbnails -->
+        <div class="works__thumbs">
+          <a href="https://sumiyakaa.github.io/BistroAoki/" class="works__thumb" data-index="0" data-name="Bistro Aoki" data-genre="Restaurant" data-pages="LP">
+            <div class="works__thumb-img-wrap">
+              <img src="assets/img/works/bistro-aoki-thumb.webp" alt="Bistro Aoki — レストランLP制作実績" width="280" height="1200" loading="lazy" decoding="async">
+            </div>
+          </a>
+          <a href="https://sumiyakaa.github.io/AokiGym/" class="works__thumb" data-index="1" data-name="AOKI GYM" data-genre="Personal Gym" data-pages="LP">
+            <div class="works__thumb-img-wrap">
+              <img src="assets/img/works/aoki-gym-thumb.webp" alt="AOKI GYM — パーソナルジムLP制作実績" width="280" height="1200" loading="lazy" decoding="async">
+            </div>
+          </a>
+          <a href="https://sumiyakaa.github.io/caldwell-sons/" class="works__thumb" data-index="2" data-name="J. Caldwell &amp; Sons" data-genre="Apparel" data-pages="Bilingual">
+            <div class="works__thumb-img-wrap">
+              <img src="assets/img/works/caldwell-sons-thumb.webp" alt="J. Caldwell &amp; Sons — アパレル バイリンガルサイト制作実績" width="280" height="1200" loading="lazy" decoding="async">
+            </div>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- View All Link -->
+      <div class="works__more">
+        <a href="works.html" class="works__more-link">VIEW ALL WORKS →</a>
+      </div>
+    </section>
+
+    <!-- ========== Price Digest Section ========== -->
+    <section class="price" aria-label="料金">
+      <div class="price__inner">
+        <div class="price__head">
+          <h2 class="price__title">PRICE</h2>
+          <div class="price__hr" aria-hidden="true"></div>
+        </div>
+
+        <div class="price__list">
+          <div class="price__item">
+            <div class="price__item-left">
+              <h3 class="price__name">LP DESIGN</h3>
+              <p class="price__desc">静的コーディング / レスポンシブ対応</p>
+            </div>
+            <div class="price__item-right">
+              <span class="price__amount">¥150,000〜</span>
+            </div>
+          </div>
+          <div class="price__item">
+            <div class="price__item-left">
+              <h3 class="price__name">WORDPRESS</h3>
+              <p class="price__desc">テーマ構築 / カスタマイズ</p>
+            </div>
+            <div class="price__item-right">
+              <span class="price__amount">¥200,000〜</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="price__link-wrap">
+          <a href="service.html" class="price__link">VIEW DETAILS →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">AKASHIKI</div>
+        <div class="footer__sub">SUMIYAKA — 墨家</div>
+      </div>
+      <div class="footer__right">
+        <nav class="footer__nav" aria-label="フッターナビゲーション">
+          <a href="about.html" class="footer__nav-link">ABOUT</a>
+          <a href="service.html" class="footer__nav-link">SERVICE</a>
+          <a href="works.html" class="footer__nav-link">WORKS</a>
+          <a href="contact.html" class="footer__nav-link">CONTACT</a>
+        </nav>
+        <div class="footer__sns">
+          <a href="https://x.com/sumiyakaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">X</a>
+          <a href="https://github.com/sumiyakaa" target="_blank" rel="noopener noreferrer" class="footer__sns-link">GitHub</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <small class="footer__copy">© 2026 AKASHIKI</small>
+      <a href="privacy.html" class="footer__privacy">PRIVACY POLICY</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/common.js" defer></script>
+  <script src="assets/js/index.js" defer></script>
+</body>
+</html>

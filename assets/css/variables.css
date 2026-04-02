@@ -1,0 +1,36 @@
+/* ========================================
+   variables.css — AKASHIKI Portfolio
+   CSS Custom Properties
+   ======================================== */
+
+:root {
+  /* ---- Colors ---- */
+  --c-black: #0a0a0a;
+  --c-white: #f5f5f5;
+  --c-pure-black: #000;
+  --c-pure-white: #fff;
+  --c-gray-900: #111;
+  --c-gray-800: #1a1a1a;
+  --c-gray-600: #444;
+  --c-gray-400: #666;
+  --c-gray-300: #999;
+  --c-gray-200: #ccc;
+  --c-gray-100: #e5e5e5;
+
+  /* ---- Typography ---- */
+  --ff-en: 'Barlow', sans-serif;
+  --ff-jp: 'Noto Sans JP', sans-serif;
+  --ff-mono: 'IBM Plex Mono', monospace;
+
+  /* ---- Easing ---- */
+  --ease-mechanical: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Header ---- */
+  --header-h: 60px;
+
+  /* ---- Z-index ---- */
+  --z-splash: 9999;
+  --z-transition: 9998;
+  --z-header: 1000;
+  --z-menu: 1100;
+}
