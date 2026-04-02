@@ -97,7 +97,7 @@
           overlay.style.clipPath = '';
           line.style.transform = '';
           // Lenis再開（スプラッシュ待ちでなければ）
-          var splashPending = document.getElementById('splash') && !sessionStorage.getItem('akashiki-splash');
+          var splashPending = !!document.getElementById('splash');
           if (window.lenis && !splashPending) {
             window.lenis.start();
           }
@@ -179,7 +179,7 @@
 
     // スプラッシュスクリーン中はstop
     var splash = document.getElementById('splash');
-    if (splash && !sessionStorage.getItem('akashiki-splash')) {
+    if (splash) {
       lenis.stop();
     }
   }

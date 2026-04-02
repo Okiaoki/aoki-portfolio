@@ -15,13 +15,6 @@
     var splash = document.getElementById('splash');
     if (!splash) { onComplete(); return; }
 
-    // 再訪問時スキップ
-    if (sessionStorage.getItem('akashiki-splash')) {
-      splash.remove();
-      onComplete();
-      return;
-    }
-
     document.body.classList.add('is-locked');
 
     var line = splash.querySelector('.splash__line');
@@ -31,7 +24,6 @@
       onComplete: function () {
         splash.remove();
         document.body.classList.remove('is-locked');
-        sessionStorage.setItem('akashiki-splash', '1');
         if (window.lenis) window.lenis.start();
         onComplete();
       }
