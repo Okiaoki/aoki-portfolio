@@ -296,6 +296,7 @@
 
 .works__title-area {
   position: relative;
+  min-height: calc(clamp(48px, 6vw, 96px) * 1.2);
 }
 
 .works__selected {
@@ -309,21 +310,11 @@
 
 /* ---- Typed Area ---- */
 .works__typed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
+  display: none;
 }
 
 .works__typed.is-active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.works__typed-sub {
-  position: absolute;
-  left: 0;
+  display: block;
 }
 
 .works__typed-name {

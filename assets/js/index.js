@@ -421,9 +421,9 @@
       resetHover();
       activeIndex = index;
 
-      // SELECTED → タイピング切り替え（opacityのみ、display変更なし）
+      // SELECTED → タイピング切り替え
+      if (selected) selected.style.display = 'none';
       if (pulseTween) pulseTween.pause();
-      if (selected) gsap.set(selected, { opacity: 0 });
       if (typed) typed.classList.add('is-active');
 
       // リーダーライン
@@ -493,16 +493,10 @@
       }
       if (typed) typed.classList.remove('is-active');
 
-      // SELECTED復帰 — ふわっとフェードイン
+      // SELECTED復帰
       if (selected) {
-        gsap.to(selected, {
-          opacity: 0.70,
-          duration: 0.6,
-          ease: 'power2.out',
-          onComplete: function () {
-            if (pulseTween) pulseTween.restart();
-          }
-        });
+        selected.style.display = '';
+        if (pulseTween) pulseTween.play();
       }
 
       // ラインリセット
