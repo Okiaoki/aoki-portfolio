@@ -262,10 +262,9 @@
 }
 
 /* ---- C: Letter Repel ---- */
-.fv__letter {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
+/* transition / will-change 削除: initRepel() の rAF 直書きおよび
+   GSAP 入場アニメーションと競合し GPU フリッカーの原因となるため。
+   rAF による毎フレーム更新で十分滑らかに動作する。 */
 
 /* ---- E: Particle Dust ---- */
 .fv__particles {

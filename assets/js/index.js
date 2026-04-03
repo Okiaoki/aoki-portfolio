@@ -929,6 +929,7 @@
       onComplete: function () {
         bindScroll();
         initCornerBreathing();
+        initRepel();
       }
     });
 
@@ -2161,7 +2162,6 @@
       // 即座にFV表示 + 全エフェクト起動
       revealAndBind();
       initWireframe();
-      initRepel();
       initParticles();
       initOrbs();
       initRipple();
@@ -2201,7 +2201,6 @@
         fadeInFVElements();
         revealAndBind();
         initWireframe();
-        initRepel();
         initParticles();
         initOrbs();
         initRipple();
@@ -2223,7 +2222,6 @@
         fadeInFVElements();
         revealAndBind();
         initWireframe();
-        initRepel();
         initParticles();
         initOrbs();
         initRipple();
