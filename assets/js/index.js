@@ -1007,11 +1007,12 @@
 
     // 3D tilt — 奥に倒れ込むように
     gsap.fromTo(container,
-      { rotateX: 0, rotateY: 0, scale: 1 },
+      { rotateX: 0, rotateY: 0, scale: 1, transformPerspective: 800 },
       {
         rotateX: 8,
         rotateY: -3,
         scale: 0.9,
+        transformPerspective: 800,
         ease: 'power1.in',
         scrollTrigger: {
           trigger: scrollArea,
@@ -1098,14 +1099,20 @@
       }
     });
 
+    // offsetWidth/offsetHeight をキャッシュ（毎フレーム読み出しは強制レイアウトの原因）
+    var orbHW = [];
+    for (var si = 0; si < orbs.length; si++) {
+      orbHW.push({ w: orbs[si].offsetWidth / 2, h: orbs[si].offsetHeight / 2 });
+    }
+
     function animate() {
       if (fvActive) {
         for (var i = 0; i < orbs.length; i++) {
           current[i].x += (targets[i].x - current[i].x) * lerps[i];
           current[i].y += (targets[i].y - current[i].y) * lerps[i];
           orbs[i].style.transform = 'translate(' +
-            (current[i].x - orbs[i].offsetWidth / 2) + 'px, ' +
-            (current[i].y - orbs[i].offsetHeight / 2) + 'px)';
+            (current[i].x - orbHW[i].w) + 'px, ' +
+            (current[i].y - orbHW[i].h) + 'px)';
         }
       }
       requestAnimationFrame(animate);
@@ -1226,17 +1233,32 @@
     var mouseY = -9999;
     var rafId = null;
 
+    // gsap.quickSetter — GSAP の transform キャッシュと同期し
+    // style.transform 直書きによる GSAP との競合を防止
+    var xSetters = [];
+    var ySetters = [];
+    for (var qi = 0; qi < letters.length; qi++) {
+      xSetters.push(gsap.quickSetter(letters[qi], 'x', 'px'));
+      ySetters.push(gsap.quickSetter(letters[qi], 'y', 'px'));
+    }
+
     document.addEventListener('mousemove', function (e) {
       mouseX = e.clientX;
       mouseY = e.clientY;
     });
 
     function animate() {
-      for (var i = 0; i < letters.length; i++) {
-        var rect = letters[i].getBoundingClientRect();
-        var cx = rect.left + rect.width / 2;
-        var cy = rect.top + rect.height / 2;
+      if (!fvActive) { rafId = requestAnimationFrame(animate); return; }
 
+      // Batch reads（1回のレイアウト計算で全rect取得 — 読み書き交互による layout thrashing 防止）
+      var rects = [];
+      for (var i = 0; i < letters.length; i++) {
+        rects.push(letters[i].getBoundingClientRect());
+      }
+      // Batch writes（quickSetter で GSAP キャッシュ同期）
+      for (var j = 0; j < letters.length; j++) {
+        var cx = rects[j].left + rects[j].width / 2;
+        var cy = rects[j].top + rects[j].height / 2;
         var dx = cx - mouseX;
         var dy = cy - mouseY;
         var dist = Math.sqrt(dx * dx + dy * dy);
@@ -1244,11 +1266,11 @@
         if (dist < RADIUS) {
           var force = (1 - dist / RADIUS) * MAX_FORCE;
           var angle = Math.atan2(dy, dx);
-          var tx = Math.cos(angle) * force;
-          var ty = Math.sin(angle) * force;
-          letters[i].style.transform = 'translate(' + tx + 'px,' + ty + 'px)';
+          xSetters[j](Math.cos(angle) * force);
+          ySetters[j](Math.sin(angle) * force);
         } else {
-          letters[i].style.transform = 'translate(0,0)';
+          xSetters[j](0);
+          ySetters[j](0);
         }
       }
       rafId = requestAnimationFrame(animate);

@@ -96,6 +96,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* ---- Background Layers ---- */
@@ -118,7 +120,6 @@
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  will-change: transform;
 }
 
 .fv__orb--1 {
@@ -143,13 +144,14 @@
 }
 
 /* ---- 3D Container ---- */
+/* perspective / preserve-3d / translateZ() は CSS レベルで指定すると
+   Chrome の compositor が sticky 層内に depth-sorted sub-layers を生成し、
+   スクロール駆動 transform 更新時にフレーム欠落（フリッカー）を引き起こす。
+   3D tilt は GSAP の transformPerspective で代替する。 */
 .fv__container {
   position: relative;
-  perspective: 800px;
-  perspective-origin: 50% 50%;
   text-align: center;
   z-index: 2;
-  transform-style: preserve-3d;
 }
 
 /* ---- Main Text ---- */
@@ -160,8 +162,6 @@
   letter-spacing: 0.08em;
   line-height: 1.1;
   color: var(--c-white);
-  transform: translateZ(100px);
-  transform-style: preserve-3d;
 }
 
 .fv__letter {
@@ -189,7 +189,6 @@
   letter-spacing: 0.15em;
   color: var(--c-white);
   margin-top: 24px;
-  transform: translateZ(60px);
 }
 
 /* ---- Horizontal Rule ---- */
@@ -198,7 +197,7 @@
   height: 1px;
   background: #333;
   margin: 32px auto 0;
-  transform: translateZ(20px) scaleX(0);
+  transform: scaleX(0);
   transform-origin: left;
 }
 
@@ -206,7 +205,6 @@
 .fv__edge {
   position: absolute;
   z-index: 2;
-  transform: translateZ(-20px);
 }
 
 .fv__edge-text {
@@ -235,7 +233,6 @@
   height: 100%;
   pointer-events: none;
   z-index: 2;
-  transform: translateZ(-40px);
 }
 
 .fv__corner {
