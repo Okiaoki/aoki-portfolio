@@ -4,38 +4,75 @@
    ======================================== */
 
 /* ========================================
-   Splash Screen
+   Lantern Opening
    ======================================== */
-.splash {
+.lantern-opening {
   position: fixed;
   inset: 0;
   z-index: var(--z-splash);
-  background: var(--c-pure-black);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
-.splash__line {
+.lantern-opening__ink {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 1px;
-  height: 0;
-  background: var(--c-gray-600);
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
-.splash__text {
-  position: relative;
-  font-family: var(--ff-en);
-  font-weight: 200;
-  font-size: clamp(32px, 5vw, 64px);
-  letter-spacing: 1em;
-  color: var(--c-white);
+.lantern-opening__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.lantern-opening__flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
   opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* (3DテキストはThree.jsが lanternCanvas 上に直接レンダリング) */
+
+/* ---- Floating Logo ---- */
+.logo-floating {
+  position: fixed;
+  left: 24px;
+  top: 18px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: #fff;
+  z-index: 1001;
+  pointer-events: none;
   white-space: nowrap;
-  transform: scaleX(1.15);
+  line-height: 1;
+  will-change: transform, opacity;
+}
+
+.logo-floating__en {
+  font-family: var(--ff-en);
+  font-weight: 300;
+}
+
+.logo-floating__sep {
+  font-family: var(--ff-en);
+  font-weight: 300;
+  margin: 0 0.1em;
+}
+
+.logo-floating__jp {
+  font-family: var(--ff-jp);
+  font-weight: 300;
 }
 
 /* ========================================
@@ -47,7 +84,7 @@
 }
 
 .fv__scroll-area {
-  height: 200vh;
+  height: 140vh;
   position: relative;
 }
 
@@ -68,25 +105,7 @@
   overflow: hidden;
 }
 
-.fv__grain {
-  position: absolute;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.04;
-  animation: grain 0.5s steps(5) infinite;
-  pointer-events: none;
-}
-
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -10%); }
-  30% { transform: translate(3%, -15%); }
-  50% { transform: translate(12%, 9%); }
-  70% { transform: translate(9%, 4%); }
-  90% { transform: translate(-1%, 7%); }
-}
+/* grain removed */
 
 .fv__radial {
   position: absolute;
@@ -126,7 +145,7 @@
 /* ---- 3D Container ---- */
 .fv__container {
   position: relative;
-  perspective: 2000px;
+  perspective: 800px;
   perspective-origin: 50% 50%;
   text-align: center;
   z-index: 2;
@@ -295,6 +314,8 @@
   position: relative;
   background: var(--c-black);
   padding: 120px 80px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .works__inner {
@@ -356,11 +377,16 @@
 
 /* ---- Typed Area ---- */
 .works__typed {
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .works__typed.is-active {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .works__typed-name {
@@ -640,13 +666,9 @@
   pointer-events: auto;
 }
 
-.price {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 .price.is-clip-wave {
   clip-path: polygon(0 0, 25% 5px, 50% -3px, 75% 6px, 100% -2px, 100% 100%, 0 100%);
+  transition: clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ---- ⑬ Separator Pulsation SVG ---- */
@@ -700,6 +722,9 @@
   .fv__hr { width: 120px; }
   .fv__edge--bl { left: 16px; bottom: 20px; }
   .fv__edge--br { right: 16px; bottom: 20px; }
+  /* Lantern opening — SP: WebGLスキップ */
+  .lantern-opening__canvas { display: none; }
+
   .fv__orb { display: none; }
   .fv__corners { display: none; }
   .fv__wireframe { display: none; }

@@ -42,6 +42,16 @@
   90% { transform: translate(-1%, 7%); }
 }
 
+/* ---- Ink Canvas (WebGL) ---- */
+.about-fv__ink-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
 .about-fv__scanline {
   position: absolute;
   inset: 0;

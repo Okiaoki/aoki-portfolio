@@ -196,13 +196,26 @@
 }
 
 .contact-form__label {
-  display: block;
+  display: flex;
+  align-items: baseline;
   font-family: var(--ff-en);
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0.1em;
   color: var(--c-gray-900);
   margin-bottom: 8px;
+}
+
+.contact-form__label-sep {
+  margin: 0 0.3em;
+}
+
+.contact-form__label-jp {
+  font-family: var(--ff-jp);
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
 }
 
 .contact-form__required {

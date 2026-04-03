@@ -52,9 +52,8 @@ body.is-locked {
 }
 
 /* ---- clip-path reveal ---- */
-[data-reveal] {
-  will-change: clip-path;
-}
+/* will-change: clip-path は GPU レイヤー再構成で黒フラッシュの原因になるため削除
+   GSAP が必要に応じて自動でレイヤー昇格を行う */
 
 /* ---- prefers-reduced-motion ---- */
 @media (prefers-reduced-motion: reduce) {
@@ -65,7 +64,7 @@ body.is-locked {
     scroll-behavior: auto !important;
   }
 
-  .splash { display: none !important; }
+  .lantern-opening { display: none !important; }
   .page-transition { display: none !important; }
 
   /* index.html FV要素を即座に表示 */

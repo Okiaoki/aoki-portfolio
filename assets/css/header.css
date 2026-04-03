@@ -13,9 +13,7 @@
   z-index: var(--z-header);
   transform: translateY(-100%);
   transition: transform 0.5s var(--ease-mechanical);
-  background: rgba(10, 10, 10, calc(0.7 + var(--scroll-progress, 0) * 0.15));
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.95);
   border-bottom: 1px solid var(--c-gray-800);
   display: flex;
   align-items: center;
@@ -32,6 +30,13 @@
 }
 
 .header.is-hidden {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* ロゴ移動アニメーション中はヘッダーを強制非表示 */
+body.is-logo-transferring .header.is-visible {
+  opacity: 0;
   transform: translateY(-100%);
   pointer-events: none;
 }

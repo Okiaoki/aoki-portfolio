@@ -26,6 +26,9 @@
 
     var ticking = false;
 
+    var headerVisible = false;
+    var BUFFER = 50; // ヒステリシス: 閾値±50pxのバッファで点滅防止
+
     function onScroll() {
       if (ticking) return;
       ticking = true;
@@ -36,10 +39,12 @@
           ? window.innerHeight
           : (subFv ? subFv.offsetHeight : window.innerHeight);
 
-        if (currentY > threshold) {
+        if (!headerVisible && currentY > threshold + BUFFER) {
+          headerVisible = true;
           header.classList.remove('is-hidden');
           header.classList.add('is-visible');
-        } else {
+        } else if (headerVisible && currentY < threshold - BUFFER) {
+          headerVisible = false;
           header.classList.remove('is-visible');
           header.classList.add('is-hidden');
         }
@@ -95,9 +100,10 @@
         onComplete: function () {
           overlay.classList.remove('is-active');
           overlay.style.clipPath = '';
+          overlay.style.display = 'none';
           line.style.transform = '';
-          // Lenis再開（スプラッシュ待ちでなければ）
-          var splashPending = !!document.getElementById('splash');
+          // Lenis再開（オープニング待ちでなければ）
+          var splashPending = !!document.getElementById('lanternOpening');
           if (window.lenis && !splashPending) {
             window.lenis.start();
           }
@@ -115,6 +121,9 @@
           duration: 0.5,
           ease: EASE
         }, '-=0.1');
+    } else {
+      // 入場トランジションなし → オーバーレイをGPUレイヤーから除外
+      overlay.style.display = 'none';
     }
 
     // Exit: 内部リンククリック時にトランジション
@@ -135,6 +144,7 @@
       // Lenis停止
       if (window.lenis) window.lenis.stop();
 
+      overlay.style.display = '';
       overlay.classList.add('is-active');
 
       var exitTl = gsap.timeline({
@@ -177,9 +187,9 @@
     gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
 
-    // スプラッシュスクリーン中はstop
-    var splash = document.getElementById('splash');
-    if (splash) {
+    // オープニング中はstop
+    var opening = document.getElementById('lanternOpening');
+    if (opening) {
       lenis.stop();
     }
   }
