@@ -2352,8 +2352,7 @@
      Init
      ======================================== */
   document.addEventListener('DOMContentLoaded', function () {
-    var isRevisit = false; // DEV: 毎回オープニング表示（デプロイ時に戻す）
-    // var isRevisit = sessionStorage.getItem('akashiki-splash') === 'done';
+    var isRevisit = sessionStorage.getItem('akashiki-splash') === 'done';
     var logoFloat = document.getElementById('logoFloating');
     var opening = document.getElementById('lanternOpening');
 
