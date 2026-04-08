@@ -126,6 +126,18 @@
       overlay.style.display = 'none';
     }
 
+    // bfcache復元時: オーバーレイをリセット（戻るボタンで画面が真っ暗になる問題の修正）
+    window.addEventListener('pageshow', function (e) {
+      if (e.persisted) {
+        overlay.classList.remove('is-active');
+        overlay.style.clipPath = '';
+        overlay.style.display = 'none';
+        line.style.transform = '';
+        sessionStorage.removeItem('akashiki-transition');
+        if (window.lenis) window.lenis.start();
+      }
+    });
+
     // Exit: 内部リンククリック時にトランジション
     document.addEventListener('click', function (e) {
       var anchor = e.target.closest('a[href]');
